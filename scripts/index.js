@@ -180,6 +180,7 @@ prev.addEventListener('click', () => {
 function appearSearch(){
     document.getElementById('searchings').style.display='flex';
     document.getElementById('hideput').value="";
+    document.body.classList.add("stop-scrolling"); //to stop scrolling when suggestion box appears//
 }
 
 //search field hiding
@@ -187,6 +188,7 @@ function appearSearch(){
 
 document.getElementById('hidesearchings').addEventListener('click', function(){
     document.getElementById('searchings').style.display='none';
+    document.body.classList.remove("stop-scrolling"); //to allow scrolling when suggestion box appears//
     // console.log('hi');
 });
 
