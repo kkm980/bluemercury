@@ -310,7 +310,6 @@ function myFunction() {
 //  filtering By Brand
 
 // for Deborh
-var check = 0;
 var j = 0;
 var newArray = [];
 let value1 = "Deborah_Lippmann";
@@ -335,7 +334,7 @@ function deborah() {
       }
     }
     else if (n % 2 != 0) {
-      if (items[i].name == value1 || items[i].name == value4) {
+      if (items[i].name == value1 || items[i].name == value5) {
         newArray.push(items[i]);
       }
     }
@@ -350,13 +349,23 @@ function deborah() {
     showItems(newArray);
     j++;
   } else {
-    showItems(items);
-
+    if(k%2 ==0 && l%2 ==0 && m%2 ==0 && n%2 ==0) {
+      showItems(items);
+    }
+    else if (k % 2 != 0) {
+      lafco()
+    }
+    else if (l % 2 != 0) {
+      phyto()
+    }
+    else if (m % 2 != 0) {
+      acqua()
+    }
+    else if (n % 2 != 0) {
+      klorane()
+    }
     j++;
   }
-  // if (temp1 == "a1" && temp2 == "b1") {
-  //   showItems(combined_arr);
-  // }
 }
 
 // __________________________________________________________________________________________________
@@ -366,25 +375,59 @@ function deborah() {
 var k = 0;
 var newArray2 = [];
 let value2 = "LAFCO";
-var temp2 = "b";
 function lafco() {
+  newArray2.innerHTML = "";
   let items = JSON.parse(localStorage.getItem("items"));
   for (let i = 0; i < items.length; i++) {
-    if (items[i].name == value2) {
-      newArray2.push(items[i]);
+    if (j % 2 != 0) {
+      if (items[i].name == value2 || items[i].name == value1) {
+        newArray2.push(items[i]);
+      }
+    }
+    else if (l % 2 != 0) {
+      if (items[i].name == value2 || items[i].name == value3) {
+        newArray2.push(items[i]);
+      }
+    }
+    else if (m % 2 != 0) {
+      if (items[i].name == value2 || items[i].name == value4) {
+        newArray2.push(items[i]);
+      }
+    }
+    else if (n % 2 != 0) {
+      if (items[i].name == value2 || items[i].name == value5) {
+        newArray2.push(items[i]);
+      }
+    }
+    else {
+      if (items[i].name == value2) {
+        newArray2.push(items[i]);
+      }
     }
   }
+  // console.log(newArray);
   if (k % 2 == 0) {
-    temp2 = "b1";
     showItems(newArray2);
     k++;
   } else {
-    temp2 = "b2";
-    showItems(items);
+    if(j%2 ==0 && l%2 ==0 && m%2 ==0 && n%2 ==0) {
+      showItems(items);
+    }
+    else if (j % 2 != 0) {
+      deborah()
+    }
+    else if (l % 2 != 0) {
+      phyto()
+    }
+    else if (m % 2 != 0) {
+      acqua()
+    }
+    else if (n % 2 != 0) {
+      klorane()
+    }
     k++;
   }
 }
-
 // __________________________________________________________________________________________________
 
 // for PHYTO
@@ -392,21 +435,56 @@ function lafco() {
 var l = 0;
 var newArray3 = [];
 let value3 = "PHYTO";
-var temp2 = "c";
 function phyto() {
+  newArray3.innerHTML = "";
   let items = JSON.parse(localStorage.getItem("items"));
   for (let i = 0; i < items.length; i++) {
-    if (items[i].name == value3) {
-      newArray3.push(items[i]);
+    if (j % 2 != 0) {
+      if (items[i].name == value3 || items[i].name == value1) {
+        newArray3.push(items[i]);
+      }
+    }
+    else if (k % 2 != 0) {
+      if (items[i].name == value3 || items[i].name == value2) {
+        newArray3.push(items[i]);
+      }
+    }
+    else if (m % 2 != 0) {
+      if (items[i].name == value3 || items[i].name == value4) {
+        newArray3.push(items[i]);
+      }
+    }
+    else if (n % 2 != 0) {
+      if (items[i].name == value3 || items[i].name == value5) {
+        newArray3.push(items[i]);
+      }
+    }
+    else {
+      if (items[i].name == value3) {
+        newArray3.push(items[i]);
+      }
     }
   }
+  // console.log(newArray);
   if (l % 2 == 0) {
-    temp3 = "c1";
     showItems(newArray3);
     l++;
   } else {
-    temp3 = "c2";
-    showItems(items);
+    if(j%2 ==0 && k%2 ==0 && m%2 ==0 && n%2 ==0) {
+      showItems(items);
+    }
+    else if (j % 2 != 0) {
+      deborah()
+    }
+    else if (k % 2 != 0) {
+      lafco()
+    }
+    else if (m % 2 != 0) {
+      acqua()
+    }
+    else if (n % 2 != 0) {
+      klorane()
+    }
     l++;
   }
 }
@@ -418,21 +496,56 @@ function phyto() {
 var m = 0;
 var newArray4 = [];
 let value4 = "Acqua Di Parma";
-var temp4 = "d";
 function acqua() {
+  newArray4.innerHTML = "";
   let items = JSON.parse(localStorage.getItem("items"));
   for (let i = 0; i < items.length; i++) {
-    if (items[i].name == value4) {
-      newArray4.push(items[i]);
+    if (j % 2 != 0) {
+      if (items[i].name == value4 || items[i].name == value1) {
+        newArray4.push(items[i]);
+      }
+    }
+    else if (k % 2 != 0) {
+      if (items[i].name == value4 || items[i].name == value2) {
+        newArray4.push(items[i]);
+      }
+    }
+    else if (l % 2 != 0) {
+      if (items[i].name == value4 || items[i].name == value3) {
+        newArray4.push(items[i]);
+      }
+    }
+    else if (n % 2 != 0) {
+      if (items[i].name == value4 || items[i].name == value5) {
+        newArray4.push(items[i]);
+      }
+    }
+    else {
+      if (items[i].name == value4) {
+        newArray4.push(items[i]);
+      }
     }
   }
+  // console.log(newArray);
   if (m % 2 == 0) {
-    temp4 = "d1";
     showItems(newArray4);
     m++;
   } else {
-    temp4 = "d2";
-    showItems(items);
+    if(j%2 ==0 && k%2 ==0 && l%2 ==0 && n%2 ==0) {
+      showItems(items);
+    }
+    else if (j % 2 != 0) {
+      deborah()
+    }
+    else if (k % 2 != 0) {
+      lafco()
+    }
+    else if (l % 2 != 0) {
+      phyto()
+    }
+    else if (n % 2 != 0) {
+      klorane()
+    }
     m++;
   }
 }
@@ -446,23 +559,58 @@ var newArray5 = [];
 let value5 = "KLORANE";
 var temp5 = "e";
 function klorane() {
+ newArray5.innerHTML = "";
   let items = JSON.parse(localStorage.getItem("items"));
   for (let i = 0; i < items.length; i++) {
-    if (items[i].name == value5) {
-      newArray5.push(items[i]);
+    if (j % 2 != 0) {
+      if (items[i].name ==value5 || items[i].name == value1) {
+       newArray5.push(items[i]);
+      }
+    }
+    else if (k % 2 != 0) {
+      if (items[i].name ==value5 || items[i].name == value2) {
+       newArray5.push(items[i]);
+      }
+    }
+    else if (l % 2 != 0) {
+      if (items[i].name ==value5 || items[i].name == value3) {
+       newArray5.push(items[i]);
+      }
+    }
+    else if (m % 2 != 0) {
+      if (items[i].name ==value5 || items[i].name ==value4) {
+       newArray5.push(items[i]);
+      }
+    }
+    else {
+      if (items[i].name ==value5) {
+       newArray5.push(items[i]);
+      }
     }
   }
+  // console.log(newArray);
   if (n % 2 == 0) {
-    temp5 = "e1";
     showItems(newArray5);
     n++;
   } else {
-    temp5 = "e2";
-    showItems(items);
+    if(j%2 ==0 && k%2 ==0 && l%2 ==0 && m%2 ==0) {
+      showItems(items);
+    }
+    else if (j % 2 != 0) {
+      deborah()
+    }
+    else if (k % 2 != 0) {
+      lafco()
+    }
+    else if (l % 2 != 0) {
+      phyto()
+    }
+    else if (m % 2 != 0) {
+      acqua()
+    }
     n++;
   }
 }
-
 // __________________________________________________________________________________________________
 // Filter by Shop By
 
@@ -575,7 +723,7 @@ var combined_arr = [];
 function combined() {
   let items = JSON.parse(localStorage.getItem("items"));
   for (let i = 0; i < items.length; i++) {
-    if (items[i].name == value2 || items[i].name == value1) {
+    if (items[i].name == value2 || items[i].name == value2) {
       combined_arr.push(items[i]);
     }
   }
