@@ -172,16 +172,41 @@ prev.addEventListener('click', () => {
     a = 0;
     b = 4
 });
+
+
 //search field appear
+
+
 function appearSearch(){
     document.getElementById('searchings').style.display='flex';
     document.getElementById('hideput').value="";
 }
+
 //search field hiding
+
+
 document.getElementById('hidesearchings').addEventListener('click', function(){
     document.getElementById('searchings').style.display='none';
     // console.log('hi');
 });
+
+
+// on Input, suggestion box appears
+
+let hideput=document.getElementById('hideput');
+let suggestings=document.getElementById('suggestings');
+hideput.addEventListener('input',(e)=>{
+    
+     if(e.target.value.length>=2){
+          suggestings.style.display='block';
+          
+    }
+    else{
+        suggestings.style.display='none';
+        
+    }
+}) 
+
 
 // hover show and hide on nav bar
 // var elemento=document.querySelectorAll('.fa-chevron-right');
@@ -519,21 +544,21 @@ function overlayMsgHide() {
 
 // Sign-up button change
 
-function changeAccount() {
-  let signup_btn = document.getElementById("login_change");
-  let check_user = JSON.parse(localStorage.getItem("current_user"));
+// function changeAccount() {
+//   let signup_btn = document.getElementById("login_change");
+//   let check_user = JSON.parse(localStorage.getItem("current_user"));
 
-  if (check_user.length != 0) {
-    signup_btn.innerHTML = `<i class="fa fa-user-circle"></i> Account`;
-    signup_btn.addEventListener("click", () => {
-      window.location.href = "myaccount.html";
-    });
-  } else {
-    signup_btn.innerHTML = `<i class="fa fa-user-circle"></i> Sign in/up`;
-    signup_btn.addEventListener("click", () => {
-      window.location.href = "login.html"
-    });
-  }
-}
+//   if (check_user.length != 0) {
+//     signup_btn.innerHTML = `<i class="fa fa-user-circle"></i> Account`;
+//     signup_btn.addEventListener("click", () => {
+//       window.location.href = "myaccount.html";
+//     });
+//   } else {
+//     signup_btn.innerHTML = `<i class="fa fa-user-circle"></i> Sign in/up`;
+//     signup_btn.addEventListener("click", () => {
+//       window.location.href = "login.html"
+//     });
+//   }
+// }
 
-changeAccount();
+// changeAccount();

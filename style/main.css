@@ -140,10 +140,15 @@ End: Navigation bar
 /*************************
 Start: Carousel Section
 *************************/
-
+.carousel-section{
+    position: relative;
+    top: 0px;
+    /* top: -40px; */
+    z-index: 3;
+}
 
 .announcement-bar {
-    position: sticky;
+    /* position: sticky; */
     position: relative;
     top: 0px;
     width: 100%;
@@ -168,16 +173,21 @@ Start: Search field
     width: 100%;
     position: relative;
     top: 20px;
-    z-index: 1;
-    align-items: center;
+    z-index: 5;
     /* display: flex; */
-    flex-direction: row;
-    justify-content:start;
-    padding-left: 10%;
+    flex-direction: column;
     background-color: white;
     display: none;
     
 } 
+.firstWrapping{
+    display: flex;
+    flex-direction: row;
+    padding-left: 10%;
+    justify-content:start; 
+    align-items: center;
+
+}
 .fa-search, .fa-times{
     font-size: 20px;
     font-weight:lighter;
@@ -206,6 +216,78 @@ End: Search field
 *************************/
 
 
+
+/*************************
+Start: Suggestion box
+*************************/
+.boldest{
+    font-size: large;
+    font-weight: 700;
+}
+.suggestings{
+    /* z-index: 3; */
+    background-color: white;
+    /* position: relative; */
+    /* top: 5px; */
+    padding-left: 10%;
+    display:none;
+}
+.flexSuggest{
+    margin-top: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+}
+.hr{
+    width: 85%;
+    margin-top: 15px;
+}
+.flexingOne{
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    margin-right: 5%;
+}
+.flexingOne>div{
+    margin-bottom: 15px;
+    margin-top: 15px;
+    cursor: pointer;
+}
+.flexingOne>div>p{
+    margin-top: 10px;
+    cursor: pointer;
+}
+.flexingTwo{
+    margin-top: 25px;
+    width: 40%;
+     /* border: 1px solid red; */
+    display: flex;
+    flex-direction: column;
+}
+.intFlex{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.resultings{
+    display: flex;
+    flex-direction: row;
+}
+.viewAlls{
+    margin-left: 10px;
+    cursor: pointer;
+}
+.prodResView{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    margin-top: 10px;
+}
+.prodResView>div{
+    margin-bottom: 15px;
+}
+/*************************
+End: Suggestion box
+*************************/
 
 /*************************
 Start: New Arrivals
