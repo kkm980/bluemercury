@@ -199,9 +199,6 @@ const items = [
   },
 ];
 
-
-
-
 if (localStorage.getItem("items") == null) {
   localStorage.setItem("items", JSON.stringify(items));
 }
@@ -250,7 +247,7 @@ function showItems(l) {
     img.addEventListener("click", function () {
       addtoVisited(el);
     });
-    
+
     var i = 0;
     function swtichArrayColor() {
       var arr = ["#5e769b", "white"];
@@ -313,26 +310,48 @@ function myFunction() {
 //  filtering By Brand
 
 // for Deborh
+var check = 0;
 var j = 0;
-var temp1 = "a";
 var newArray = [];
 let value1 = "Deborah_Lippmann";
 
 function deborah() {
+  newArray.innerHTML = "";
   let items = JSON.parse(localStorage.getItem("items"));
   for (let i = 0; i < items.length; i++) {
-    if (items[i].name == value1) {
-      newArray.push(items[i]);
+    if (k % 2 != 0) {
+      if (items[i].name == value1 || items[i].name == value2) {
+        newArray.push(items[i]);
+      }
+    }
+    else if (l % 2 != 0) {
+      if (items[i].name == value1 || items[i].name == value3) {
+        newArray.push(items[i]);
+      }
+    }
+    else if (m % 2 != 0) {
+      if (items[i].name == value1 || items[i].name == value4) {
+        newArray.push(items[i]);
+      }
+    }
+    else if (n % 2 != 0) {
+      if (items[i].name == value1 || items[i].name == value4) {
+        newArray.push(items[i]);
+      }
+    }
+    else {
+      if (items[i].name == value1) {
+        newArray.push(items[i]);
+      }
     }
   }
+  // console.log(newArray);
   if (j % 2 == 0) {
-    temp1 = "a1";
     showItems(newArray);
     j++;
   } else {
-    temp1 = "a2";
     showItems(items);
-    newArray.innerHTML = null
+
     j++;
   }
   // if (temp1 == "a1" && temp2 == "b1") {
@@ -367,7 +386,6 @@ function lafco() {
 }
 
 // __________________________________________________________________________________________________
-
 
 // for PHYTO
 
@@ -468,7 +486,7 @@ function best() {
   } else {
     temp6 = "f2";
     showItems(items);
-    newArray6.innerHTML = null
+    newArray6.innerHTML = null;
     o++;
   }
 }
@@ -494,7 +512,7 @@ function coming() {
   } else {
     temp7 = "g2";
     showItems(items);
-    newArray7.innerHTML = null
+    newArray7.innerHTML = null;
     p++;
   }
 }
@@ -520,7 +538,7 @@ function exclusive() {
   } else {
     temp8 = "h2";
     showItems(items);
-    newArray8.innerHTML = null
+    newArray8.innerHTML = null;
     q++;
   }
 }
@@ -546,32 +564,14 @@ function limited() {
   } else {
     temp9 = "i2";
     showItems(items);
-    newArray9.innerHTML = null
+    newArray9.innerHTML = null;
     r++;
   }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // combined filter
 
-
-var combined_arr = []; 
+var combined_arr = [];
 function combined() {
   let items = JSON.parse(localStorage.getItem("items"));
   for (let i = 0; i < items.length; i++) {
@@ -587,7 +587,7 @@ function combined() {
 
 // __________________________________________________________________________________________________
 
-// Sprting Functions for Low to high and High to low
+// Sorting Functions for Low to high and High to low
 function sort_Deborah_LH() {
   newArray = newArray.sort(function (a, b) {
     return a.price - b.price;
@@ -603,7 +603,7 @@ function sort_Deborah_HL() {
 }
 // __________________________________________________________________________________________________
 
-// Sprting Functions for Low to high and High to low
+// Sorting Functions for Low to high and High to low
 function sortLH() {
   let items = JSON.parse(localStorage.getItem("items"));
 
@@ -647,13 +647,12 @@ dropdown_price.addEventListener("click", function () {
   document.getElementById("myDropdown_price").classList.toggle("show");
 });
 
-
 function addtoVisited(obj) {
   console.log("Obj: ", obj);
   let singleProdArr = [];
   singleProdArr.push(obj);
 
-  localStorage.setItem('current_selected_prod', JSON.stringify(singleProdArr));
+  localStorage.setItem("current_selected_prod", JSON.stringify(singleProdArr));
   window.location.href = "product.html";
 }
 
@@ -671,7 +670,7 @@ function changeAccount() {
   } else {
     signup_btn.innerHTML = `<i class="fa fa-user-circle"></i> Sign in/up`;
     signup_btn.addEventListener("click", () => {
-      window.location.href = "login.html"
+      window.location.href = "login.html";
     });
   }
 }
