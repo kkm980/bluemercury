@@ -220,7 +220,7 @@
             </div>
             <div>
                 <div id="dropdown_shopby" class="dropbtn"><span class="FilterType">Shop By </span>
-                    <span class="TotalFilters">10 available</span>
+                    <span class="TotalFilters">4 available</span>
                     <span class="Icon" aria-hidden="true">
                         <svg class="Icon--plus" viewBox="0 0 16 16">
                             <path d="M8 1v14M1 8h14" stroke="currentColor" fill="none" fill-rule="evenodd"
@@ -231,16 +231,14 @@
                 </div>
                 <div id="myDropdown_shopby" class="dropdown-content">
                     <form>
-                        <input type="checkbox" id="ABEL" name="ABEL" value="ABEL">
-                        <label for="ABEL" class="FilterName"> ABEL</label><br>
-                        <input type="checkbox" id="LAFCO" name="LAFCO" value="LAFCO">
-                        <label for="LAFCO" class="FilterName"> LAFCO</label><br>
-                        <input type="checkbox" id="vehicle3" name="PHYTO" value="PHYTO">
-                        <label for="PHYTO" class="FilterName"> PHYTO</label><br>
-                        <input type="checkbox" id="Acqua" name="Acqua Di Parma" value="Acqua Di Parma">
-                        <label for="Acqua Di Parma" class="FilterName">Acqua Di Parma</label><br>
-                        <input type="checkbox" id="KLORANE" name="KLORANE" value="KLORANE">
-                        <label for="KLORANE" class="FilterName">KLORANE</label><br>
+                        <input type="checkbox" id="Best_Seller" onclick="best()" name="Best_Seller" value="Best_Seller">
+                        <label for="Best_Seller" class="FilterName"> Best Seller</label><br>
+                        <input type="checkbox" id="Coming_Soon" onclick="coming()" name="Coming_Soon" value="Coming_Soon">
+                        <label for="Coming_Soon" class="FilterName">Coming Soon</label><br>
+                        <input type="checkbox" id="PHYTO" onclick="phyto()" name="PHYTO" value="PHYTO">
+                        <label for="PHYTO" class="FilterName"> Exclusive</label><br>
+                        <input type="checkbox" id="Acqua" onclick="acqua()"  name="Acqua Di Parma" value="Acqua Di Parma">
+                        <label for="Acqua Di Parma" class="FilterName">Limited</label><br>
                     </form>
                 </div>
             </div>

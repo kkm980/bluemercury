@@ -310,7 +310,7 @@ function myFunction() {
 }
 
 // __________________________________________________________________________________________________
-//  filtering
+//  filtering By Brand
 
 // for Deborh
 var j = 0;
@@ -446,6 +446,75 @@ function klorane() {
 }
 
 // __________________________________________________________________________________________________
+// Filter by Shop By
+
+// for best Seller
+var o = 0;
+var temp6 = "f";
+var newArray6 = [];
+let value6 = "Best_Seller";
+
+function best() {
+  let items = JSON.parse(localStorage.getItem("items"));
+  for (let i = 0; i < items.length; i++) {
+    if (items[i].name == value6) {
+      newArray6.push(items[i]);
+    }
+  }
+  if (o % 2 == 0) {
+    temp6 = "f1";
+    showItems(newArray6);
+    o++;
+  } else {
+    temp6 = "f2";
+    showItems(items);
+    newArray6.innerHTML = null
+    o++;
+  }
+}
+
+// __________________________________________________________________________________________________
+// for Coming Soon
+var o = 0;
+var temp7 = "f";
+var newArray7 = [];
+let value7 = "Coming_Soon";
+
+function coming() {
+  let items = JSON.parse(localStorage.getItem("items"));
+  for (let i = 0; i < items.length; i++) {
+    if (items[i].name == value7) {
+      newArray7.push(items[i]);
+    }
+  }
+  if (o % 2 == 0) {
+    temp7 = "g1";
+    showItems(newArray7);
+    o++;
+  } else {
+    temp7 = "g2";
+    showItems(items);
+    newArray7.innerHTML = null
+    o++;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -469,19 +538,19 @@ function combined() {
 // __________________________________________________________________________________________________
 
 // Sprting Functions for Low to high and High to low
-// function sort_Deborah_LH() {
-//   newArray = newArray.sort(function (a, b) {
-//     return a.price - b.price;
-//   });
-//   showItems(items);
-// }
+function sort_Deborah_LH() {
+  newArray = newArray.sort(function (a, b) {
+    return a.price - b.price;
+  });
+  showItems(items);
+}
 
-// function sort_Deborah_HL() {
-//   newArray = newArray.sort(function (a, b) {
-//     return b.price - a.price;
-//   });
-//   showItems(items);
-// }
+function sort_Deborah_HL() {
+  newArray = newArray.sort(function (a, b) {
+    return b.price - a.price;
+  });
+  showItems(items);
+}
 // __________________________________________________________________________________________________
 
 // Sprting Functions for Low to high and High to low
