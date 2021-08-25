@@ -475,7 +475,7 @@ function best() {
 
 // __________________________________________________________________________________________________
 // for Coming Soon
-var o = 0;
+var p = 0;
 var temp7 = "f";
 var newArray7 = [];
 let value7 = "Coming_Soon";
@@ -487,19 +487,69 @@ function coming() {
       newArray7.push(items[i]);
     }
   }
-  if (o % 2 == 0) {
+  if (p % 2 == 0) {
     temp7 = "g1";
     showItems(newArray7);
-    o++;
+    p++;
   } else {
     temp7 = "g2";
     showItems(items);
     newArray7.innerHTML = null
-    o++;
+    p++;
   }
 }
 
+// __________________________________________________________________________________________________
+// for Exclusive
+var q = 0;
+var temp8 = "f";
+var newArray8 = [];
+let value8 = "Exclusive";
 
+function exclusive() {
+  let items = JSON.parse(localStorage.getItem("items"));
+  for (let i = 0; i < items.length; i++) {
+    if (items[i].name == value8) {
+      newArray8.push(items[i]);
+    }
+  }
+  if (q % 2 == 0) {
+    temp8 = "h1";
+    showItems(newArray8);
+    q++;
+  } else {
+    temp8 = "h2";
+    showItems(items);
+    newArray8.innerHTML = null
+    q++;
+  }
+}
+
+// __________________________________________________________________________________________________
+// for Limited Edition
+var r = 0;
+var temp9 = "f";
+var newArray9 = [];
+let value9 = "Limited";
+
+function limited() {
+  let items = JSON.parse(localStorage.getItem("items"));
+  for (let i = 0; i < items.length; i++) {
+    if (items[i].name == value9) {
+      newArray9.push(items[i]);
+    }
+  }
+  if (r % 2 == 0) {
+    temp9 = "i1";
+    showItems(newArray9);
+    r++;
+  } else {
+    temp9 = "i2";
+    showItems(items);
+    newArray9.innerHTML = null
+    r++;
+  }
+}
 
 
 
