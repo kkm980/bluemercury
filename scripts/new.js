@@ -469,19 +469,19 @@ function combined() {
 // __________________________________________________________________________________________________
 
 // Sprting Functions for Low to high and High to low
-function sort_Deborah_LH() {
-  newArray = newArray.sort(function (a, b) {
-    return a.price - b.price;
-  });
-  showItems(items);
-}
+// function sort_Deborah_LH() {
+//   newArray = newArray.sort(function (a, b) {
+//     return a.price - b.price;
+//   });
+//   showItems(items);
+// }
 
-function sort_Deborah_HL() {
-  newArray = newArray.sort(function (a, b) {
-    return b.price - a.price;
-  });
-  showItems(items);
-}
+// function sort_Deborah_HL() {
+//   newArray = newArray.sort(function (a, b) {
+//     return b.price - a.price;
+//   });
+//   showItems(items);
+// }
 // __________________________________________________________________________________________________
 
 // Sprting Functions for Low to high and High to low
