@@ -309,6 +309,87 @@ function myFunction() {
 // __________________________________________________________________________________________________
 //  filtering By Brand
 
+// New filter Method
+
+function change() {
+  var modelCbs = document.querySelectorAll(
+    ".dropdown-content input[type='checkbox']"
+  );
+  var processorCbs = document.querySelectorAll(
+    ".processors input[type='checkbox']"
+  );
+  var filters = {
+    models: getClassOfCheckedCheckboxes(modelCbs),
+    processors: getClassOfCheckedCheckboxes(processorCbs),
+  };
+  // console.log("filter", filters);
+  filterResults(filters);
+}
+
+function getClassOfCheckedCheckboxes(checkboxes) {
+  var classes = [];
+
+  if (checkboxes && checkboxes.length > 0) {
+    for (var i = 0; i < checkboxes.length; i++) {
+      var cb = checkboxes[i];
+     
+      if (cb.checked) {
+        classes.push(cb.getAttribute("rel"));
+        console.log(cb);
+      }
+    }
+  }
+
+  return classes;
+}
+
+function filterResults(filters) {
+  var items = JSON.parse(localStorage.getItem("items"));
+  // console.log("items",items)
+  var hiddenElems = [];
+
+  if (!items || items.length <= 0) {
+    return;
+  }
+
+  for (var i = 0; i < items.length; i++) {
+    var el = items[i];
+    console.log("filter model", el);
+    if (filters.models.length > 0) {
+      var isHidden = true;
+
+      for (var j = 0; j < filters.models.length; j++) {
+        var filter = filters.models[j];
+        console.log("filter2", el.classList);
+
+        if (el.classList.contains(filter)) {
+          isHidden = false;
+          break;
+        }
+      }
+
+      if (isHidden) {
+        hiddenElems.push(el);
+      }
+    }
+  }
+
+  for (var i = 0; i < items.length; i++) {
+    showItems(items)
+  }
+
+  if (hiddenElems.length <= 0) {
+    return;
+  }
+
+  for (var i = 0; i < hiddenElems.length; i++) {
+    showItems(hiddenElems)
+  }
+}
+
+
+
+
 // for Deborh
 var j = 0;
 var newArray = [];
@@ -322,23 +403,19 @@ function deborah() {
       if (items[i].name == value1 || items[i].name == value2) {
         newArray.push(items[i]);
       }
-    }
-    else if (l % 2 != 0) {
+    } else if (l % 2 != 0) {
       if (items[i].name == value1 || items[i].name == value3) {
         newArray.push(items[i]);
       }
-    }
-    else if (m % 2 != 0) {
+    } else if (m % 2 != 0) {
       if (items[i].name == value1 || items[i].name == value4) {
         newArray.push(items[i]);
       }
-    }
-    else if (n % 2 != 0) {
+    } else if (n % 2 != 0) {
       if (items[i].name == value1 || items[i].name == value5) {
         newArray.push(items[i]);
       }
-    }
-    else {
+    } else {
       if (items[i].name == value1) {
         newArray.push(items[i]);
       }
@@ -349,20 +426,16 @@ function deborah() {
     showItems(newArray);
     j++;
   } else {
-    if(k%2 ==0 && l%2 ==0 && m%2 ==0 && n%2 ==0) {
+    if (k % 2 == 0 && l % 2 == 0 && m % 2 == 0 && n % 2 == 0) {
       showItems(items);
-    }
-    else if (k % 2 != 0) {
-      lafco()
-    }
-    else if (l % 2 != 0) {
-      phyto()
-    }
-    else if (m % 2 != 0) {
-      acqua()
-    }
-    else if (n % 2 != 0) {
-      klorane()
+    } else if (k % 2 != 0) {
+      lafco();
+    } else if (l % 2 != 0) {
+      phyto();
+    } else if (m % 2 != 0) {
+      acqua();
+    } else if (n % 2 != 0) {
+      klorane();
     }
     j++;
   }
@@ -383,23 +456,19 @@ function lafco() {
       if (items[i].name == value2 || items[i].name == value1) {
         newArray2.push(items[i]);
       }
-    }
-    else if (l % 2 != 0) {
+    } else if (l % 2 != 0) {
       if (items[i].name == value2 || items[i].name == value3) {
         newArray2.push(items[i]);
       }
-    }
-    else if (m % 2 != 0) {
+    } else if (m % 2 != 0) {
       if (items[i].name == value2 || items[i].name == value4) {
         newArray2.push(items[i]);
       }
-    }
-    else if (n % 2 != 0) {
+    } else if (n % 2 != 0) {
       if (items[i].name == value2 || items[i].name == value5) {
         newArray2.push(items[i]);
       }
-    }
-    else {
+    } else {
       if (items[i].name == value2) {
         newArray2.push(items[i]);
       }
@@ -410,20 +479,16 @@ function lafco() {
     showItems(newArray2);
     k++;
   } else {
-    if(j%2 ==0 && l%2 ==0 && m%2 ==0 && n%2 ==0) {
+    if (j % 2 == 0 && l % 2 == 0 && m % 2 == 0 && n % 2 == 0) {
       showItems(items);
-    }
-    else if (j % 2 != 0) {
-      deborah()
-    }
-    else if (l % 2 != 0) {
-      phyto()
-    }
-    else if (m % 2 != 0) {
-      acqua()
-    }
-    else if (n % 2 != 0) {
-      klorane()
+    } else if (j % 2 != 0) {
+      deborah();
+    } else if (l % 2 != 0) {
+      phyto();
+    } else if (m % 2 != 0) {
+      acqua();
+    } else if (n % 2 != 0) {
+      klorane();
     }
     k++;
   }
@@ -443,23 +508,19 @@ function phyto() {
       if (items[i].name == value3 || items[i].name == value1) {
         newArray3.push(items[i]);
       }
-    }
-    else if (k % 2 != 0) {
+    } else if (k % 2 != 0) {
       if (items[i].name == value3 || items[i].name == value2) {
         newArray3.push(items[i]);
       }
-    }
-    else if (m % 2 != 0) {
+    } else if (m % 2 != 0) {
       if (items[i].name == value3 || items[i].name == value4) {
         newArray3.push(items[i]);
       }
-    }
-    else if (n % 2 != 0) {
+    } else if (n % 2 != 0) {
       if (items[i].name == value3 || items[i].name == value5) {
         newArray3.push(items[i]);
       }
-    }
-    else {
+    } else {
       if (items[i].name == value3) {
         newArray3.push(items[i]);
       }
@@ -470,20 +531,16 @@ function phyto() {
     showItems(newArray3);
     l++;
   } else {
-    if(j%2 ==0 && k%2 ==0 && m%2 ==0 && n%2 ==0) {
+    if (j % 2 == 0 && k % 2 == 0 && m % 2 == 0 && n % 2 == 0) {
       showItems(items);
-    }
-    else if (j % 2 != 0) {
-      deborah()
-    }
-    else if (k % 2 != 0) {
-      lafco()
-    }
-    else if (m % 2 != 0) {
-      acqua()
-    }
-    else if (n % 2 != 0) {
-      klorane()
+    } else if (j % 2 != 0) {
+      deborah();
+    } else if (k % 2 != 0) {
+      lafco();
+    } else if (m % 2 != 0) {
+      acqua();
+    } else if (n % 2 != 0) {
+      klorane();
     }
     l++;
   }
@@ -504,23 +561,19 @@ function acqua() {
       if (items[i].name == value4 || items[i].name == value1) {
         newArray4.push(items[i]);
       }
-    }
-    else if (k % 2 != 0) {
+    } else if (k % 2 != 0) {
       if (items[i].name == value4 || items[i].name == value2) {
         newArray4.push(items[i]);
       }
-    }
-    else if (l % 2 != 0) {
+    } else if (l % 2 != 0) {
       if (items[i].name == value4 || items[i].name == value3) {
         newArray4.push(items[i]);
       }
-    }
-    else if (n % 2 != 0) {
+    } else if (n % 2 != 0) {
       if (items[i].name == value4 || items[i].name == value5) {
         newArray4.push(items[i]);
       }
-    }
-    else {
+    } else {
       if (items[i].name == value4) {
         newArray4.push(items[i]);
       }
@@ -531,20 +584,16 @@ function acqua() {
     showItems(newArray4);
     m++;
   } else {
-    if(j%2 ==0 && k%2 ==0 && l%2 ==0 && n%2 ==0) {
+    if (j % 2 == 0 && k % 2 == 0 && l % 2 == 0 && n % 2 == 0) {
       showItems(items);
-    }
-    else if (j % 2 != 0) {
-      deborah()
-    }
-    else if (k % 2 != 0) {
-      lafco()
-    }
-    else if (l % 2 != 0) {
-      phyto()
-    }
-    else if (n % 2 != 0) {
-      klorane()
+    } else if (j % 2 != 0) {
+      deborah();
+    } else if (k % 2 != 0) {
+      lafco();
+    } else if (l % 2 != 0) {
+      phyto();
+    } else if (n % 2 != 0) {
+      klorane();
     }
     m++;
   }
@@ -559,32 +608,28 @@ var newArray5 = [];
 let value5 = "KLORANE";
 var temp5 = "e";
 function klorane() {
- newArray5.innerHTML = "";
+  newArray5.innerHTML = "";
   let items = JSON.parse(localStorage.getItem("items"));
   for (let i = 0; i < items.length; i++) {
     if (j % 2 != 0) {
-      if (items[i].name ==value5 || items[i].name == value1) {
-       newArray5.push(items[i]);
+      if (items[i].name == value5 || items[i].name == value1) {
+        newArray5.push(items[i]);
       }
-    }
-    else if (k % 2 != 0) {
-      if (items[i].name ==value5 || items[i].name == value2) {
-       newArray5.push(items[i]);
+    } else if (k % 2 != 0) {
+      if (items[i].name == value5 || items[i].name == value2) {
+        newArray5.push(items[i]);
       }
-    }
-    else if (l % 2 != 0) {
-      if (items[i].name ==value5 || items[i].name == value3) {
-       newArray5.push(items[i]);
+    } else if (l % 2 != 0) {
+      if (items[i].name == value5 || items[i].name == value3) {
+        newArray5.push(items[i]);
       }
-    }
-    else if (m % 2 != 0) {
-      if (items[i].name ==value5 || items[i].name ==value4) {
-       newArray5.push(items[i]);
+    } else if (m % 2 != 0) {
+      if (items[i].name == value5 || items[i].name == value4) {
+        newArray5.push(items[i]);
       }
-    }
-    else {
-      if (items[i].name ==value5) {
-       newArray5.push(items[i]);
+    } else {
+      if (items[i].name == value5) {
+        newArray5.push(items[i]);
       }
     }
   }
@@ -593,20 +638,16 @@ function klorane() {
     showItems(newArray5);
     n++;
   } else {
-    if(j%2 ==0 && k%2 ==0 && l%2 ==0 && m%2 ==0) {
+    if (j % 2 == 0 && k % 2 == 0 && l % 2 == 0 && m % 2 == 0) {
       showItems(items);
-    }
-    else if (j % 2 != 0) {
-      deborah()
-    }
-    else if (k % 2 != 0) {
-      lafco()
-    }
-    else if (l % 2 != 0) {
-      phyto()
-    }
-    else if (m % 2 != 0) {
-      acqua()
+    } else if (j % 2 != 0) {
+      deborah();
+    } else if (k % 2 != 0) {
+      lafco();
+    } else if (l % 2 != 0) {
+      phyto();
+    } else if (m % 2 != 0) {
+      acqua();
     }
     n++;
   }
