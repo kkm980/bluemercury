@@ -1,7 +1,3 @@
 Bluemercury clone
 
 Cloned the files
-
-Testing 1
-
-New changes
