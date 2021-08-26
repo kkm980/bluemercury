@@ -203,6 +203,7 @@ if (localStorage.getItem("items") == null) {
   localStorage.setItem("items", JSON.stringify(items));
 }
 
+
 // Showing product Grids
 function showItems(l) {
   let items = l;
