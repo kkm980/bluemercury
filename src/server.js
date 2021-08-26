@@ -3,8 +3,20 @@ const {DEFAULT_CONNECTION_STRING, PORT, MONGOOSE_OPTIONS} = require("./config/co
 
 //connect to express
 const express = require("express");
+
+// const cors = require("cors");
+// app.use(cors());
+
 const app = express();
-app.listen(PORT, () => console.log(`Bluemercury is connected successfully to Express. Listening on port ${PORT}...`));
+app.use(express.json())
+
+// Controller
+
+const productController = require("./controllers/product.controller");
+
+app.use("/products", productController)
+
+app.listen(PORT, () => console.log(`Bluemercury is connected successfully to Express. Listening on port ${PORT}.`));
 
 //connect to mongoose
 const mongoose = require('mongoose');
