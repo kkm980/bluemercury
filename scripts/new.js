@@ -577,21 +577,27 @@ changeAccount();
 /************************
 Show wish list products
 ************************/
-
+function hideOverlay() {
+  document.getElementById('super-wishlist-box').style.display = 'none';
+}
 function showWishProd() {
   console.log("Yay");
+  document.getElementById('super-wishlist-box').style.display = 'block';
   let super_div = document.getElementById("bg")
   super_div.style.display = "block";
   
   let main_div = document.getElementById("wishlist-box-overlay");
-  
+  main_div.innerHTML = null;
   main_div.style.display = "block";
   main_div.style.width = '70%';
   main_div.style.display = 'flex';
   main_div.style.flexDirection = 'column';
   
   let temp = JSON.parse(localStorage.getItem("wishlist"));
-  
+  temp.forEach((el) => {
+    
+  });
+
   if (temp == null || temp.length == 0) {
     main_div.innerHTML = null;
     
@@ -629,6 +635,26 @@ function showWishProd() {
       inner_div.style.backgroundColor = 'white';
       inner_div.style.border = "1px solid #12284C";
       inner_div.style.height = 'fit-content';
+      inner_div.style.position = 'relative';
+
+      let cancel_p = document.createElement('p');
+      cancel_p.innerHTML = `<i class="material-icons">close</i>`;
+      cancel_p.style.position = 'absolute';
+      cancel_p.style.right = '0';
+      cancel_p.style.color = '#12284C';
+      cancel_p.style.cursor = 'pointer';
+      cancel_p.addEventListener('click', () => {
+        for (let i = 0; i < wishlistArr.length; i++) {
+          if (wishlistArr[i].prod_id_num == el.prod_id_num) {
+            wishlistArr.splice(i, 1);
+            console.log(wishlistArr[i])
+            console.log("here");
+            localStorage.setItem("wishlist", JSON.stringify(wishlistArr));
+            break;
+          }
+        }
+        showWishProd();
+      });
 
       let img = document.createElement('img');
       img.src = el.img;
@@ -650,7 +676,7 @@ function showWishProd() {
         window.location.href = './new.html';
       });
 
-      inner_div.append(img, title, price, add_to_cart);
+      inner_div.append(cancel_p, img, title, price, add_to_cart);
       outer_div.append(inner_div);
     });
     
