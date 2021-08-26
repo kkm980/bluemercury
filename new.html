@@ -38,7 +38,7 @@
             <div class="nav_links">
                 <ul class="navItem">
                     <li>
-                        <a href="http://www.google.com" class="navlink">
+                        <a id="nav-wishlist-btn" onclick="showWishProd()" class="navlink">
                             <i class="fa fa-heart-o" aria-hidden="true"></i>
                             Wishlist
                         </a>
@@ -251,8 +251,6 @@
             </div>
         </div>
     </nav>
-
-    
     <!--Search bar section-->
     
     <div class="searchings" id="searchings">
@@ -260,11 +258,10 @@
         <input class="hideput" id="hideput" placeholder="SEARCH..." type="text">
         <i class="fas fa-times" id="hidesearchings"></i>
     </div>
-
-
     <!--Carousel section-->
     <div class="carousel-section">
         <div class="announcement-bar" id="slide-text"></div>
+        <div class="best-sellers" id="slide-img"></div>
         <!-- <div class="page-dots" id="dots-slide"></div> -->
     </div>
     <!--Carousel End-->

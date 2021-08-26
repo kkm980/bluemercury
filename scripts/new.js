@@ -199,7 +199,34 @@ const items = [
 ];
 
 
+function appearSearch(){
+    document.getElementById('searchings').style.display='flex';
+    document.getElementById('hideput').value="";
+}
+//search field hiding
+document.getElementById('hidesearchings').addEventListener('click', function(){
+    document.getElementById('searchings').style.display='none';
+    // console.log('hi');
+});
 
+
+// Dropdown hover menu
+function showing(id1,id2){
+    let menuContainergetting1 = document.getElementById(id1);
+    menuContainergetting1.style.visibility = "visible";
+    menuContainergetting1.style.display = "block";
+    let menuContainergetting2 = document.getElementById(id2);
+    menuContainergetting2.style.visibility = "visible";
+    menuContainergetting2.style.display = "block";
+}
+function hiding(id1,id2){
+    let menuContainergetting1 = document.getElementById(id1);
+    menuContainergetting1.style.visibility = "hidden";
+    menuContainergetting1.style.display = "none";
+    let menuContainergetting2 = document.getElementById(id2);
+    menuContainergetting2.style.visibility = "hidden";
+    menuContainergetting2.style.display = "none";
+}
 
 if (localStorage.getItem("items") == null) {
   localStorage.setItem("items", JSON.stringify(items));
