@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cosmetics, Skincare, Wellness and Spa | bluemercury</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" href="//cdn.shopify.com/s/files/1/0283/0185/2747/files/favicon_48x48.png?v=1591627636 type= 'image/icon'">
+    <link rel="stylesheet" href="./style/main.css">
+</head>
+<body>
+    
+    <!--Navbar-->
+
+    <nav id="main_nav">
+
+        <div class="top_part">
+            <div class="location">
+                <a href="http://www.google.com">
+                    <i class="fa fa-map-marker" aria-hidden="true"></i>
+                    STORE & SPA LOCATOR
+                </a>
+            </div>
+            <div class="logo">
+                <a href="homepage.html">
+                    <img src="https://cdn.shopify.com/s/files/1/0283/0185/2747/files/blm_36dad4a4-9b14-4ef8-9509-6a593f135aae_416x@2x.png?v=1588538421"/>
+                </a>
+            </div>
+            <div class="nav_links">
+                <ul class="navItem">
+                    <li>
+                        <a href="http://www.google.com" class="navlink">
+                            <i class="fa fa-heart-o" aria-hidden="true"></i>
+                            Wishlist
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://www.google.com" class="navlink">
+                            <i class="fa fa-search" aria-hidden="true"></i>
+                            Search
+                        </a>
+                    </li>
+                    <li>
+                        <a id="login_change" class="navlink">
+                            <i class="fa fa-user-circle"></i>
+                            Sign in/up
+                        </a>
+                    </li>
+                    <li>
+                        <a href="cart.html" class="navlink">
+                            <i class="fa fa-shopping-bag" aria-hidden="true"></i>
+                            Bag
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="bottom_part">
+            <div class="main_menu">
+                <ul class="menu">
+                    <li class="dropdown">
+                        <a class="navlink">
+                            Shop
+                        </a>
+                        <ul class="dropdown-nav">
+                            <li><a href="new.html">SKIN CARE</a></li>
+                            <li><a href="new.html">MAKEUP</a></li>
+                            <li><a href="new.html">BATH &amp; BODY</a></li>
+                            <li><a href="new.html">HAIR</a></li>
+                            <li><a href="new.html">SUN &amp; TAN</a></li>
+                            <li><a href="new.html">SCENTS &amp; HOME</a></li>
+                            <li><a href="new.html">MEN</a></li>
+                            <li><a href="new.html">TOOLS &amp; ACCESSORIES</a></li>
+                            <li><a href="new.html">GIFTS</a></li>
+                            <li><a href="new.html">BEST SELLERS</a></li>
+                            <li><a href="new.html">CONSCIOUS BEAUTY</a></li>
+                            <li><a href="new.html">SALE + FREE GIFTS!</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="new.html" class="navlink">
+                            New!
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://bluemercury.com/pages/brands" class="navlink">
+                            Brands
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://bluemercury.com/pages/explore" class="navlink">
+                            Explore
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://bluemercury.com/pages/events" class="navlink">
+                            Events
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://bluemercury.com/pages/bluerewards" class="navlink">
+                            Bluerewards
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!--Carousel section-->
+    <div class="carousel-section">
+        <div class="announcement-bar" id="slide-text"></div>
+        <div class="best-sellers" id="slide-img"></div>
+        <div class="page-dots" id="dots-slide"></div>
+    </div>
+
+    <!--Manual image slider-->
+    <div class="product-disp new-arrivals">
+        <p id="arrival">NEW ARRIVALS</p>
+        <div class="product-image-slider">
+            <div id="prevSlider-btn"> <!--Previous btn-->
+                <img src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11 21'%3E%3Cpath fill='none' stroke='%23666' stroke-width='1.25' d='M10.5.5l-10 10 10 10'/%3E%3C/svg%3E" alt="<">
+            </div>
+
+            <div id="products"></div>
+
+            <div id="nextSlider-btn"> <!--Next btn-->
+                <img src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11 21'%3E%3Cpath fill='none' stroke='%23666' stroke-width='1.25' d='M.5.5l10 10-10 10'/%3E%3C/svg%3E" alt=">">
+            </div>
+        </div>
+    </div>
+
+    <!--Extra description-->
+    <div class="description-container">
+        <div class="extra-image">
+            <img src="https://cdn.shopify.com/s/files/1/0283/0185/2747/files/national_clean_beauty_day_-_shop_collection_1000x.jpg?v=1626123749" class="extra-img" alt="Product image"/>
+        </div>
+        <div class="extra-text">
+            <p>CLEAN UP YOUR ACT</p>
+            <p>Explore Conscious Beauty</p>
+            <p>Treat yourself to a get-ready routine that's vegan, cruelty-free and formulated with mindful or naturally derived ingredients.</p>
+            <div onclick="location.href='www.google.com';">SHOP NOW</div>
+        </div>
+    </div>
+
+    <div class="description-container">
+        <div class="extra-text text-center">
+            <p>THE FOUNDERS SERIES</p>
+            <p>Learn how some of the beauty industry’s most dynamic entrepreneurs find inspiration and develop must-have products as
+            they share their advice for aspiring business moguls and much more.</p>
+            <div>EXPLORE</div>
+        </div>
+    </div>
+
+    <div class="description-container">
+        <div class="extra-image">
+            <img src="https://cdn.shopify.com/s/files/1/0283/0185/2747/files/founders-knc-beauty-tabbed_content_1000x.jpg?v=1625623353"
+                class="extra-img" alt="Product image" />
+        </div>
+        <div class="extra-text">
+            <p>KNC Beauty</p>
+            <p>Kristen Noel Crawley</p>
+            <p>She created Instagram's favourite lip mask and used it as a springboard to launch an entire skincare company.</p>
+            <div>READ THE Q+A</div>
+        </div>
+    </div>
+
+    <!--Specials-->
+    <div class="specials">
+        <div class="special-thing-1">
+            <img src="https://cdn.shopify.com/s/files/1/0283/0185/2747/files/samples-content_block_800x.jpg?v=1604551537"/>
+            <div class="context">
+                <h2>FREE GIFTS WITH PURCHASE</h2>
+                <p>Stock up on all your favourite brands, then try something on us.</p>
+                <h2 onclick="" class="browse-now">BROWSE NOW</h2>
+            </div>
+        </div>
+        <div class="special-thing-2">
+            <img src="https://cdn.shopify.com/s/files/1/0283/0185/2747/files/curbside-hp-content_block_600x.jpg?v=1596135342" />
+            <div class="context">
+                <h2>SHOP SAFELY IN STORE</h2>
+                <p>In-store shopping, curbside pickup or complimentary ship to home</p>
+                <h2 onclick="" class="browse-now">LEARN MORE</h2>
+            </div>
+        </div>
+        <div class="special-thing-3">
+            <img src="https://cdn.shopify.com/s/files/1/0283/0185/2747/files/fragrance-consultation-content_block_087f6b13-691d-40e0-ba63-c7c4b5365e71_600x.jpg?v=1611351115" />
+            <div class="context">
+                <h2>SCENT SPECIAL</h2>
+                <p>Schedule a personalized consultation and get free samples of any perfume!</p>
+                <h2 onclick="" class="browse-now">FIND YOUR STORE</h2>
+            </div>
+        </div>
+    </div>
+
+
+    <!--Footer-->
+    <footer class="footer-part">
+        <div class="newsletter">
+            <p>Get Expert Beauty Insight & Offers</p>
+            <form id="footer-mail-collect" onsubmit="overlaymsg(event)">
+                <div id="mail-submission-success-overlay">       
+                    <div>
+                        <!-- <img src="https://i2.wp.com/i.pinimg.com/originals/70/a5/52/70a552e8e955049c8587b2d7606cd6a6.gif"/> -->
+                        <img src="https://thumbs.gfycat.com/ShyCautiousAfricanpiedkingfisher-max-1mb.gif" alt="successful" />
+                        <p id="success-msg">You will hear from us soon!</p>
+                        <div onclick="overlayMsgHide()" id="hide-overlay">Done</div>
+                    </div>
+                </div>
+                <input class="footer-mail e-mail" id="newsletter-mail-input" name="e-mail" type="email" placeholder="EMAIL ADDRESS" />
+                <button id="arrow-submit-btn" type="submit">
+                    <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                </button>
+            </form>
+            <p>To learn more about how we use your information and your rights, see Privacy Note</p>
+            <p class="icons">
+                <a href="https://twitter.com/bluemercury" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                <a href="https://www.pinterest.com/bluemercury/" target="_blank"><i class="fa fa-pinterest-p" aria-hidden="true"></i></a>
+                <a href="https://facebook.com/bluemercury" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                <a href="https://instagram.com/bluemercury" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                <a href="https://www.youtube.com/channel/UCrgUXfV7IIFllEQMbzd9J3A" target="_blank"><i class="fa fa-youtube-play" aria-hidden="true"></i></a>
+            </p>
+            <p> Copyright 2021 bluemercury. All Rights Reserved.</p>
+        </div>
+
+        <div class="footer-navwrap">
+            <div class="bluemercury-links">
+                <h2>Bluemercury</h2>
+                <ul>
+                    <li>
+                        <a href="#">Our Company</a>
+                    </li>
+                    <li>
+                        <a href="#">Store Locator</a>
+                    </li>
+                    <li>
+                        <a href="#">In-Store & Online Events</a>
+                    </li>
+                    <li>
+                        <a href="#">Spa Menu</a>
+                    </li>
+                    <li>
+                        <a href="#">Press</a>
+                    </li>
+                    <li>
+                        <a href="#">Careers</a>
+                    </li>
+                    <li>
+                        <a href="#">Vendor Submissions</a>
+                    </li>
+                    <li>
+                        <a href="#">Diversity & Inclusion</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="myaccount-links">
+                <h2>My Account</h2>
+                <ul>
+                    <li>
+                        <a href="#">My Account</a>
+                    </li>
+                    <li>
+                        <a href="#">BlueRewards</a>
+                    </li>
+                    <li>
+                        <a href="#">Gift Card Balance Checker</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="customerservice-links">
+                <h2>Customer Service</h2>
+                <ul>
+                    <li>
+                        <a href="#">Contact Us</a>
+                    </li>
+                    <li>
+                        <a href="#">Help & FAQ</a>
+                    </li>
+                    <li>
+                        <a href="#">Shipping, Returns & Exchanges</a>
+                    </li>
+                    <li>
+                        <a href="#">Gift Cards</a>
+                    </li>
+                    <li>
+                        <a href="#">Offers & Promotions</a>
+                    </li>
+                    <li>
+                        <a href="#">Klarna</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="resources-links">
+                <h2>Resources</h2>
+                <ul>
+                    <li>
+                        <a href="#">Terms & Conditions</a>
+                    </li>
+                    <li>
+                        <a href="#">Privacy Policy</a>
+                    </li>
+                    <li>
+                        <a href="#">Accessiblility</a>
+                    </li>
+                    <li>
+                        <a href="#">COVID-19 Updates</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+<script src="./scripts/index.js"></script>

@@ -2,6 +2,7 @@
 
 const items = [
   {
+    wish: "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjIuMSwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IgoJIHZpZXdCb3g9IjAgMCA0LjI1IDQiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDQuMjUgNDsiIHhtbDpzcGFjZT0icHJlc2VydmUiPgo8Zz4KCTxwYXRoIGQ9Ik0yLjEyLDRDMi4xLDQsMi4wNywzLjk5LDIuMDUsMy45OEMxLjk4LDMuOTIsMC4zLDIuNjgsMC4wNCwxLjYyYy0wLjEtMC40My0wLjAxLTAuODgsMC4yNC0xLjJDMC41LDAuMTUsMC44MSwwLDEuMTYsMAoJCWMwLjUsMCwwLjgsMC4yNiwwLjk2LDAuNTFDMi4yOCwwLjI2LDIuNTksMCwzLjA4LDBjMC4zNSwwLDAuNjYsMC4xNSwwLjg4LDAuNDNjMC4yNSwwLjMyLDAuMzQsMC43NywwLjI0LDEuMgoJCUMzLjk1LDIuNjgsMi4yNywzLjkyLDIuMiwzLjk4QzIuMTgsMy45OSwyLjE1LDQsMi4xMiw0eiBNMS4xNiwwLjI1Yy0wLjM1LDAtMC41NywwLjE4LTAuNjgsMC4zM0MwLjI4LDAuODQsMC4yLDEuMjIsMC4yOSwxLjU3CgkJYzAuMjEsMC44NSwxLjUxLDEuOSwxLjg0LDIuMTVjMC4zMy0wLjI1LDEuNjMtMS4zMSwxLjg0LTIuMTVjMC4wOC0wLjM1LDAuMDEtMC43My0wLjE5LTAuOThDMy42NSwwLjQzLDMuNDMsMC4yNSwzLjA4LDAuMjUKCQljLTAuNjcsMC0wLjg0LDAuNTctMC44NCwwLjU4QzIuMjMsMC44OCwyLjE4LDAuOTIsMi4xMiwwLjkyaDBjLTAuMDYsMC0wLjEtMC4wNC0wLjEyLTAuMDlDMiwwLjgxLDEuODMsMC4yNSwxLjE2LDAuMjV6Ii8+CjwvZz4KPC9zdmc+Cg==",
     name: "KJAER WEIS",
     title: "Matte, Naturally Liquid Lipstick",
     price: "30",
@@ -198,43 +199,14 @@ const items = [
   },
 ];
 
-
-function appearSearch(){
-    document.getElementById('searchings').style.display='flex';
-    document.getElementById('hideput').value="";
-}
-//search field hiding
-document.getElementById('hidesearchings').addEventListener('click', function(){
-    document.getElementById('searchings').style.display='none';
-    // console.log('hi');
-});
-
-
-// Dropdown hover menu
-function showing(id1,id2){
-    let menuContainergetting1 = document.getElementById(id1);
-    menuContainergetting1.style.visibility = "visible";
-    menuContainergetting1.style.display = "block";
-    let menuContainergetting2 = document.getElementById(id2);
-    menuContainergetting2.style.visibility = "visible";
-    menuContainergetting2.style.display = "block";
-}
-function hiding(id1,id2){
-    let menuContainergetting1 = document.getElementById(id1);
-    menuContainergetting1.style.visibility = "hidden";
-    menuContainergetting1.style.display = "none";
-    let menuContainergetting2 = document.getElementById(id2);
-    menuContainergetting2.style.visibility = "hidden";
-    menuContainergetting2.style.display = "none";
-}
-
 if (localStorage.getItem("items") == null) {
   localStorage.setItem("items", JSON.stringify(items));
 }
 
+
 // Showing product Grids
-function showItems(items) {
-  //console.log("in show items: ", items)
+function showItems(l) {
+  let items = l;
   let items_div = document.getElementById("items");
 
   items_div.innerHTML = null;
@@ -253,9 +225,8 @@ function showItems(items) {
     let img = document.createElement("img");
     img.src = el.img;
 
-    let wish = document.createElement("p");
-    wish.innerHTML = "<i class='far fa-heart'></i>";
-    wish.setAttribute("id", "wish-btn");
+    let wish = document.createElement("img");
+    wish.src = el.wish;
     wish.style.width = "22px";
     wish.style.height = "21px";
     wish.style.float = "left";
@@ -277,31 +248,18 @@ function showItems(items) {
     img.addEventListener("click", function () {
       addtoVisited(el);
     });
-    
+
     var i = 0;
-    function switchArrayColor() {
+    function swtichArrayColor() {
+      var arr = ["#5e769b", "white"];
       if (i % 2 == 0) {
-        wish.innerHTML = "<i class='fas fa-heart'></i>";
-        if (localStorage.getItem("wishlist") == null) {
-          let wishlistArr = [];
-          localStorage.setItem("wishlist", JSON.stringify(wishlistArr));
-        }
-        let temp = JSON.parse(localStorage.getItem("wishlist"));
-        temp.push(el);
-        localStorage.setItem("wishlist", JSON.stringify(temp));
+        wish.style.backgroundColor = arr[0];
       } else {
-        wish.innerHTML = "<i class='far fa-heart'></i>";
-        let temp = JSON.parse(localStorage.getItem("wishlist"));
-        temp.forEach((element, index, temp) => {
-          if (element.prod_id_num == el.prod_id_num) {
-            temp.splice(index, 1);
-          }
-        });
-        localStorage.setItem("wishlist", JSON.stringify(temp));
+        wish.style.backgroundColor = arr[1];
       }
       i++;
     }
-    wish.addEventListener("click", switchArrayColor);
+    wish.addEventListener("click", swtichArrayColor);
 
     div.append(wish, img, p_name, span_title, p_price);
     items_div.append(div);
@@ -349,38 +307,24 @@ function myFunction() {
   }
 }
 
+// __________________________________________________________________________________________________
+//  filtering By Brand
+
+// New filter Method
 
 function change() {
-  let modelCbs = document.querySelectorAll(
+  var modelCbs = document.querySelectorAll(
     ".dropdown-content input[type='checkbox']"
   );
-  // var processorCbs = document.querySelectorAll(
-  //   ".processors input[type='checkbox']"
-  // );
-  let brandFilters = {
+  var processorCbs = document.querySelectorAll(
+    ".processors input[type='checkbox']"
+  );
+  var filters = {
     models: getClassOfCheckedCheckboxes(modelCbs),
-    // processors: getClassOfCheckedCheckboxes(processorCbs),
+    processors: getClassOfCheckedCheckboxes(processorCbs),
   };
-  // console.log("modelCbs:", brandFilters.models);
-  // console.log("filter", brandFilters);
-
-  if (brandFilters.models.length != 0) {
-    let tempArr = JSON.parse(localStorage.getItem("items"));
-
-    let newArr = tempArr.filter((el) => {
-      if (brandFilters.models.includes(el.name)) {
-        return true;
-      } else {
-        return false;
-      }
-    });
-
-    console.log("newArr: ", newArr);
-    filterResults(newArr);
-  } else {
-    let allItems = JSON.parse(localStorage.getItem("items"));
-    filterResults(allItems);
-  }
+  // console.log("filter", filters);
+  filterResults(filters);
 }
 
 function getClassOfCheckedCheckboxes(checkboxes) {
@@ -392,138 +336,110 @@ function getClassOfCheckedCheckboxes(checkboxes) {
      
       if (cb.checked) {
         classes.push(cb.getAttribute("rel"));
-        //console.log(cb);
+        console.log(cb);
       }
     }
   }
+
   return classes;
 }
 
 function filterResults(filters) {
-  //console.log("haha:", filters)
-  localStorage.setItem("filteredArr", JSON.stringify(filters));
-  showItems(filters);
-}
+  var items = JSON.parse(localStorage.getItem("items"));
+  // console.log("items",items)
+  var hiddenElems = [];
 
-var combined_arr = [];
-function combined() {
-  let items = JSON.parse(localStorage.getItem("items"));
-  for (let i = 0; i < items.length; i++) {
-    if (items[i].name == value2 || items[i].name == value2) {
-      combined_arr.push(items[i]);
+  if (!items || items.length <= 0) {
+    return;
+  }
+
+  for (var i = 0; i < items.length; i++) {
+    var el = items[i];
+    console.log("filter model", el);
+    if (filters.models.length > 0) {
+      var isHidden = true;
+
+      for (var j = 0; j < filters.models.length; j++) {
+        var filter = filters.models[j];
+        console.log("filter2", el.classList);
+
+        if (el.classList.contains(filter)) {
+          isHidden = false;
+          break;
+        }
+      }
+
+      if (isHidden) {
+        hiddenElems.push(el);
+      }
     }
   }
-}
 
-// __________________________________________________________________________________________________
+  for (var i = 0; i < items.length; i++) {
+    showItems(items)
+  }
 
-// Sorting Functions for Low to high and High to low
-function sort_Deborah_LH() {
-  newArray = newArray.sort(function (a, b) {
-    return a.price - b.price;
-  });
-  showItems(items);
-}
+  if (hiddenElems.length <= 0) {
+    return;
+  }
 
-function sort_Deborah_HL() {
-  newArray = newArray.sort(function (a, b) {
-    return b.price - a.price;
-  });
-  showItems(items);
-}
-// __________________________________________________________________________________________________
-
-// Sorting Functions for Low to high and High to low
-function sortLH() {
-  let items = JSON.parse(localStorage.getItem("items"));
-  let filteredArr = JSON.parse(localStorage.getItem("filteredArr"));
-
-  if (filteredArr != null || filteredArr.length != 0) {
-    filteredArr = filteredArr.sort((a, b) => {
-      return a.price - b.price;
-    });
-    showItems(filteredArr);
-  } else {
-    items = items.sort(function (a, b) {
-      return a.price - b.price;
-    });
-    showItems(items);
+  for (var i = 0; i < hiddenElems.length; i++) {
+    showItems(hiddenElems)
   }
 }
 
-function sortHL() {
-  let items = JSON.parse(localStorage.getItem("items"));
-  let filteredArr = JSON.parse(localStorage.getItem("filteredArr"));
-
-  if (filteredArr != null || filteredArr.length != 0) {
-    filteredArr = filteredArr.sort((a, b) => {
-      return b.price - a.price;
-    })
-    showItems(filteredArr);
-  } else {
-    items = items.sort(function (a, b) {
-      return b.price - a.price;
-    });
-    showItems(items);
-  }
-}
-
-// Filter dropdown
-let dropDown_type = document.getElementById("dropdown_type");
-
-dropDown_type.addEventListener("click", function () {
-  document.getElementById("myDropdown_type").classList.toggle("show");
-});
-
-let dropDown_brand = document.getElementById("dropdown_brand");
-
-dropDown_brand.addEventListener("click", function () {
-  document.getElementById("myDropdown_brand").classList.toggle("show");
-});
-
-let dropdown_shopby = document.getElementById("dropdown_shopby");
-
-dropdown_shopby.addEventListener("click", function () {
-  document.getElementById("myDropdown_shopby").classList.toggle("show");
-});
-
-let dropdown_price = document.getElementById("dropdown_price");
-
-dropdown_price.addEventListener("click", function () {
-  document.getElementById("myDropdown_price").classList.toggle("show");
-});
 
 
-/*
-// __________________________________________________________________________________________________
-//  filtering
 
 // for Deborh
 var j = 0;
-var temp1 = "a";
 var newArray = [];
 let value1 = "Deborah_Lippmann";
 
 function deborah() {
+  newArray.innerHTML = "";
   let items = JSON.parse(localStorage.getItem("items"));
   for (let i = 0; i < items.length; i++) {
-    if (items[i].name == value1) {
-      newArray.push(items[i]);
+    if (k % 2 != 0) {
+      if (items[i].name == value1 || items[i].name == value2) {
+        newArray.push(items[i]);
+      }
+    } else if (l % 2 != 0) {
+      if (items[i].name == value1 || items[i].name == value3) {
+        newArray.push(items[i]);
+      }
+    } else if (m % 2 != 0) {
+      if (items[i].name == value1 || items[i].name == value4) {
+        newArray.push(items[i]);
+      }
+    } else if (n % 2 != 0) {
+      if (items[i].name == value1 || items[i].name == value5) {
+        newArray.push(items[i]);
+      }
+    } else {
+      if (items[i].name == value1) {
+        newArray.push(items[i]);
+      }
     }
   }
+  // console.log(newArray);
   if (j % 2 == 0) {
-    temp1 = "a1";
     showItems(newArray);
     j++;
   } else {
-    temp1 = "a2";
-    showItems(items);
-    newArray.innerHTML = null
+    if (k % 2 == 0 && l % 2 == 0 && m % 2 == 0 && n % 2 == 0) {
+      showItems(items);
+    } else if (k % 2 != 0) {
+      lafco();
+    } else if (l % 2 != 0) {
+      phyto();
+    } else if (m % 2 != 0) {
+      acqua();
+    } else if (n % 2 != 0) {
+      klorane();
+    }
     j++;
   }
-  // if (temp1 == "a1" && temp2 == "b1") {
-  //   showItems(combined_arr);
-  // }
 }
 
 // __________________________________________________________________________________________________
@@ -533,48 +449,100 @@ function deborah() {
 var k = 0;
 var newArray2 = [];
 let value2 = "LAFCO";
-var temp2 = "b";
 function lafco() {
+  newArray2.innerHTML = "";
   let items = JSON.parse(localStorage.getItem("items"));
   for (let i = 0; i < items.length; i++) {
-    if (items[i].name == value2) {
-      newArray2.push(items[i]);
+    if (j % 2 != 0) {
+      if (items[i].name == value2 || items[i].name == value1) {
+        newArray2.push(items[i]);
+      }
+    } else if (l % 2 != 0) {
+      if (items[i].name == value2 || items[i].name == value3) {
+        newArray2.push(items[i]);
+      }
+    } else if (m % 2 != 0) {
+      if (items[i].name == value2 || items[i].name == value4) {
+        newArray2.push(items[i]);
+      }
+    } else if (n % 2 != 0) {
+      if (items[i].name == value2 || items[i].name == value5) {
+        newArray2.push(items[i]);
+      }
+    } else {
+      if (items[i].name == value2) {
+        newArray2.push(items[i]);
+      }
     }
   }
+  // console.log(newArray);
   if (k % 2 == 0) {
-    temp2 = "b1";
     showItems(newArray2);
     k++;
   } else {
-    temp2 = "b2";
-    showItems(items);
+    if (j % 2 == 0 && l % 2 == 0 && m % 2 == 0 && n % 2 == 0) {
+      showItems(items);
+    } else if (j % 2 != 0) {
+      deborah();
+    } else if (l % 2 != 0) {
+      phyto();
+    } else if (m % 2 != 0) {
+      acqua();
+    } else if (n % 2 != 0) {
+      klorane();
+    }
     k++;
   }
 }
-
 // __________________________________________________________________________________________________
-
 
 // for PHYTO
 
 var l = 0;
 var newArray3 = [];
 let value3 = "PHYTO";
-var temp2 = "c";
 function phyto() {
+  newArray3.innerHTML = "";
   let items = JSON.parse(localStorage.getItem("items"));
   for (let i = 0; i < items.length; i++) {
-    if (items[i].name == value3) {
-      newArray3.push(items[i]);
+    if (j % 2 != 0) {
+      if (items[i].name == value3 || items[i].name == value1) {
+        newArray3.push(items[i]);
+      }
+    } else if (k % 2 != 0) {
+      if (items[i].name == value3 || items[i].name == value2) {
+        newArray3.push(items[i]);
+      }
+    } else if (m % 2 != 0) {
+      if (items[i].name == value3 || items[i].name == value4) {
+        newArray3.push(items[i]);
+      }
+    } else if (n % 2 != 0) {
+      if (items[i].name == value3 || items[i].name == value5) {
+        newArray3.push(items[i]);
+      }
+    } else {
+      if (items[i].name == value3) {
+        newArray3.push(items[i]);
+      }
     }
   }
+  // console.log(newArray);
   if (l % 2 == 0) {
-    temp3 = "c1";
     showItems(newArray3);
     l++;
   } else {
-    temp3 = "c2";
-    showItems(items);
+    if (j % 2 == 0 && k % 2 == 0 && m % 2 == 0 && n % 2 == 0) {
+      showItems(items);
+    } else if (j % 2 != 0) {
+      deborah();
+    } else if (k % 2 != 0) {
+      lafco();
+    } else if (m % 2 != 0) {
+      acqua();
+    } else if (n % 2 != 0) {
+      klorane();
+    }
     l++;
   }
 }
@@ -586,21 +554,48 @@ function phyto() {
 var m = 0;
 var newArray4 = [];
 let value4 = "Acqua Di Parma";
-var temp4 = "d";
 function acqua() {
+  newArray4.innerHTML = "";
   let items = JSON.parse(localStorage.getItem("items"));
   for (let i = 0; i < items.length; i++) {
-    if (items[i].name == value4) {
-      newArray4.push(items[i]);
+    if (j % 2 != 0) {
+      if (items[i].name == value4 || items[i].name == value1) {
+        newArray4.push(items[i]);
+      }
+    } else if (k % 2 != 0) {
+      if (items[i].name == value4 || items[i].name == value2) {
+        newArray4.push(items[i]);
+      }
+    } else if (l % 2 != 0) {
+      if (items[i].name == value4 || items[i].name == value3) {
+        newArray4.push(items[i]);
+      }
+    } else if (n % 2 != 0) {
+      if (items[i].name == value4 || items[i].name == value5) {
+        newArray4.push(items[i]);
+      }
+    } else {
+      if (items[i].name == value4) {
+        newArray4.push(items[i]);
+      }
     }
   }
+  // console.log(newArray);
   if (m % 2 == 0) {
-    temp4 = "d1";
     showItems(newArray4);
     m++;
   } else {
-    temp4 = "d2";
-    showItems(items);
+    if (j % 2 == 0 && k % 2 == 0 && l % 2 == 0 && n % 2 == 0) {
+      showItems(items);
+    } else if (j % 2 != 0) {
+      deborah();
+    } else if (k % 2 != 0) {
+      lafco();
+    } else if (l % 2 != 0) {
+      phyto();
+    } else if (n % 2 != 0) {
+      klorane();
+    }
     m++;
   }
 }
@@ -614,35 +609,163 @@ var newArray5 = [];
 let value5 = "KLORANE";
 var temp5 = "e";
 function klorane() {
+  newArray5.innerHTML = "";
   let items = JSON.parse(localStorage.getItem("items"));
   for (let i = 0; i < items.length; i++) {
-    if (items[i].name == value5) {
-      newArray5.push(items[i]);
+    if (j % 2 != 0) {
+      if (items[i].name == value5 || items[i].name == value1) {
+        newArray5.push(items[i]);
+      }
+    } else if (k % 2 != 0) {
+      if (items[i].name == value5 || items[i].name == value2) {
+        newArray5.push(items[i]);
+      }
+    } else if (l % 2 != 0) {
+      if (items[i].name == value5 || items[i].name == value3) {
+        newArray5.push(items[i]);
+      }
+    } else if (m % 2 != 0) {
+      if (items[i].name == value5 || items[i].name == value4) {
+        newArray5.push(items[i]);
+      }
+    } else {
+      if (items[i].name == value5) {
+        newArray5.push(items[i]);
+      }
     }
   }
+  // console.log(newArray);
   if (n % 2 == 0) {
-    temp5 = "e1";
     showItems(newArray5);
     n++;
   } else {
-    temp5 = "e2";
-    showItems(items);
+    if (j % 2 == 0 && k % 2 == 0 && l % 2 == 0 && m % 2 == 0) {
+      showItems(items);
+    } else if (j % 2 != 0) {
+      deborah();
+    } else if (k % 2 != 0) {
+      lafco();
+    } else if (l % 2 != 0) {
+      phyto();
+    } else if (m % 2 != 0) {
+      acqua();
+    }
     n++;
+  }
+}
+// __________________________________________________________________________________________________
+// Filter by Shop By
+
+// for best Seller
+var o = 0;
+var temp6 = "f";
+var newArray6 = [];
+let value6 = "Best_Seller";
+
+function best() {
+  let items = JSON.parse(localStorage.getItem("items"));
+  for (let i = 0; i < items.length; i++) {
+    if (items[i].name == value6) {
+      newArray6.push(items[i]);
+    }
+  }
+  if (o % 2 == 0) {
+    temp6 = "f1";
+    showItems(newArray6);
+    o++;
+  } else {
+    temp6 = "f2";
+    showItems(items);
+    newArray6.innerHTML = null;
+    o++;
   }
 }
 
 // __________________________________________________________________________________________________
+// for Coming Soon
+var p = 0;
+var temp7 = "f";
+var newArray7 = [];
+let value7 = "Coming_Soon";
 
+function coming() {
+  let items = JSON.parse(localStorage.getItem("items"));
+  for (let i = 0; i < items.length; i++) {
+    if (items[i].name == value7) {
+      newArray7.push(items[i]);
+    }
+  }
+  if (p % 2 == 0) {
+    temp7 = "g1";
+    showItems(newArray7);
+    p++;
+  } else {
+    temp7 = "g2";
+    showItems(items);
+    newArray7.innerHTML = null;
+    p++;
+  }
+}
 
+// __________________________________________________________________________________________________
+// for Exclusive
+var q = 0;
+var temp8 = "f";
+var newArray8 = [];
+let value8 = "Exclusive";
+
+function exclusive() {
+  let items = JSON.parse(localStorage.getItem("items"));
+  for (let i = 0; i < items.length; i++) {
+    if (items[i].name == value8) {
+      newArray8.push(items[i]);
+    }
+  }
+  if (q % 2 == 0) {
+    temp8 = "h1";
+    showItems(newArray8);
+    q++;
+  } else {
+    temp8 = "h2";
+    showItems(items);
+    newArray8.innerHTML = null;
+    q++;
+  }
+}
+
+// __________________________________________________________________________________________________
+// for Limited Edition
+var r = 0;
+var temp9 = "f";
+var newArray9 = [];
+let value9 = "Limited";
+
+function limited() {
+  let items = JSON.parse(localStorage.getItem("items"));
+  for (let i = 0; i < items.length; i++) {
+    if (items[i].name == value9) {
+      newArray9.push(items[i]);
+    }
+  }
+  if (r % 2 == 0) {
+    temp9 = "i1";
+    showItems(newArray9);
+    r++;
+  } else {
+    temp9 = "i2";
+    showItems(items);
+    newArray9.innerHTML = null;
+    r++;
+  }
+}
 
 // combined filter
 
-
-var combined_arr = []; 
+var combined_arr = [];
 function combined() {
   let items = JSON.parse(localStorage.getItem("items"));
   for (let i = 0; i < items.length; i++) {
-    if (items[i].name == value2 || items[i].name == value1) {
+    if (items[i].name == value2 || items[i].name == value2) {
       combined_arr.push(items[i]);
     }
   }
@@ -654,7 +777,7 @@ function combined() {
 
 // __________________________________________________________________________________________________
 
-// Sprting Functions for Low to high and High to low
+// Sorting Functions for Low to high and High to low
 function sort_Deborah_LH() {
   newArray = newArray.sort(function (a, b) {
     return a.price - b.price;
@@ -670,7 +793,7 @@ function sort_Deborah_HL() {
 }
 // __________________________________________________________________________________________________
 
-// Sprting Functions for Low to high and High to low
+// Sorting Functions for Low to high and High to low
 function sortLH() {
   let items = JSON.parse(localStorage.getItem("items"));
 
@@ -712,15 +835,14 @@ let dropdown_price = document.getElementById("dropdown_price");
 
 dropdown_price.addEventListener("click", function () {
   document.getElementById("myDropdown_price").classList.toggle("show");
-});*/
-
+});
 
 function addtoVisited(obj) {
   console.log("Obj: ", obj);
   let singleProdArr = [];
   singleProdArr.push(obj);
 
-  localStorage.setItem('current_selected_prod', JSON.stringify(singleProdArr));
+  localStorage.setItem("current_selected_prod", JSON.stringify(singleProdArr));
   window.location.href = "product.html";
 }
 
@@ -738,128 +860,9 @@ function changeAccount() {
   } else {
     signup_btn.innerHTML = `<i class="fa fa-user-circle"></i> Sign in/up`;
     signup_btn.addEventListener("click", () => {
-      window.location.href = "login.html"
+      window.location.href = "login.html";
     });
   }
 }
 
 changeAccount();
-
-
-
-/************************
-Show wish list products
-************************/
-function hideOverlay() {
-  document.getElementById('super-wishlist-box').style.display = 'none';
-}
-function showWishProd() {
-  console.log("Yay");
-  document.getElementById('super-wishlist-box').style.display = 'block';
-  let super_div = document.getElementById("bg")
-  super_div.style.display = "block";
-  
-  let main_div = document.getElementById("wishlist-box-overlay");
-  main_div.innerHTML = null;
-  main_div.style.display = "block";
-  main_div.style.width = '70%';
-  main_div.style.display = 'flex';
-  main_div.style.flexDirection = 'column';
-  
-  let temp = JSON.parse(localStorage.getItem("wishlist"));
-  temp.forEach((el) => {
-    
-  });
-
-  if (temp == null || temp.length == 0) {
-    main_div.innerHTML = null;
-    
-    let default_div = document.createElement('div');
-    default_div.setAttribute("id", "wishlist-prod-div");
-
-    let para_1 = document.createElement('p');
-    para_1.innerHTML = `Love It? Add To My Wishlist`;
-    para_1.setAttribute("style", "font-weight: bold; font-size: 18px; line-height: 50px; text-transform: capitalize; color: #434655; margin: 25px 0; text-align: center;")
-
-    let para_2 = document.createElement('p');
-    para_2.innerHTML = `My Wishlist allows you to keep track of all of your favorites and shopping activity whether you're on your computer, phone, or tablet. You won't have to waste time searching all over again for that item you loved on your phone the other day - it's all here in one place!`;
-    para_2.setAttribute("style", "font-weight: 500; font-size: 14px; line-height: 1.5em; letter-spacing: .05em; color: #828282; max-width: 650px;")
-
-    let shopping_btn = document.createElement('button');
-    shopping_btn.innerHTML = `Continue Shopping`;
-    shopping_btn.setAttribute("style", "font-weight: normal; font-size: 14px; line-height: 16px; text-transform: uppercase; margin: 35px 0; padding: 13px 30px; cursor: pointer; background-color: #12284C; border: none; color: white");
-    shopping_btn.addEventListener('click', () => {
-      window.location.href = './new.html';
-    })
-
-    default_div.append(para_1, para_2, shopping_btn);
-    main_div.append(default_div);
-  } else {
-    let outer_div = document.createElement('div');
-    outer_div.setAttribute("style", "display: grid; grid-template-columns: repeat(4, 200px); /*grid-auto-rows: 250px;*/ gap: 20px; height: 500px; overflow: scroll; align-items: top");
-
-    outer_div.setAttribute("id", "wishlist-prod-div");
-
-    let wishlistArr = JSON.parse(localStorage.getItem('wishlist'));
-    console.log(wishlistArr);
-
-    wishlistArr.forEach((el) => {
-      let inner_div = document.createElement('div');
-      inner_div.style.backgroundColor = 'white';
-      inner_div.style.border = "1px solid #12284C";
-      inner_div.style.height = 'fit-content';
-      inner_div.style.position = 'relative';
-
-      let cancel_p = document.createElement('p');
-      cancel_p.innerHTML = `<i class="material-icons">close</i>`;
-      cancel_p.style.position = 'absolute';
-      cancel_p.style.right = '0';
-      cancel_p.style.color = '#12284C';
-      cancel_p.style.cursor = 'pointer';
-      cancel_p.addEventListener('click', () => {
-        for (let i = 0; i < wishlistArr.length; i++) {
-          if (wishlistArr[i].prod_id_num == el.prod_id_num) {
-            wishlistArr.splice(i, 1);
-            console.log(wishlistArr[i])
-            console.log("here");
-            localStorage.setItem("wishlist", JSON.stringify(wishlistArr));
-            break;
-          }
-        }
-        showWishProd();
-      });
-
-      let img = document.createElement('img');
-      img.src = el.img;
-      img.style.width = "100%";
-      img.style.height = "70%";
-      img.style.objectFit = "cover";
-
-      let title = document.createElement('p');
-      title.innerHTML = el.title;
-      title.setAttribute("style", "white-space: nowrap; width: 100%; overflow: hidden; text-overflow: ellipsis;")
-
-      let price = document.createElement('p');
-      price.innerHTML = `$ ${el.price}`;
-
-      let add_to_cart = document.createElement('button');
-      add_to_cart.innerHTML = `ADD TO BAG`;
-      add_to_cart.setAttribute("style", "font-weight: normal; font-size: 14px; line-height: 16px; text-transform: uppercase; padding: 5px; cursor: pointer; background-color: #12284C; border: none; color: white; width: 100%");
-      add_to_cart.addEventListener('click', () => {
-        window.location.href = './new.html';
-      });
-
-      inner_div.append(cancel_p, img, title, price, add_to_cart);
-      outer_div.append(inner_div);
-    });
-    
-    let shopping_btn = document.createElement('button');
-    shopping_btn.innerHTML = `Continue Shopping`;
-    shopping_btn.setAttribute("style", "font-weight: normal; font-size: 14px; line-height: 16px; text-transform: uppercase; padding: 13px 30px; cursor: pointer; background-color: #12284C; border: none; color: white; width: 250px; margin: 10px auto");
-    shopping_btn.addEventListener('click', () => {
-      window.location.href = './new.html';
-    })
-
-    main_div.append(outer_div, shopping_btn);
-  }
-}
