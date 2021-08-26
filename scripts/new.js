@@ -233,8 +233,8 @@ if (localStorage.getItem("items") == null) {
 }
 
 // Showing product Grids
-function showItems(items) {
-  //console.log("in show items: ", items)
+function showItems(l) {
+  let items = l;
   let items_div = document.getElementById("items");
 
   items_div.innerHTML = null;
@@ -349,152 +349,6 @@ function myFunction() {
   }
 }
 
-
-function change() {
-  let modelCbs = document.querySelectorAll(
-    ".dropdown-content input[type='checkbox']"
-  );
-  // var processorCbs = document.querySelectorAll(
-  //   ".processors input[type='checkbox']"
-  // );
-  let brandFilters = {
-    models: getClassOfCheckedCheckboxes(modelCbs),
-    // processors: getClassOfCheckedCheckboxes(processorCbs),
-  };
-  // console.log("modelCbs:", brandFilters.models);
-  // console.log("filter", brandFilters);
-
-  if (brandFilters.models.length != 0) {
-    let tempArr = JSON.parse(localStorage.getItem("items"));
-
-    let newArr = tempArr.filter((el) => {
-      if (brandFilters.models.includes(el.name)) {
-        return true;
-      } else {
-        return false;
-      }
-    });
-
-    console.log("newArr: ", newArr);
-    filterResults(newArr);
-  } else {
-    let allItems = JSON.parse(localStorage.getItem("items"));
-    filterResults(allItems);
-  }
-}
-
-function getClassOfCheckedCheckboxes(checkboxes) {
-  var classes = [];
-
-  if (checkboxes && checkboxes.length > 0) {
-    for (var i = 0; i < checkboxes.length; i++) {
-      var cb = checkboxes[i];
-     
-      if (cb.checked) {
-        classes.push(cb.getAttribute("rel"));
-        //console.log(cb);
-      }
-    }
-  }
-  return classes;
-}
-
-function filterResults(filters) {
-  //console.log("haha:", filters)
-  localStorage.setItem("filteredArr", JSON.stringify(filters));
-  showItems(filters);
-}
-
-var combined_arr = [];
-function combined() {
-  let items = JSON.parse(localStorage.getItem("items"));
-  for (let i = 0; i < items.length; i++) {
-    if (items[i].name == value2 || items[i].name == value2) {
-      combined_arr.push(items[i]);
-    }
-  }
-}
-
-// __________________________________________________________________________________________________
-
-// Sorting Functions for Low to high and High to low
-function sort_Deborah_LH() {
-  newArray = newArray.sort(function (a, b) {
-    return a.price - b.price;
-  });
-  showItems(items);
-}
-
-function sort_Deborah_HL() {
-  newArray = newArray.sort(function (a, b) {
-    return b.price - a.price;
-  });
-  showItems(items);
-}
-// __________________________________________________________________________________________________
-
-// Sorting Functions for Low to high and High to low
-function sortLH() {
-  let items = JSON.parse(localStorage.getItem("items"));
-  let filteredArr = JSON.parse(localStorage.getItem("filteredArr"));
-
-  if (filteredArr != null || filteredArr.length != 0) {
-    filteredArr = filteredArr.sort((a, b) => {
-      return a.price - b.price;
-    });
-    showItems(filteredArr);
-  } else {
-    items = items.sort(function (a, b) {
-      return a.price - b.price;
-    });
-    showItems(items);
-  }
-}
-
-function sortHL() {
-  let items = JSON.parse(localStorage.getItem("items"));
-  let filteredArr = JSON.parse(localStorage.getItem("filteredArr"));
-
-  if (filteredArr != null || filteredArr.length != 0) {
-    filteredArr = filteredArr.sort((a, b) => {
-      return b.price - a.price;
-    })
-    showItems(filteredArr);
-  } else {
-    items = items.sort(function (a, b) {
-      return b.price - a.price;
-    });
-    showItems(items);
-  }
-}
-
-// Filter dropdown
-let dropDown_type = document.getElementById("dropdown_type");
-
-dropDown_type.addEventListener("click", function () {
-  document.getElementById("myDropdown_type").classList.toggle("show");
-});
-
-let dropDown_brand = document.getElementById("dropdown_brand");
-
-dropDown_brand.addEventListener("click", function () {
-  document.getElementById("myDropdown_brand").classList.toggle("show");
-});
-
-let dropdown_shopby = document.getElementById("dropdown_shopby");
-
-dropdown_shopby.addEventListener("click", function () {
-  document.getElementById("myDropdown_shopby").classList.toggle("show");
-});
-
-let dropdown_price = document.getElementById("dropdown_price");
-
-dropdown_price.addEventListener("click", function () {
-  document.getElementById("myDropdown_price").classList.toggle("show");
-});
-
-
-/*
 // __________________________________________________________________________________________________
 //  filtering
 
@@ -712,7 +566,7 @@ let dropdown_price = document.getElementById("dropdown_price");
 
 dropdown_price.addEventListener("click", function () {
   document.getElementById("myDropdown_price").classList.toggle("show");
-});*/
+});
 
 
 function addtoVisited(obj) {
