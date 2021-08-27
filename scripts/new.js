@@ -349,144 +349,113 @@ function myFunction() {
   }
 }
 
-// __________________________________________________________________________________________________
-//  filtering
+/***************************
+Filtering
+****************************/
 
-// for Deborh
-var j = 0;
-var temp1 = "a";
-var newArray = [];
-let value1 = "Deborah_Lippmann";
+function change() {
+  var modelCbs = document.querySelectorAll(".models input[type='checkbox']");
+  //var processorCbs = document.querySelectorAll(".processors input[type='checkbox']");
+  var filters = {
+    models: getClassOfCheckedCheckboxes(modelCbs),
+    //processors: getClassOfCheckedCheckboxes(processorCbs)
+  };
 
-function deborah() {
-  let items = JSON.parse(localStorage.getItem("items"));
+  let items = JSON.parse(localStorage.getItem('items'));
+
+  let filterArr = [];
+
   for (let i = 0; i < items.length; i++) {
-    if (items[i].name == value1) {
-      newArray.push(items[i]);
-    }
+    filters.models.forEach((el) => {
+      if (el == items[i].name) {
+        filterArr.push(items[i])
+        return true;
+      }
+    });
   }
-  if (j % 2 == 0) {
-    temp1 = "a1";
-    showItems(newArray);
-    j++;
+
+  localStorage.setItem("filteredArr", JSON.stringify(filterArr));
+
+  if (filterArr != null && filterArr.length != 0) {
+    showItems(filterArr);
   } else {
-    temp1 = "a2";
     showItems(items);
-    newArray.innerHTML = null
-    j++;
-  }
-  // if (temp1 == "a1" && temp2 == "b1") {
-  //   showItems(combined_arr);
-  // }
-}
-
-// __________________________________________________________________________________________________
-
-// for LAFCO
-
-var k = 0;
-var newArray2 = [];
-let value2 = "LAFCO";
-var temp2 = "b";
-function lafco() {
-  let items = JSON.parse(localStorage.getItem("items"));
-  for (let i = 0; i < items.length; i++) {
-    if (items[i].name == value2) {
-      newArray2.push(items[i]);
-    }
-  }
-  if (k % 2 == 0) {
-    temp2 = "b1";
-    showItems(newArray2);
-    k++;
-  } else {
-    temp2 = "b2";
-    showItems(items);
-    k++;
   }
 }
 
-// __________________________________________________________________________________________________
+function getClassOfCheckedCheckboxes(checkboxes) {
+  var classes = [];
 
-
-// for PHYTO
-
-var l = 0;
-var newArray3 = [];
-let value3 = "PHYTO";
-var temp2 = "c";
-function phyto() {
-  let items = JSON.parse(localStorage.getItem("items"));
-  for (let i = 0; i < items.length; i++) {
-    if (items[i].name == value3) {
-      newArray3.push(items[i]);
+  if (checkboxes && checkboxes.length > 0) {
+    for (var i = 0; i < checkboxes.length; i++) {
+      var cb = checkboxes[i];
+      //console.log("cb",cb);
+      if (cb.checked) {
+        classes.push(cb.getAttribute("name"));
+      }
     }
   }
-  if (l % 2 == 0) {
-    temp3 = "c1";
-    showItems(newArray3);
-    l++;
-  } else {
-    temp3 = "c2";
-    showItems(items);
-    l++;
-  }
+  return classes;
 }
 
-// __________________________________________________________________________________________________
+function filterResults(filters) {
+  var rElems = document.querySelectorAll(".result div");
+  var hiddenElems = [];
+console.log(rElems)
+  if (!rElems || rElems.length <= 0) {
+    return;
+  }
 
-// for Acqua Di Parma
+  for (var i = 0; i < rElems.length; i++) {
+    var el = rElems[i];
+console.log("el",el)
+    if (filters.models.length > 0) {
+      var isHidden = true;
 
-var m = 0;
-var newArray4 = [];
-let value4 = "Acqua Di Parma";
-var temp4 = "d";
-function acqua() {
-  let items = JSON.parse(localStorage.getItem("items"));
-  for (let i = 0; i < items.length; i++) {
-    if (items[i].name == value4) {
-      newArray4.push(items[i]);
+      for (var j = 0; j < filters.models.length; j++) {
+        var filter = filters.models[j];
+        console.log("filter2",el.classList)
+        if (el.classList.contains(filter)) {
+          isHidden = false;
+          break;
+        }
+      }
+
+      if (isHidden) {
+        hiddenElems.push(el);
+      }
+    }
+
+    if (filters.processors.length > 0) {
+      var isHidden = true;
+
+      for (var j = 0; j < filters.processors.length; j++) {
+        var filter = filters.processors[j];
+
+        if (el.classList.contains(filter)) {
+          isHidden = false;
+          break;
+        }
+      }
+
+      if (isHidden) {
+        hiddenElems.push(el);
+      }
     }
   }
-  if (m % 2 == 0) {
-    temp4 = "d1";
-    showItems(newArray4);
-    m++;
-  } else {
-    temp4 = "d2";
-    showItems(items);
-    m++;
+
+  for (var i = 0; i < rElems.length; i++) {
+    rElems[i].style.display = "block";
+  }
+
+  if (hiddenElems.length <= 0) {
+    return;
+  }
+
+  for (var i = 0; i < hiddenElems.length; i++) {
+    hiddenElems[i].style.display = "none";
   }
 }
-
-// __________________________________________________________________________________________________
-
-// for KLORANE
-
-var n = 0;
-var newArray5 = [];
-let value5 = "KLORANE";
-var temp5 = "e";
-function klorane() {
-  let items = JSON.parse(localStorage.getItem("items"));
-  for (let i = 0; i < items.length; i++) {
-    if (items[i].name == value5) {
-      newArray5.push(items[i]);
-    }
-  }
-  if (n % 2 == 0) {
-    temp5 = "e1";
-    showItems(newArray5);
-    n++;
-  } else {
-    temp5 = "e2";
-    showItems(items);
-    n++;
-  }
-}
-
-// __________________________________________________________________________________________________
-
 
 
 // combined filter
@@ -502,45 +471,43 @@ function combined() {
   }
 }
 
-// if (temp1 == "a1" && temp2 == "b1") {
-//   showItems(combined_arr);
-// }
-
-// __________________________________________________________________________________________________
-
-// Sprting Functions for Low to high and High to low
-function sort_Deborah_LH() {
-  newArray = newArray.sort(function (a, b) {
-    return a.price - b.price;
-  });
-  showItems(items);
-}
-
-function sort_Deborah_HL() {
-  newArray = newArray.sort(function (a, b) {
-    return b.price - a.price;
-  });
-  showItems(items);
-}
 // __________________________________________________________________________________________________
 
 // Sprting Functions for Low to high and High to low
 function sortLH() {
   let items = JSON.parse(localStorage.getItem("items"));
+  let filterArr = JSON.parse(localStorage.getItem("filteredArr"));
 
-  items = items.sort(function (a, b) {
-    return a.price - b.price;
-  });
-  showItems(items);
+  if (filterArr != null && filterArr.length != 0) {
+    console.log("Hereere")
+    filterArr = filterArr.sort((a, b) => {
+      return a.price - b.price;
+    });
+    showItems(filterArr);
+  } else {
+    items = items.sort(function (a, b) {
+      return a.price - b.price;
+    });
+    showItems(items);
+  }
 }
 
 function sortHL() {
   let items = JSON.parse(localStorage.getItem("items"));
+  let filterArr = JSON.parse(localStorage.getItem("filteredArr"));
 
-  items = items.sort(function (a, b) {
-    return b.price - a.price;
-  });
-  showItems(items);
+  if (filterArr != null && filterArr.length != 0) {
+    console.log("Hereere")
+    filterArr = filterArr.sort((a, b) => {
+      return b.price - a.price;
+    });
+    showItems(filterArr);
+  } else {
+    items = items.sort(function (a, b) {
+      return b.price - a.price;
+    });
+    showItems(items);
+  }
 }
 
 // Filter dropdown
