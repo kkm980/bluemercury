@@ -14,9 +14,9 @@ body {
     margin: 0px;
 }
 
-/* to stop scrolling when suggestion box appears */
+/* fictional class to stop scrolling when suggestion box appears */
 .stop-scrolling {
-    /* height: 20%; */
+    height: 100%;
     overflow: hidden;
 }
 a {
@@ -602,6 +602,7 @@ Start: Dropdown on hover
   }
   .floating1{
       padding-right: 8%;
+      border-right: 1px solid rgb(0, 0, 0);
       /* border: 1px solid red; */
   }
 
@@ -630,11 +631,13 @@ Start: Dropdown on hover
             font-weight:700;
 
   }
-
+   
+ 
   .floating2, .floating3, .floating4{
       /* display: none; */
-           margin-right: 7%;
-           padding-right: 7%;
+      margin-right: 3%;
+      margin-left: 3%;
+      padding-right: 7%;
            display: none;
            visibility: hidden;
   }
@@ -644,6 +647,12 @@ Start: Dropdown on hover
            cursor: pointer;
            text-transform: unset;
   }
+
+ .boldtxt{
+     font-weight: 700;
+ }
+    /* background-color: black; */
+  
   /* .dropdown:hover .dropdown-nav {
       
     opacity: 1;

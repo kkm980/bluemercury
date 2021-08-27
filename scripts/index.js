@@ -340,9 +340,15 @@ hideput.addEventListener('input',(e)=>{
 // }
 function showing(id1,id2){
     let menuContainergetting1 = document.getElementById(id1);
+    // let floaterTwo=document.getElementById('floaterTwo');
+    // let floaterTwo=document.getElementById('floaterThree');
+    // floaterTwo.innerHTML="";
+    // floaterThree.innerHTML="";
+    // floaterTwo.innerHTML=menuContainergetting1;
     menuContainergetting1.style.visibility = "visible";
     menuContainergetting1.style.display = "block";
     let menuContainergetting2 = document.getElementById(id2);
+    // floaterTwo.innerHTML=menuContainergetting2;
     menuContainergetting2.style.visibility = "visible";
     menuContainergetting2.style.display = "block";
 }
