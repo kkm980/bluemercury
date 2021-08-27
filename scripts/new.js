@@ -199,33 +199,34 @@ const items = [
 ];
 
 
-function appearSearch(){
-    document.getElementById('searchings').style.display='flex';
-    document.getElementById('hideput').value="";
+function appearSearch() {
+  document.getElementById('searchings').style.display = 'flex';
+  document.getElementById('hideput').value = "";
 }
+
 //search field hiding
-document.getElementById('hidesearchings').addEventListener('click', function(){
-    document.getElementById('searchings').style.display='none';
-    // console.log('hi');
+document.getElementById('hidesearchings').addEventListener('click', function () {
+  document.getElementById('searchings').style.display = 'none';
 });
 
 
 // Dropdown hover menu
-function showing(id1,id2){
-    let menuContainergetting1 = document.getElementById(id1);
-    menuContainergetting1.style.visibility = "visible";
-    menuContainergetting1.style.display = "block";
-    let menuContainergetting2 = document.getElementById(id2);
-    menuContainergetting2.style.visibility = "visible";
-    menuContainergetting2.style.display = "block";
+function showing(id1, id2) {
+  let menuContainergetting1 = document.getElementById(id1);
+  menuContainergetting1.style.visibility = "visible";
+  menuContainergetting1.style.display = "block";
+  let menuContainergetting2 = document.getElementById(id2);
+  menuContainergetting2.style.visibility = "visible";
+  menuContainergetting2.style.display = "block";
 }
-function hiding(id1,id2){
-    let menuContainergetting1 = document.getElementById(id1);
-    menuContainergetting1.style.visibility = "hidden";
-    menuContainergetting1.style.display = "none";
-    let menuContainergetting2 = document.getElementById(id2);
-    menuContainergetting2.style.visibility = "hidden";
-    menuContainergetting2.style.display = "none";
+
+function hiding(id1, id2) {
+  let menuContainergetting1 = document.getElementById(id1);
+  menuContainergetting1.style.visibility = "hidden";
+  menuContainergetting1.style.display = "none";
+  let menuContainergetting2 = document.getElementById(id2);
+  menuContainergetting2.style.visibility = "hidden";
+  menuContainergetting2.style.display = "none";
 }
 
 if (localStorage.getItem("items") == null) {
@@ -309,6 +310,21 @@ function showItems(l) {
 }
 showItems(JSON.parse(localStorage.getItem("items")));
 
+// <-------------------------------Fetching the data from online database -------------------------->
+// async function getData() {
+//   try {
+//     let res = await fetch("http://localhost:3000/products/");
+//     let data = await res.json();
+//     localStorage.setItem("items", JSON.stringify(data));
+//     showItems(data);
+//   } catch (err) {
+//     console.log(err);
+//   }
+// }
+// getData();
+
+
+
 // NavBar Slide start
 
 function slideshowOffer() {
@@ -355,10 +371,8 @@ Filtering
 
 function change() {
   var modelCbs = document.querySelectorAll(".models input[type='checkbox']");
-  //var processorCbs = document.querySelectorAll(".processors input[type='checkbox']");
   var filters = {
     models: getClassOfCheckedCheckboxes(modelCbs),
-    //processors: getClassOfCheckedCheckboxes(processorCbs)
   };
 
   let items = JSON.parse(localStorage.getItem('items'));
@@ -389,7 +403,6 @@ function getClassOfCheckedCheckboxes(checkboxes) {
   if (checkboxes && checkboxes.length > 0) {
     for (var i = 0; i < checkboxes.length; i++) {
       var cb = checkboxes[i];
-      //console.log("cb",cb);
       if (cb.checked) {
         classes.push(cb.getAttribute("name"));
       }
@@ -398,88 +411,11 @@ function getClassOfCheckedCheckboxes(checkboxes) {
   return classes;
 }
 
-function filterResults(filters) {
-  var rElems = document.querySelectorAll(".result div");
-  var hiddenElems = [];
-console.log(rElems)
-  if (!rElems || rElems.length <= 0) {
-    return;
-  }
-
-  for (var i = 0; i < rElems.length; i++) {
-    var el = rElems[i];
-console.log("el",el)
-    if (filters.models.length > 0) {
-      var isHidden = true;
-
-      for (var j = 0; j < filters.models.length; j++) {
-        var filter = filters.models[j];
-        console.log("filter2",el.classList)
-        if (el.classList.contains(filter)) {
-          isHidden = false;
-          break;
-        }
-      }
-
-      if (isHidden) {
-        hiddenElems.push(el);
-      }
-    }
-
-    if (filters.processors.length > 0) {
-      var isHidden = true;
-
-      for (var j = 0; j < filters.processors.length; j++) {
-        var filter = filters.processors[j];
-
-        if (el.classList.contains(filter)) {
-          isHidden = false;
-          break;
-        }
-      }
-
-      if (isHidden) {
-        hiddenElems.push(el);
-      }
-    }
-  }
-
-  for (var i = 0; i < rElems.length; i++) {
-    rElems[i].style.display = "block";
-  }
-
-  if (hiddenElems.length <= 0) {
-    return;
-  }
-
-  for (var i = 0; i < hiddenElems.length; i++) {
-    hiddenElems[i].style.display = "none";
-  }
-}
-
-
-// combined filter
-
-
-var combined_arr = []; 
-function combined() {
-  let items = JSON.parse(localStorage.getItem("items"));
-  for (let i = 0; i < items.length; i++) {
-    if (items[i].name == value2 || items[i].name == value1) {
-      combined_arr.push(items[i]);
-    }
-  }
-}
-
-// __________________________________________________________________________________________________
-
-// Sprting Functions for Low to high and High to low
 function sortLH() {
   let items = JSON.parse(localStorage.getItem("items"));
   let filterArr = JSON.parse(localStorage.getItem("filteredArr"));
 
   if (filterArr != null && filterArr.length != 0) {
-    console.log("Hereere")
     filterArr = filterArr.sort((a, b) => {
       return a.price - b.price;
     });
@@ -497,7 +433,6 @@ function sortHL() {
   let filterArr = JSON.parse(localStorage.getItem("filteredArr"));
 
   if (filterArr != null && filterArr.length != 0) {
-    console.log("Hereere")
     filterArr = filterArr.sort((a, b) => {
       return b.price - a.price;
     });
@@ -537,7 +472,6 @@ dropdown_price.addEventListener("click", function () {
 
 
 function addtoVisited(obj) {
-  console.log("Obj: ", obj);
   let singleProdArr = [];
   singleProdArr.push(obj);
 
@@ -575,7 +509,6 @@ function hideOverlay() {
   document.getElementById('super-wishlist-box').style.display = 'none';
 }
 function showWishProd() {
-  console.log("Yay");
   document.getElementById('super-wishlist-box').style.display = 'block';
   let super_div = document.getElementById("bg")
   super_div.style.display = "block";
@@ -622,7 +555,6 @@ function showWishProd() {
     outer_div.setAttribute("id", "wishlist-prod-div");
 
     let wishlistArr = JSON.parse(localStorage.getItem('wishlist'));
-    console.log(wishlistArr);
 
     wishlistArr.forEach((el) => {
       let inner_div = document.createElement('div');
@@ -641,8 +573,6 @@ function showWishProd() {
         for (let i = 0; i < wishlistArr.length; i++) {
           if (wishlistArr[i].prod_id_num == el.prod_id_num) {
             wishlistArr.splice(i, 1);
-            console.log(wishlistArr[i])
-            console.log("here");
             localStorage.setItem("wishlist", JSON.stringify(wishlistArr));
             break;
           }
