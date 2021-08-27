@@ -199,14 +199,14 @@ let hideput=document.getElementById('hideput');
 let suggestings=document.getElementById('suggestings');
 hideput.addEventListener('input',(e)=>{
      if(e.target.value.length>=2){
-         let vaalu=e.target.value;
+         let vaalu=e.target.value.trim().replace(/\s/g, "");
           suggestings.style.display='block';
           async function getData() {
             try {
               let res = await fetch("http://localhost:3000/products/");
               let data = await res.json();
               console.log(data);
-              showsuggestions(data, vaalu);
+             showsuggestions(data, vaalu);
             } catch (err) {
               console.log(err);
             }
@@ -241,15 +241,27 @@ function showsuggestions(data, vaalu){
       pi.innerHTML="CATEGORIES";
       pi.classList.add('boldest');
       categoriesSearch.append(pi);
+
+    //   for x-items found. viewings div 
+      let viewings=document.getElementById('viewings');
+      viewings.innerHTML="no items found";
+      //for prodResView
+      let itemlistsings=document.getElementsByClassName('itemlistsings');
+       for(var i=0;i<itemlistsings.length;i++){
+           itemlistsings[i].innerHTML="";
+       }
       data.forEach(el => {
-          if(el.name.includes(vaalu)){
+          
+          if( el.name.includes(vaalu)){
               if(cullu <=2){
+
                 //   in quick search 
                 let p=document.createElement('p');
               p.innerHTML=el.name;
               quickSearch.append(p);
               
               }
+
             //   in categories 
               let pi=document.createElement('p');
               if(!tempVarArr.includes(el.option)){
@@ -257,20 +269,46 @@ function showsuggestions(data, vaalu){
                   pi.innerHTML=el.option;
                   categoriesSearch.append(pi);
               }
-             cullu+=1;
-          }       
+
+            //   in prodResView
+                
+                if(cullu<=5){
+                    console.log("cullu");
+                    let picsdivid=document.createElement('img');
+                   picsdivid.src=el.img;
+                   picsdivid.style.cursor="pointer";
+                   picsdivid.style.height="80px";
+                   picsdivid.style.width="80px";
+                   let itemNaam=document.createElement('div');
+                   itemNaam.innerHTML=el.name;
+                   itemNaam.style.fontWeight="700";
+                   itemNaam.style.color="crimpson";
+                   let itemTitless=document.createElement('div');
+                   itemTitless.innerHTML=el.category;
+                   itemTitless.style.cursor="pointer";
+                   itemNaam.style.cursor="pointer";
+                   let wrappingsmalls=document.createElement('div');
+                   wrappingsmalls.append(itemNaam);
+                   wrappingsmalls.append(itemTitless);
+                   wrappingsmalls.style.cursor="pointer";
+                   itemlistsings[cullu].append(picsdivid);
+                   itemlistsings[cullu].append(wrappingsmalls);
+                }
+                
+             cullu++;
+             
+          }  
+          viewings.innerHTML=`${cullu} items found`; 
       });
-      if(cullu==0){
+      if(cullu==0 ){
             let p=document.createElement('p');
            p.innerHTML="No Quick Search Suggestion";
            quickSearch.append(p);
             let pi=document.createElement('p');
            pi.innerHTML="No Categories Suggestion";
          categoriesSearch.append(pi);
-        }
-
-      
-      
+        }    
+        
 }
 
 // hover show and hide on nav bar

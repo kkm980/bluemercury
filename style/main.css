@@ -289,6 +289,17 @@ Start: Suggestion box
 }
 .prodResView>div{
     margin-bottom: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+}
+.prodResView>div>div{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2px;
+    justify-content: start;
+
 }
 /*************************
 End: Suggestion box
@@ -550,6 +561,7 @@ Start: Dropdown on hover
   }
   .menu a {
     position: relative;
+ 
     z-index: 2;
     display: block;
     letter-spacing: 0.01rem;
@@ -572,11 +584,13 @@ Start: Dropdown on hover
   }
   
   .floaterOne{
-      /* margin: 80px 0px; */
-      /* padding-left: 500px; */
-      /* margin-right: 2%; */
-      border-top: 0.5px solid grey;
-      right: 0%;
+      position: relative;
+      top: 10px;
+      margin: 80px 0px;
+      padding-left: 500px;
+      margin-right: 2%;
+      border-top: 0.5px solid gray;
+      left: 0%;
       padding: 20px 0px;
       padding-left: 20%;
       
@@ -607,7 +621,7 @@ Start: Dropdown on hover
   }
 
   .combino{
-      /* border: 1px solid red; */
+
       min-width: 155px;
       margin-bottom: 12px;
       cursor: pointer;
@@ -618,31 +632,31 @@ Start: Dropdown on hover
   }
 
   .fa-chevron-right{
-      /* display: none; */
+
       visibility: hidden;
   }
   .combino:hover>div>.fa-chevron-right{
-           /* font-weight: bold; */
+
            cursor: pointer;
-            /* display:block; */
+         
             visibility: visible;
   }
   .combino:hover>.individ{
             font-weight:700;
 
-  }
+  } 
    
- 
+
   .floating2, .floating3, .floating4{
-      /* display: none; */
-      margin-right: 3%;
-      margin-left: 3%;
+ 
+      margin-right: 7%; 
+       margin-left: 7%;
       padding-right: 7%;
            display: none;
            visibility: hidden;
   }
   .floating2>div, .floating3>div, .floating4>div{
-      /* display: none; */
+     
            margin-bottom: 8px;
            cursor: pointer;
            text-transform: unset;
@@ -650,7 +664,7 @@ Start: Dropdown on hover
 
  .boldtxt{
      font-weight: 700;
- }
+ } 
     /* background-color: black; */
   
   /* .dropdown:hover .dropdown-nav {
