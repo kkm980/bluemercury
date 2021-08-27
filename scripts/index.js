@@ -199,13 +199,14 @@ let hideput=document.getElementById('hideput');
 let suggestings=document.getElementById('suggestings');
 hideput.addEventListener('input',(e)=>{
      if(e.target.value.length>=2){
+         let vaalu=e.target.value;
           suggestings.style.display='block';
           async function getData() {
             try {
               let res = await fetch("http://localhost:3000/products/");
               let data = await res.json();
-            //   console.log(data);
-            //   showsuggestions(data);
+              console.log(data);
+              showsuggestions(data, vaalu);
             } catch (err) {
               console.log(err);
             }
@@ -218,9 +219,59 @@ hideput.addEventListener('input',(e)=>{
         
     }
 }) 
-// showsuggestions(data){
+// appending in suggestion box 
 
-// }
+function showsuggestions(data, vaalu){
+   
+    let cullu=0;
+    let tempVarArr=[];
+      let quickSearch=document.getElementById('quickSearch');
+
+       // 1. in quick search
+      quickSearch.innerHTML="";
+      let p=document.createElement('p');
+      p.innerHTML="QUICK SEARCH";
+      p.classList.add('boldest');
+      quickSearch.append(p);
+
+    //   2. in categories 
+      let categoriesSearch=document.getElementById('categoriesSearch');
+      categoriesSearch.innerHTML="";
+      let pi=document.createElement('p');
+      pi.innerHTML="CATEGORIES";
+      pi.classList.add('boldest');
+      categoriesSearch.append(pi);
+      data.forEach(el => {
+          if(el.name.includes(vaalu)){
+              if(cullu <=2){
+                //   in quick search 
+                let p=document.createElement('p');
+              p.innerHTML=el.name;
+              quickSearch.append(p);
+              
+              }
+            //   in categories 
+              let pi=document.createElement('p');
+              if(!tempVarArr.includes(el.option)){
+                  tempVarArr.push(el.option);
+                  pi.innerHTML=el.option;
+                  categoriesSearch.append(pi);
+              }
+             cullu+=1;
+          }       
+      });
+      if(cullu==0){
+            let p=document.createElement('p');
+           p.innerHTML="No Quick Search Suggestion";
+           quickSearch.append(p);
+            let pi=document.createElement('p');
+           pi.innerHTML="No Categories Suggestion";
+         categoriesSearch.append(pi);
+        }
+
+      
+      
+}
 
 // hover show and hide on nav bar
 // var elemento=document.querySelectorAll('.fa-chevron-right');
