@@ -198,9 +198,19 @@ document.getElementById('hidesearchings').addEventListener('click', function(){
 let hideput=document.getElementById('hideput');
 let suggestings=document.getElementById('suggestings');
 hideput.addEventListener('input',(e)=>{
-    
      if(e.target.value.length>=2){
           suggestings.style.display='block';
+          async function getData() {
+            try {
+              let res = await fetch("http://localhost:3000/products/");
+              let data = await res.json();
+            //   console.log(data);
+            //   showsuggestions(data);
+            } catch (err) {
+              console.log(err);
+            }
+          }
+          getData();
           
     }
     else{
@@ -208,7 +218,9 @@ hideput.addEventListener('input',(e)=>{
         
     }
 }) 
+// showsuggestions(data){
 
+// }
 
 // hover show and hide on nav bar
 // var elemento=document.querySelectorAll('.fa-chevron-right');
