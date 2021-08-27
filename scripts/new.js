@@ -88,6 +88,9 @@ function showItems(l) {
       " font-family: Montserrat Light,sans-serif; font-weight: 400;line-height: 1.65;color: #12284c;font-size: 14px;"
     );
 
+    img.style.width = "80%";
+    img.style.height = "80%"
+
     img.addEventListener("click", function () {
       addtoVisited(el);
     });
