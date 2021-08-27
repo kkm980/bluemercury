@@ -172,18 +172,50 @@ prev.addEventListener('click', () => {
     a = 0;
     b = 4
 });
+//search field appear
+function appearSearch(){
+    document.getElementById('searchings').style.display='flex';
+    document.getElementById('hideput').value="";
+}
+//search field hiding
+document.getElementById('hidesearchings').addEventListener('click', function(){
+    document.getElementById('searchings').style.display='none';
+    // console.log('hi');
+});
 
 
+function showing(id1,id2){
+    let menuContainergetting1 = document.getElementById(id1);
+    menuContainergetting1.style.visibility = "visible";
+    menuContainergetting1.style.display = "block";
+    let menuContainergetting2 = document.getElementById(id2);
+    menuContainergetting2.style.visibility = "visible";
+    menuContainergetting2.style.display = "block";
+}
+function hiding(id1,id2){
+    let menuContainergetting1 = document.getElementById(id1);
+    menuContainergetting1.style.visibility = "hidden";
+    menuContainergetting1.style.display = "none";
+    let menuContainergetting2 = document.getElementById(id2);
+    menuContainergetting2.style.visibility = "hidden";
+    menuContainergetting2.style.display = "none";
+}
 
+function showItm(idx) {
+    let menuContainergetting = document.getElementById(idx);
+    menuContainergetting.style.visibility = "visible";
+    menuContainergetting.style.display = "flex";
+    menuContainergetting.style.color = "black";
+    menuContainergetting.style.zIndex = "35";
+    menuContainergetting.style.opacity="1";
+}
+function hideItm(idx) {
+    let menuContainergetting = document.getElementById(idx);
+    menuContainergetting.style.visibility = "hidden";
+    menuContainergetting.style.display = "none";
+    menuContainergetting.style.opacity="0";
+}
 
-// next.addEventListener('click', nextSlide);
-
-// function nextSlide() {
-//     next.style.width = '100px';
-//     //console.log(startIndex)
-//     console.log("clicked");
-//     productShow(lastIndex, numOfProd);
-// }
 
 
 /******************************

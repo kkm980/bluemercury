@@ -9,7 +9,7 @@ const router = express.Router();
 const Product = require("../models/product.model.js");
 
 
-// <----------------------------------CRUD Operation----------------------------------->
+// <----------------------------------CRUD Operation for products----------------------------------->
 
 // post products to the database 
 

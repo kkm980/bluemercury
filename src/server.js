@@ -12,8 +12,10 @@ app.use(express.json())
 // Controller
 
 const productController = require("./controllers/product.controller");
+const userController = require("./controllers/user.controller");
 
-app.use("/products", productController)
+app.use("/products", productController);
+app.use("/users", userController);
 
 app.listen(PORT, () => console.log(`Bluemercury is connected successfully to Express. Listening on port ${PORT}.`));
 
