@@ -351,6 +351,7 @@ function slideshowOffer() {
     slide_text.append(p);
   }, 5000);
 }
+
 slideshowOffer();
 // NavBar Slide End
 
@@ -368,16 +369,22 @@ function myFunction() {
 /***************************
 Filtering
 ****************************/
+// default filteredArr in localstorage
+localStorage.setItem("filteredArr", JSON.stringify([]));
 
-function change() {
+// Filter By Brands
+function filterBrand() {
   var modelCbs = document.querySelectorAll(".models input[type='checkbox']");
   var filters = {
     models: getClassOfCheckedCheckboxes(modelCbs),
   };
 
-  let items = JSON.parse(localStorage.getItem('items'));
+  //let items = JSON.parse(localStorage.getItem('items'));
 
-  let filterArr = [];
+  let res = await fetch("http://localhost:3000/products/");
+  let items = await res.json();
+  
+  let filterArr = []//JSON.parse(localStorage.getItem('filteredArr'));
 
   for (let i = 0; i < items.length; i++) {
     filters.models.forEach((el) => {
@@ -395,6 +402,58 @@ function change() {
   } else {
     showItems(items);
   }
+
+  myFunction();
+}
+
+// Filter by priceBracket
+
+function filterPrice() {
+  var modelCbs = document.querySelectorAll(".priceBracket input[type='checkbox']");
+  var filters = {
+    models: getClassOfCheckedCheckboxes(modelCbs),
+  };
+
+  let items = JSON.parse(localStorage.getItem('items'));
+  let filterArr = []; //JSON.parse(localStorage.getItem('filteredArr'));
+
+  for (let i = 0; i < items.length; i++) {
+    filters.models.forEach((el) => {
+      switch (el) {
+        case "price1":
+          if (items[i].price >= 10 && items[i].price <= 50) {
+            filterArr.push(items[i]);
+            break;
+          }
+        case "price2":
+          if (items[i].price >= 51 && items[i].price <= 100) {
+            filterArr.push(items[i]);
+            break;
+          }
+        case "price3":
+          if (items[i].price >= 101 && items[i].price <= 150) {
+            filterArr.push(items[i]);
+            break;
+          }
+        case "price4":
+          if (items[i].price >= 151 && items[i].price <= 200) {
+            filterArr.push(items[i]);
+            break;
+          }
+        default: break;
+      }
+    });
+  }
+  //console.log(filterArr)
+  localStorage.setItem("filteredArr", JSON.stringify(filterArr));
+
+  if (filterArr != null && filterArr.length != 0) {
+    showItems(filterArr);
+  } else {
+    showItems(items);
+  }
+
+  myFunction();
 }
 
 function getClassOfCheckedCheckboxes(checkboxes) {

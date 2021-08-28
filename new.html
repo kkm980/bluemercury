@@ -335,7 +335,7 @@
                         <input type="checkbox" id="Bath Salts" name="Bath Salts" value="Bath Salts">
                         <label for="Bath Salts" class="FilterName">Bath Salts</label><br>
                         <input type="checkbox" id="Blemish And Acne Treatments" name="Blemish And Acne Treatments" value="Blemish And Acne Treatments">
-                        <label for="Blemish And Acne Treatments" class="FilterName">Blemish And Acne</label><br>
+                        <label for="Blemish And Acne Treatments" class="FilterName">Blemish And Acne Treatments</label><br>
                         <input type="checkbox" id="Cleansers" name="Cleansers" value="Cleansers">
                         <label for="Cleansers" class="FilterName">Cleansers</label><br>
                         <input type="checkbox" id="Dry Shampoos" name="Dry Shampoos" value="Dry Shampoos">
@@ -356,15 +356,15 @@
                 </div>
                 <div id="myDropdown_brand" class="dropdown-content models">
                     <form>
-                        <input type="checkbox" class="checkbox" id="Deborah_Lippmann" onclick="change()" name="Deborah_Lippmann" value="Deborah_Lippmann">
-                        <label for="Deborah_Lippmann" class="FilterName"> Deborah_Lippmann</label><br>
-                        <input type="checkbox" id="LAFCO" onclick="change()" name="LAFCO" value="LAFCO">
+                        <input type="checkbox" class="checkbox" id="Deborah_Lippmann" onclick="filterBrand()" name="heist" value="Deborah_Lippmann">
+                        <label for="Deborah_Lippmann" class="FilterName">Heist</label><br>
+                        <input type="checkbox" id="LAFCO" onclick="filterBrand()" name="LAFCO" value="LAFCO">
                         <label for="LAFCO" class="FilterName"> LAFCO</label><br>
-                        <input type="checkbox" id="PHYTO" onclick="change()" name="PHYTO" value="PHYTO">
+                        <input type="checkbox" id="PHYTO" onclick="filterBrand()" name="PHYTO" value="PHYTO">
                         <label for="PHYTO" class="FilterName"> PHYTO</label><br>
-                        <input type="checkbox" id="Acqua" onclick="change()"  name="Acqua Di Parma" value="Acqua Di Parma">
+                        <input type="checkbox" id="Acqua" onclick="filterBrand()"  name="Acqua Di Parma" value="Acqua Di Parma">
                         <label for="Acqua Di Parma" class="FilterName">Acqua Di Parma</label><br>
-                        <input type="checkbox" id="KLORANE" onclick="change()" name="KLORANE" value="KLORANE">
+                        <input type="checkbox" id="KLORANE" onclick="filterBrand()" name="KLORANE" value="KLORANE">
                         <label for="KLORANE" class="FilterName">KLORANE</label><br>
                     </form>
                 </div>
@@ -432,17 +432,17 @@
                         </svg>
                     </span>
                 </div>
-                <div id="myDropdown_price" class="dropdown-content">
+                <div id="myDropdown_price" class="dropdown-content priceBracket">
                     <form>
-                        <input type="checkbox" id="ABEL" name="ABEL" value="ABEL">
+                        <input type="checkbox" id="price1" name="price1" value="10to50" onclick="filterPrice()">
                         <label for="ABEL" class="FilterName">$10 - $50</label><br>
-                        <input type="checkbox" id="LAFCO" name="LAFCO" value="LAFCO">
+                        <input type="checkbox" id="price2" name="price2" value="51to100" onclick="filterPrice()">
                         <label for="LAFCO" class="FilterName">$51 - $100</label><br>
-                        <input type="checkbox" id="vehicle3" name="PHYTO" value="PHYTO">
+                        <input type="checkbox" id="price3" name="price3" value="101to150" onclick="filterPrice()">
                         <label for="PHYTO" class="FilterName">$101 - $150</label><br>
-                        <input type="checkbox" id="Acqua" name="Acqua Di Parma" value="Acqua Di Parma">
+                        <input type="checkbox" id="price4" name="price4" value="151to200" onclick="filterPrice()">
                         <label for="Acqua Di Parma" class="FilterName">$151 - $200</label><br>
-                        <input type="checkbox" id="KLORANE" name="KLORANE" value="KLORANE">
+                        <input type="checkbox" id="price5" name="price5" value="201andabove" onclick="filterPrice()">
                         <label for="KLORANE" class="FilterName">$201 and above</label><br>
                     </form>
                 </div>
