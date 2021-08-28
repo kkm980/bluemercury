@@ -364,7 +364,7 @@ function addtoVisited(obj) {
   let singleProdArr = [];
   singleProdArr.push(obj);
 
-  window.location.href = "product.html";
+  // window.location.href = "product.html";
 }
 
 // Sign-up button change

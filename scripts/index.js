@@ -203,17 +203,17 @@ hideput.addEventListener('input',(e)=>{
      if(e.target.value.length>=2){
          let vaalu=e.target.value.trim().replace(/\s/g, "");
           suggestings.style.display='block';
-          async function getData() {
+          async function gettingData() {
             try {
               let res = await fetch("http://localhost:3000/products/");
               let data = await res.json();
-              console.log(data);
+            //   console.log(data);
              showsuggestions(data, vaalu);
             } catch (err) {
               console.log(err);
             }
           }
-          getData();
+          gettingData();
           
     }
     else{
@@ -221,6 +221,46 @@ hideput.addEventListener('input',(e)=>{
         
     }
 }) 
+
+// taking to product page on enter button pressed on input box
+
+hideput.addEventListener("keyup", function (event) {
+  
+    // Checking if key pressed is ENTER or not
+    // if the key pressed is ENTER
+    // click listener on button is called
+    if (event.key ==="Enter" && hideput.value.length>=2) {
+        console.log(hideput.value.length);
+        async function gettingData() {
+            try {
+              let res = await fetch("http://localhost:3000/products/");
+              let data = await res.json();
+            //   console.log(data);
+             var ViewObj=[];
+             data.forEach(el=>{
+                 if(el.name.includes(hideput.value)){
+                     ViewObj.push(el);
+                     
+
+                 }
+             })
+              localStorage.setItem('ViewObj', JSON.stringify(ViewObj));
+              console.log(JSON.stringify(ViewObj));
+             
+             console.log(ViewObj);
+            } catch (err) {
+              console.log(err);
+            }
+           
+          }
+         
+          gettingData(); 
+              window.location.href="./customedproducts.html";
+       window.location.target="_blank";
+        
+    } 
+   
+});
 // appending in suggestion box 
 
 function showsuggestions(data, vaalu){
