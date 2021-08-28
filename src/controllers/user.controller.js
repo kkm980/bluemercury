@@ -1,11 +1,9 @@
-//USER CONTROLLER
 
-//create a router
 const express = require("express");
 const router = express.Router();
 
 //models
-const User = require("../models/user.model.js");
+const User = require("../models/user.model");
 
 
 // <----------------------------------CRUD Operation for users----------------------------------->
@@ -49,6 +47,7 @@ router.post("/", async (request, response) => {
         return response.send(results);
     }
     catch (err) {
+        console.log("im here")
         response.status(401).send(err.message);
     }
 });

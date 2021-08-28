@@ -1,13 +1,22 @@
 /*********************
 Body
 *********************/
-
+*{
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+}
 body {
   font-family: Montserrat light,sans-serif;
   font-weight: 500;
   font-size: 12px;
   letter-spacing: 1px;
   margin: 0px;
+}
+/* fictional class to stop scrolling when suggestion box appears */
+.stop-scrolling {
+  height: 100%;
+  overflow: hidden;
 }
 
 a {
@@ -24,6 +33,7 @@ Start: Navigation bar
 #main_nav {
   position: sticky;
   top: 0;
+  z-index: 10;
   display: flex;
   flex-direction: column;
   /* box-shadow: 0px 0px 3px 0px #12284C; */
@@ -37,7 +47,7 @@ Start: Navigation bar
 
 .top_part {
   display: flex;
-  padding: 10px 50px;
+  padding: 0px 50px;
 }
 
 .top_part > div {
@@ -133,10 +143,141 @@ End: Navigation bar
 **********************/
 
 
+/*********************
+Start: Search field
+**********************/
 
-/************************
+.seemings{
+  cursor: pointer;
+}
+.searchings{
+  width: 100%;
+  position: relative;
+  top: 20px;
+  z-index: 5;
+  /* align-items: center; */
+  /* display: flex; */
+  /* flex-direction: row; */
+  /* justify-content:start; */
+  /* padding-left: 10%; */
+  /* background-color: white; */
+  /* display: none; */
+  flex-direction: column;
+  background-color: white;
+  display: none;
+  
+} 
+.firstWrapping{
+  display: flex;
+  flex-direction: row;
+  padding-left: 10%;
+  justify-content:start; 
+  align-items: center;
+
+}
+.fa-search, .fa-times{
+  font-size: 20px;
+  font-weight:lighter;
+  
+}
+.fa-times:hover{
+  color: red;
+  cursor: pointer;
+}
+.hideput{
+  orientation: 0px;
+  padding-left: 5px;
+ width: 80%;
+ margin: 0 5px;
+ border: 0px;
+ height: 40px;
+ color: rgb(0, 149, 142);
+ padding-bottom: 5px;
+ outline: none;
+}
+
+
+
+/*************************
+End: Search field
+*************************/
+
+
+/*************************
+Start: Suggestion box
+*************************/
+.boldest{
+  font-size: large;
+  font-weight: 700;
+}
+.suggestings{
+  /* z-index: 3; */
+  background-color: white;
+  /* position: relative; */
+  /* top: 5px; */
+  padding-left: 10%;
+  display:none;
+}
+.flexSuggest{
+  margin-top: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+}
+.hr{
+  width: 85%;
+  margin-top: 15px;
+}
+.flexingOne{
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  margin-right: 5%;
+}
+.flexingOne>div{
+  margin-bottom: 15px;
+  margin-top: 15px;
+  cursor: pointer;
+}
+.flexingOne>div>p{
+  margin-top: 10px;
+  cursor: pointer;
+}
+.flexingTwo{
+  margin-top: 25px;
+  width: 40%;
+   /* border: 1px solid red; */
+  display: flex;
+  flex-direction: column;
+}
+.intFlex{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.resultings{
+  display: flex;
+  flex-direction: row;
+}
+.viewAlls{
+  margin-left: 10px;
+  cursor: pointer;
+}
+.prodResView{
+  display: grid;
+  grid-template-columns: 50% 50%;
+  margin-top: 10px;
+}
+.prodResView>div{
+  margin-bottom: 15px;
+}
+/*************************
+End: Suggestion box
+*************************/
+
+/*****************************
 Start: Dropdown on hover
-************************/
+******************************/
 
 .menu {
   font-family: 'Montserrat', sans-serif;
@@ -146,6 +287,7 @@ Start: Dropdown on hover
 }
 .menu a {
   position: relative;
+  top: 0px;
   z-index: 2;
   display: block;
   letter-spacing: 0.01rem;
@@ -171,18 +313,20 @@ Start: Dropdown on hover
     /* margin: 80px 0px; */
     /* padding-left: 500px; */
     /* margin-right: 2%; */
-    border-top: 0.5px solid grey;
+    
+  
+   border-top: 0.5 px solid gray;
+   
     right: 0%;
     padding: 20px 0px;
     padding-left: 20%;
-    
     width: 100%;
     background-color: rgb(255, 255, 255);
     display: flex;
     flex-direction: row;
-    position: absolute;
+    position:fixed;
     z-index: 3;
-  visibility: hidden;
+  /* visibility: hidden; */
   opacity: 0;
   transition-property: visibility, opacity;
   transition-duration: 0.2s, 0.2s;
@@ -198,7 +342,7 @@ Start: Dropdown on hover
 }
 .floating1{
     padding-right: 8%;
-    /* border: 1px solid red; */
+     border-right: 1px solid black;
 }
 
 .combino{
@@ -224,15 +368,23 @@ Start: Dropdown on hover
 }
 .combino:hover>.individ{
           font-weight:700;
+         
 
 }
 
 .floating2, .floating3, .floating4{
+    /* border:2px solid red; */
+    /* width: 1000%; */
     /* display: none; */
-         margin-right: 7%;
-         padding-right: 7%;
+    /* margin-top: 20px; */
+         margin-right: 3%;
+         padding-right: 3%;
+         margin-left: 7%;
          display: none;
-         visibility: hidden;
+         /* visibility: hidden; */
+}
+.boldtxt{
+  font-weight: 700;
 }
 .floating2>div, .floating3>div, .floating4>div{
     /* display: none; */
@@ -295,6 +447,13 @@ Start: Carousel Section
 /*************************
 End: Carousel Section
 *************************/
+/*************************
+
+
+
+
+Start: Product display grid
+*************************/
 
 #items {
   display: grid;
@@ -307,6 +466,16 @@ End: Carousel Section
   margin-left: 2% !important;
   float: right;
 }
+
+/*************************
+End: Product display grid
+*************************/
+
+
+
+/*************************
+Start: New Arrivals
+*************************/
 .new_arrivals {
   width: 73%;
   float: right;
@@ -424,10 +593,10 @@ End: Carousel Section
   background-color: white;
 }
 
-.dropdown {
+/* .dropdown {
   position: relative;
   display: inline-block;
-}
+} */
 
 .dropdown-content {
   display: none;
@@ -437,26 +606,25 @@ End: Carousel Section
   margin-top: 0px;
   overflow: auto;
   box-sizing: border-box;
-  /* box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2); */
+
   z-index: 1;
   width: 20px;
   height: 100px;
   background: #fff;
   border: 0px solid #c4c9ca;
   border-radius: 3px;
-  /* margin: auto 10px auto 0; */
 }
 
-.dropdown-content a {
+/* .dropdown-content a {
   color: black;
-  /* padding: 12px 16px; */
+
   text-decoration: none;
   display: block;
 }
 
 .dropdown a:hover {
   background-color: #ddd;
-}
+} */
 
 .show {
   display: block;

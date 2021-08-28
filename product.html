@@ -16,6 +16,8 @@
     <link rel="icon"
         href="//cdn.shopify.com/s/files/1/0283/0185/2747/files/favicon_48x48.png?v=1591627636 type ='image/icon'">
     <link rel="stylesheet" href="./style/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/c347e400e5.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -44,8 +46,8 @@
                             Wishlist
                         </a>
                     </li>
-                    <li>
-                        <a href="http://www.google.com" class="navlink">
+                    <li class="seemings" onclick="appearSearch()">
+                        <a class="navlink">
                             <i class="fa fa-search" aria-hidden="true"></i>
                             Search
                         </a>
@@ -69,11 +71,151 @@
         <div class="bottom_part">
             <div class="main_menu">
                 <ul class="menu">
-                    <li class="dropdown">
+                    <li class="dropdown" onmouseover="showItm('floater1')" onmouseout="hideItm('floater1')" >
                         <a class="navlink">
                             Shop
                         </a>
-                        <ul class="dropdown-nav">
+                        <div class="floaterOne" id="floater1">
+                            <div class="floating1">
+                                <div class="combino" onmouseover="showing('floating2-one','floating3-one')" 
+
+                                onmouseout="hiding('floating2-one','floating3-one')"
+                                >
+                                    <div class="individ" >SKIN CARE</div>
+                                    <div ><i class="fas fa-chevron-right"></i></div>
+                                </div>
+                                <div class="combino" onmouseover="showing('floating2-two','floating3-two')"
+                                
+                                onmouseout="hiding('floating2-two','floating3-two' )"
+                                >
+                                    <div class="individ" >MAKEUP</div>
+                                    <div ><i class="fas fa-chevron-right "></i></div>
+                                </div>
+                                <div class="combino" onmouseover="showing('floating2-three','floating3-three')"
+                                 onmouseout="hiding('floating2-three','floating3-three' )" 
+                                 >
+                                    <div class="individ">BATH & BODY</div>
+                                    <div ><i class="fas fa-chevron-right"></i></div>
+                                </div>
+                                <div class="combino">
+                                    <div class="individ">HAIR</div>
+                                    <div ><i class="fas fa-chevron-right"></i></div>
+                                </div>
+                                <div class="combino">
+                                    <div class="individ">SUN & TAN</div>
+                                    <div ><i class="fas fa-chevron-right"></i></div>
+                                </div>
+                                <div class="combino">
+                                  <div class="individ">MEN</div>
+                                  <div ><i class="fas fa-chevron-right"></i></div>
+                                </div>
+                                 <div class="combino">
+                                     <div class="individ">GIFTS</div>
+                                     <div ><i class="fas fa-chevron-right"></i></div>
+                                 </div>
+                                 <div class="combino">
+                                     <div class="individ">SCENTS & HOME</div>
+                                     <div ><i class="fas fa-chevron-right"></i></div>
+                                 </div>
+                                <div class="combino">
+                                    <div class="individ">TOOLS & ACCESSORIES</div>
+                                    <div ><i class="fas fa-chevron-right"></i></div>
+                                </div>
+                                <div class="combino">
+                                    <div class="individ">BEST SELLERS</div>
+                                    <div ><i class="fas fa-chevron-right"></i></div>
+                                </div>
+                                <div class="combino">
+                                    <div class="individ">CONSCIOUS BEAUTY</div>
+                                    <div ><i class="fas fa-chevron-right"></i></div>
+                                </div>
+                                <div class="combino">
+                                    <div class="individ">SALE + FREE GIFTS!</div>
+                                    <div ><i class="fas fa-chevron-right"></i></div>
+                                </div>
+                                
+                            </div>
+                            <div class="floating2 showdefault floating2-one" id="floating2-one">
+                                <div class="individ boldtxt">BY CATEGORY</div>
+                                <div class="individ">Shop All</div>
+                                <div class="individ">Beauty Supplements</div>
+                                <div class="individ">Cleanliness</div>
+                                <div class="individ">Eye Care</div>
+                                <div class="individ">Masks</div>
+                                <div class="individ">Moisturizer</div>
+                                <div class="individ">Sets</div>
+                                <div class="individ">Sun Care</div>
+                                <div class="individ">Tools & Accessories</div>
+                                <div class="individ">Treatment & Serum</div>
+                            </div>
+                            <div class="floating2 floating2-two" id="floating2-two">
+                                <div class="individ boldtxt">BY CATEGORY</div>
+                                <div class="individ">Shop All</div>
+                                <div class="individ">Brushes & Applicant</div>
+                                <div class="individ">Eyes</div>
+                                <div class="individ">Face</div>
+                                <div class="individ">Lips</div>
+                                <div class="individ">Nails</div>
+                                <div class="individ">Paletts & Sets</div>
+                                <div class="individ">Tools & Accessories</div>
+                            </div>
+                            <div class="floating2 floating2-three" id="floating2-three">
+                                <div class="individ boldtxt">BY CATEGORY</div>
+                                <div class="individ">Shop All</div>
+                                <div class="individ">Bath & Shower</div>
+                                <div class="individ">Beauty Suppliments</div>
+                                <div class="individ">Body Care & Grooming</div>
+                                <div class="individ">Body Moisturizers</div>
+                                <div class="individ">Hand Wash</div>
+                                <div class="individ">Intimate Care</div>
+                                <div class="individ">Mother & Baby</div>
+                                <div class="individ">Self Care & Wellness</div>
+                                <div class="individ">Self Tanning & Branzy</div>
+                                <div class="individ">Sun Care</div>
+                                <div class="individ">Tools & Accessories</div>
+                            </div>
+                            <div class="floating3 showdefault floating3-one" id="floating3-one">
+                                <div class="individ boldtxt">FEATURED</div>
+                                <div class="individ">Best Sellers</div>
+                                <div class="individ">New Arrivals</div>
+                                <div class="individ">Anti-Aging</div>
+                                <div class="individ">Antibiotics</div>
+                                <div class="individ">Face Massage</div>
+                                <div class="individ">Skincare Tools</div>
+                                <div class="individ">Supplements</div>
+                                <div class="individ">Vegan Skincare</div>
+                                <div class="individ">Vitamin C</div>
+                                <div class="individ">Travel Size</div>
+                            </div>
+                            <div class="floating3 floating3-two" id="floating3-two">
+                                <div class="individ boldtxt">FEATURED</div>
+                                <div class="individ">Best Sellers</div>
+                                <div class="individ">New Arrivals</div>
+                                <div class="individ">Foundation</div>
+                                <div class="individ">Get Your Glow!</div>
+                                <div class="individ">Mascaras</div>
+                                <div class="individ">Vegan Makeover</div>
+                            </div>
+                            <div class="floating3 floating3-three" id="floating3-three">
+                                <div class="individ boldtxt">FEATURED</div>
+                                <div class="individ">Best Sellers</div>
+                                <div class="individ">New Arrivals</div>
+                                <div class="individ">At Home Spa</div>
+                                <div class="individ">Bath Soaks</div>
+                                <div class="individ">Cellulites</div>
+                                <div class="individ">Ingridients</div>
+                                <div class="individ">Sleep Health</div>
+                                <div class="individ">Travel Size</div>
+                            </div>
+                            <div class="floating4 floating4-one">
+                                <div class="individ boldtxt">FEATURED</div>
+                                <div class="individ">Best Sellers</div>
+                                <div class="individ">New Arrivals</div>
+                            </div>
+                            
+                        </div>
+                       
+                        <!-- <ul class="dropdown-nav">
                             <li><a href="new.html">SKIN CARE</a></li>
                             <li><a href="new.html">MAKEUP</a></li>
                             <li><a href="new.html">BATH &amp; BODY</a></li>
@@ -86,7 +228,7 @@
                             <li><a href="new.html">BEST SELLERS</a></li>
                             <li><a href="new.html">CONSCIOUS BEAUTY</a></li>
                             <li><a href="new.html">SALE + FREE GIFTS!</a></li>
-                        </ul>
+                        </ul> -->
                     </li>
                     <li>
                         <a href="new.html" class="navlink">
@@ -118,7 +260,55 @@
         </div>
     </nav>
     <!-- NavBar End -->
+  <!--Search bar section-->
 
+  <div class="searchings" id="searchings">
+    <div class="firstWrapping">
+        <i class="fas fa-search"></i>
+        <input class="hideput" id="hideput" placeholder="SEARCH..." type="text">
+        <i class="fas fa-times" id="hidesearchings"></i>
+    </div>
+    <div class="secondWrapping">
+        <div class="suggestings" id="suggestings">
+            <hr class="hr">
+            <div class="flexSuggest">
+                <div class="flexingOne">
+                    <div class="quickSearch" id="quickSearch">
+                        
+                        <!-- <P>No Quick Search Suggestion</P> -->
+                    </div>
+                    <hr class="quickHR">
+                    <div class="categoriesSearch" id="categoriesSearch">
+                        <p class="boldest">CATEGORIES</p>
+                        <!-- <P>Beauty Supplements</P>
+                        <P>Beauty Supplements</P>
+                        <P>Beauty Supplements</P> -->
+                    </div>
+                </div>
+                <div class="flexingTwo">
+                    <div class="intFlex">
+                        <div class="boldest">PRODUCTS</div>
+                        <div class="resultings">
+                            <div id="viewings" class="viewings"></div>
+                            <div class="boldest viewAlls">VIEW ALL</div>
+                        </div>
+                    </div>
+                    <div class="prodResView">
+                        <div class="itemlistsings" ></div>
+                        <div class="itemlistsings"></div>
+                        <div class="itemlistsings"></div>
+                        <div class="itemlistsings"></div>
+                        <div class="itemlistsings"></div>
+                        <div class="itemlistsings"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+   <!-- Suggestion boxes on input values -->
     <!--Carousel section Start-->
     <div class="carousel-section">
         <div class="announcement-bar" id="slide-text"></div>
@@ -144,20 +334,20 @@
 
     <div id="product_content">
         <div id="product_deatils">
-            <h2 id="prod-company-name">SKINCEUTICALS</h2>
-            <h1 id="prod-title-name">Daily Brightening UV Defense SPF 30</h1>
-            <span style="font-size: 16px;"><div id="dynamic-price">$54</div> <i class="material-icons"
+            <h2 id="prod-company-name"></h2>
+            <h1 id="prod-title-name"></h1>
+            <span style="font-size: 16px;"><div id="dynamic-price"></div> <i class="material-icons"
                     style="color: rgb(204, 210, 216); font-size: large;">star_rate</i><i
                     class="material-icons" style="color: rgb(204, 210, 216); font-size: large;">star_rate</i><i
                     class="material-icons" style="color: rgb(204, 210, 216); font-size: large;">star_rate</i><i
                     class="material-icons" style="color: rgb(204, 210, 216); font-size: large;">star_rate</i><i
                     class="material-icons" style="color: rgb(204, 210, 216); font-size: large;">star_rate</i>(0)</span>
-            <div class="detail_line">Dual-action daily hydrating sunscreen. See More</div>
+            <div class="detail_line" id="detail_lines"></div>
             <div>
                 <button id="remove_count" class="quantitySelector_btn">-</button>
                 <div id="product_count" class="product_count">1</div>
                 <button id="add_count" class="quantitySelector_btn">+</button>
-                <button id="add_to_bag">ADD TO BAG | $ </button>
+                <button id="add_to_bag"></button>
             </div>
             <div class="container">4 interest-free payments of $13.50. Klarna. Learn more</div>
             <div id="wishlist_btn"><i class="material-icons">favorite_border</i><a

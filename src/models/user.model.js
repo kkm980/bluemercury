@@ -7,13 +7,15 @@ const { Schema } = mongoose;
 const userSchema = new Schema({
     email: { type: String, required: true },
     password: { type: String, required: true },
-    first_Name: { type: String, required: true },
-    last_Name: { type: String, required: true },
-    birthday: { type: String, required: true },
-}, {timestamps: false, versionKey: false});
+    first_name: { type: String, required: true },
+    last_name: { type: String, required: true },
+    order_ids: [{ type: String, required: false }],
+    cart_items: [{ type: String, required: false }],
+    wishlist_items: [{ type: String, required: false }],
+}, {timestamps: true, versionKey: false});
 
 //creating model for user
-const User = mongoose.model("User", userSchema);
+const User = mongoose.model("user", userSchema);
 
 //export
 module.exports = User;

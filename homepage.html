@@ -75,15 +75,23 @@
                         </a>
                         <div class="floaterOne" id="floater1">
                             <div class="floating1">
-                                <div class="combino" onmouseover="showing('floating2-one','floating3-one')" onmouseout="hiding('floating2-one','floating3-one')">
+                                <div class="combino" onmouseover="showing('floating2-one','floating3-one')" 
+
+                                onmouseout="hiding('floating2-one','floating3-one')"
+                                >
                                     <div class="individ" >SKIN CARE</div>
                                     <div ><i class="fas fa-chevron-right"></i></div>
                                 </div>
-                                <div class="combino" onmouseover="showing('floating2-two','floating3-two')" onmouseout="hiding('floating2-two','floating3-two' )">
+                                <div class="combino" onmouseover="showing('floating2-two','floating3-two')"
+                                
+                                onmouseout="hiding('floating2-two','floating3-two' )"
+                                >
                                     <div class="individ" >MAKEUP</div>
                                     <div ><i class="fas fa-chevron-right "></i></div>
                                 </div>
-                                <div class="combino" onmouseover="showing('floating2-three','floating3-three')" onmouseout="hiding('floating2-three','floating3-three' )">
+                                <div class="combino" onmouseover="showing('floating2-three','floating3-three')"
+                                 onmouseout="hiding('floating2-three','floating3-three' )" 
+                                 >
                                     <div class="individ">BATH & BODY</div>
                                     <div ><i class="fas fa-chevron-right"></i></div>
                                 </div>
@@ -125,8 +133,8 @@
                                 </div>
                                 
                             </div>
-                            <div class="floating2 floating2-one" id="floating2-one">
-                                <div class="individ">BY CATEGORY</div>
+                            <div class="floating2 showdefault floating2-one" id="floating2-one">
+                                <div class="individ boldtxt">BY CATEGORY</div>
                                 <div class="individ">Shop All</div>
                                 <div class="individ">Beauty Supplements</div>
                                 <div class="individ">Cleanliness</div>
@@ -139,7 +147,7 @@
                                 <div class="individ">Treatment & Serum</div>
                             </div>
                             <div class="floating2 floating2-two" id="floating2-two">
-                                <div class="individ">BY CATEGORY</div>
+                                <div class="individ boldtxt">BY CATEGORY</div>
                                 <div class="individ">Shop All</div>
                                 <div class="individ">Brushes & Applicant</div>
                                 <div class="individ">Eyes</div>
@@ -150,7 +158,7 @@
                                 <div class="individ">Tools & Accessories</div>
                             </div>
                             <div class="floating2 floating2-three" id="floating2-three">
-                                <div class="individ">BY CATEGORY</div>
+                                <div class="individ boldtxt">BY CATEGORY</div>
                                 <div class="individ">Shop All</div>
                                 <div class="individ">Bath & Shower</div>
                                 <div class="individ">Beauty Suppliments</div>
@@ -164,8 +172,8 @@
                                 <div class="individ">Sun Care</div>
                                 <div class="individ">Tools & Accessories</div>
                             </div>
-                            <div class="floating3 floating3-one" id="floating3-one">
-                                <div class="individ">FEATURED</div>
+                            <div class="floating3 showdefault floating3-one" id="floating3-one">
+                                <div class="individ boldtxt">FEATURED</div>
                                 <div class="individ">Best Sellers</div>
                                 <div class="individ">New Arrivals</div>
                                 <div class="individ">Anti-Aging</div>
@@ -178,7 +186,7 @@
                                 <div class="individ">Travel Size</div>
                             </div>
                             <div class="floating3 floating3-two" id="floating3-two">
-                                <div class="individ">FEATURED</div>
+                                <div class="individ boldtxt">FEATURED</div>
                                 <div class="individ">Best Sellers</div>
                                 <div class="individ">New Arrivals</div>
                                 <div class="individ">Foundation</div>
@@ -187,7 +195,7 @@
                                 <div class="individ">Vegan Makeover</div>
                             </div>
                             <div class="floating3 floating3-three" id="floating3-three">
-                                <div class="individ">FEATURED</div>
+                                <div class="individ boldtxt">FEATURED</div>
                                 <div class="individ">Best Sellers</div>
                                 <div class="individ">New Arrivals</div>
                                 <div class="individ">At Home Spa</div>
@@ -198,7 +206,7 @@
                                 <div class="individ">Travel Size</div>
                             </div>
                             <div class="floating4 floating4-one">
-                                <div class="individ">FEATURED</div>
+                                <div class="individ boldtxt">FEATURED</div>
                                 <div class="individ">Best Sellers</div>
                                 <div class="individ">New Arrivals</div>
                             </div>
@@ -251,11 +259,55 @@
     </nav>
    <!--Search bar section-->
 
-   <div class="searchings" id="searchings">
-       <i class="fas fa-search"></i>
-       <input class="hideput" id="hideput" placeholder="SEARCH..." type="text">
-       <i class="fas fa-times" id="hidesearchings"></i>
-   </div>
+<div class="searchings" id="searchings">
+    <div class="firstWrapping">
+        <i class="fas fa-search"></i>
+        <input class="hideput" id="hideput" placeholder="SEARCH..." type="text">
+        <i class="fas fa-times" id="hidesearchings"></i>
+    </div>
+    <div class="secondWrapping">
+        <div class="suggestings" id="suggestings">
+            <hr class="hr">
+            <div class="flexSuggest">
+                <div class="flexingOne">
+                    <div class="quickSearch" id="quickSearch">
+                        
+                        <!-- <P>No Quick Search Suggestion</P> -->
+                    </div>
+                    <hr class="quickHR">
+                    <div class="categoriesSearch" id="categoriesSearch">
+                        <p class="boldest">CATEGORIES</p>
+                        <!-- <P>Beauty Supplements</P>
+                        <P>Beauty Supplements</P>
+                        <P>Beauty Supplements</P> -->
+                    </div>
+                </div>
+                <div class="flexingTwo">
+                    <div class="intFlex">
+                        <div class="boldest">PRODUCTS</div>
+                        <div class="resultings">
+                            <div id="viewings" class="viewings"></div>
+                            <div class="boldest viewAlls">VIEW ALL</div>
+                        </div>
+                    </div>
+                    <div class="prodResView">
+                        
+                        <div class="itemlistsings"></div>
+                        <div class="itemlistsings"></div>
+                        <div class="itemlistsings"></div>
+                        <div class="itemlistsings"></div>
+                        <div class="itemlistsings"></div>
+                        <div class="itemlistsings"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+   <!-- Suggestion boxes on input values -->
+   
     <!--Carousel section-->
     <div class="carousel-section">
         <div class="announcement-bar" id="slide-text"></div>
@@ -350,6 +402,7 @@
             <form id="footer-mail-collect" onsubmit="overlaymsg(event)">
                 <div id="mail-submission-success-overlay">       
                     <div>
+                        <!-- <img src="https://i2.wp.com/i.pinimg.com/originals/70/a5/52/70a552e8e955049c8587b2d7606cd6a6.gif"/> -->
                         <img src="https://thumbs.gfycat.com/ShyCautiousAfricanpiedkingfisher-max-1mb.gif" alt="successful" />
                         <p id="success-msg">You will hear from us soon!</p>
                         <div onclick="overlayMsgHide()" id="hide-overlay">Done</div>

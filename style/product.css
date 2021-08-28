@@ -1,7 +1,11 @@
 /*********************
 Body
 *********************/
-
+*{
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+}
 body {
   font-family: Montserrat light,sans-serif;
   font-weight: 500;
@@ -10,6 +14,11 @@ body {
   margin: 0px;
 }
 
+/* fictional class to stop scrolling when suggestion box appears */
+.stop-scrolling {
+  height: 100%;
+  overflow: hidden;
+}
 a {
   text-decoration: none;
   color: #12284C;
@@ -24,6 +33,7 @@ Start: Navigation bar
 #main_nav {
   position: sticky;
   top: 0;
+  z-index: 10;
   display: flex;
   flex-direction: column;
   /* box-shadow: 0px 0px 3px 0px #12284C; */
@@ -37,7 +47,7 @@ Start: Navigation bar
 
 .top_part {
   display: flex;
-  padding: 10px 50px;
+  padding:0px 50px;
 }
 
 .top_part > div {
@@ -131,6 +141,262 @@ Start: Navigation bar
 /*********************
 End: Navigation bar
 **********************/
+
+
+/*************************
+Start: Search field
+*************************/
+.seemings{
+  cursor: pointer;
+}
+.searchings{
+  width: 100%;
+  position: relative;
+  top: 20px;
+  z-index: 5;
+  /* display: flex; */
+  flex-direction: column;
+  background-color: white;
+  display: none;
+  
+} 
+.firstWrapping{
+  display: flex;
+  flex-direction: row;
+  padding-left: 10%;
+  justify-content:start; 
+  align-items: center;
+
+}
+.fa-search, .fa-times{
+  font-size: 20px;
+  font-weight:lighter;
+  
+}
+.fa-times:hover{
+  color: red;
+  cursor: pointer;
+}
+.hideput{
+  orientation: 0px;
+  padding-left: 5px;
+ width: 80%;
+ margin: 0 5px;
+ border: 0px;
+ height: 40px;
+ color: rgb(0, 149, 142);
+ padding-bottom: 5px;
+ outline: none;
+}
+
+
+
+/*************************
+End: Search field
+*************************/
+
+
+
+/*************************
+Start: Suggestion box
+*************************/
+.boldest{
+  font-size: large;
+  font-weight: 700;
+}
+.suggestings{
+  /* z-index: 3; */
+  background-color: white;
+  /* position: relative; */
+  /* top: 5px; */
+  padding-left: 10%;
+  display:none;
+}
+.flexSuggest{
+  margin-top: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+}
+.hr{
+  width: 85%;
+  margin-top: 15px;
+}
+.flexingOne{
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  margin-right: 5%;
+}
+.flexingOne>div{
+  margin-bottom: 15px;
+  margin-top: 15px;
+  cursor: pointer;
+}
+.flexingOne>div>p{
+  margin-top: 10px;
+  cursor: pointer;
+}
+.flexingTwo{
+  margin-top: 25px;
+  width: 40%;
+   /* border: 1px solid red; */
+  display: flex;
+  flex-direction: column;
+}
+.intFlex{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.resultings{
+  display: flex;
+  flex-direction: row;
+}
+.viewAlls{
+  margin-left: 10px;
+  cursor: pointer;
+}
+.prodResView{
+  display: grid;
+  grid-template-columns: 50% 50%;
+  margin-top: 10px;
+}
+.prodResView>div{
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+}
+.prodResView>div>div{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2px;
+  justify-content: start;
+
+}
+/*************************
+End: Suggestion box
+*************************/
+/*****************************
+Start: Dropdown on hover
+******************************/
+
+.menu {
+  font-family: 'Montserrat', sans-serif;
+  margin: auto;
+  display: flex;
+  list-style: none;
+}
+.menu a {
+  position: relative;
+
+  z-index: 2;
+  display: block;
+  letter-spacing: 0.01rem;
+  padding: 0.7rem 1rem;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 16px;
+  transition: 0.2s;
+}
+
+.menu a:hover {
+  background: #ffffff;
+  color: #12284c;
+  font-weight: 500;
+}
+
+.dropdown > a {
+  display: flex;
+  align-items: center;
+}
+
+.floaterOne{
+    position: relative;
+    top: 10px;
+    margin: 80px 0px;
+    padding-left: 500px;
+    margin-right: 2%;
+    border-top: 0.5px solid gray;
+    left: 0%;
+    padding: 20px 0px;
+    padding-left: 20%;
+    
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    z-index: 3;
+  visibility: hidden;
+  opacity: 0;
+  transition-property: visibility, opacity;
+  transition-duration: 0.2s, 0.2s;
+  transition-timing-function: ease-in-out, linear;
+  transition-delay: 0s, 0.3s;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+  text-decoration: none solid rgb(18, 40, 76);
+  text-align: left;
+  text-transform: none;
+}
+.floating1{
+    padding-right: 8%;
+    border-right: 1px solid rgb(0, 0, 0);
+    /* border: 1px solid red; */
+}
+
+.combino{
+
+    min-width: 155px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.fa-chevron-right{
+
+    visibility: hidden;
+}
+.combino:hover>div>.fa-chevron-right{
+
+         cursor: pointer;
+       
+          visibility: visible;
+}
+.combino:hover>.individ{
+          font-weight:700;
+
+} 
+ 
+
+.floating2, .floating3, .floating4{
+
+    margin-right: 7%; 
+     margin-left: 7%;
+    padding-right: 7%;
+         display: none;
+         visibility: hidden;
+}
+.floating2>div, .floating3>div, .floating4>div{
+   
+         margin-bottom: 8px;
+         cursor: pointer;
+         text-transform: unset;
+}
+
+.boldtxt{
+   font-weight: 700;
+} 
+
+
 
 /*************************
 Start: Carousel Section
