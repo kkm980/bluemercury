@@ -1,5 +1,5 @@
 //search field appear
-
+console.log("outer abc")
 
 function appearSearch(){
   document.getElementById('searchings').style.display='flex';
@@ -46,7 +46,7 @@ hideput.addEventListener('input',(e)=>{
 // taking to product page on enter button pressed on input box
 
 hideput.addEventListener("keyup", function (event) {
-  
+
   // Checking if key pressed is ENTER or not
   // if the key pressed is ENTER
   // click listener on button is called
@@ -184,6 +184,7 @@ function showsuggestions(data, vaalu){
 
 
 
+
 // hover show and hide on nav bar
 function showing(id1,id2){
   let menuContainergetting1 = document.getElementById(id1);
@@ -226,6 +227,7 @@ function hideItm(idx) {
 
 
 // Showing product Grids
+var amounting=0;
 function showItems(l) {
   let items = l;
   let items_div = document.getElementById("items");
@@ -298,21 +300,27 @@ function showItems(l) {
       i++;
     }
     wish.addEventListener("click", switchArrayColor);
-
+     div.addEventListener('click', function(){
+      div.target="_blank";
+      window.location.href="./product.html";
+          localStorage.setItem('myViewObj', JSON.stringify(el));
+          console.log(JSON.stringify(el));
+     })
     div.append(wish, img, p_name, span_title, p_price);
     items_div.append(div);
+    amounting++;
   });
+
 }
 
-// <-------------------------------Fetching the data from online database -------------------------->
-async function getData() {
-  try {
-    let res = await fetch("http://localhost:3000/products/");
-    let data = await res.json();
-    showItems(data);
-  } catch (err) {
-    console.log(err);
-  }
+// <-------------------------------Fetching the data from customised search of user -------------------------->
+function getData() {
+    let ViewObj=localStorage.getItem('ViewObj');
+    
+  var newObj=JSON.parse(ViewObj);
+  console.log(newObj);
+  showItems(newObj);
+  
 }
 getData();
 
@@ -414,11 +422,11 @@ function addtoVisited(obj) {
 }
 
 // Sign-up button change
-
+console.log("outer abc")
 function changeAccount() {
   let signup_btn = document.getElementById("login_change");
   let check_user = JSON.parse(localStorage.getItem("current_user"));
-
+  console.log("inner abc")
   if (check_user != null) {
     signup_btn.innerHTML = `<i class="fa fa-user-circle"></i> Account`;
     signup_btn.addEventListener("click", () => {

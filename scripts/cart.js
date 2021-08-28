@@ -131,7 +131,7 @@ function changeAccount() {
   let signup_btn = document.getElementById("login_change");
   let check_user = JSON.parse(localStorage.getItem("current_user"));
 
-  if (check_user.length != 0) {
+  if (check_user != null) {
     signup_btn.innerHTML = `<i class="fa fa-user-circle"></i> Account`;
     signup_btn.addEventListener("click", () => {
       window.location.href = "myaccount.html";
