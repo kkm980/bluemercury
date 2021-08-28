@@ -375,30 +375,30 @@ cart_btn.addEventListener("click", function () {
 
 /************** MORE CHANGES DONE BELOW *************/
 
-// var current_prod = JSON.parse(localStorage.getItem('current_selected_prod'));
-// console.log("Product Page", current_prod);
+var current_prod = JSON.parse(localStorage.getItem('current_selected_prod'));
+console.log("Product Page", current_prod);
 
 document.title =myViewObj.name;
 
-document.getElementById('img_1').src = `https://via.placeholder.com/150`;
-// document.getElementById('main_img').src = current_prod[0].img;
+// document.getElementById('img_1').src = `https://via.placeholder.com/150`;
+document.getElementById('main_img').src = current_prod[0].img;
 document.getElementById('main_img').setAttribute('style', 'width: 500px;')
 
-// console.log(current_prod[0].price)
+console.log(current_prod[0].price)
 
-// var title_name = document.getElementById('prod-company-name');
-// title_name.innerHTML = current_prod[0].name;
+var title_name = document.getElementById('prod-company-name');
+title_name.innerHTML = current_prod[0].name;
 
-// var add_price = document.getElementById("dynamic-price");
-// add_price.innerHTML = "$" + current_prod[0].price;
+var add_price = document.getElementById("dynamic-price");
+add_price.innerHTML = "$" + current_prod[0].price;
 
-// var add_title = document.getElementById('prod-title-name');
-// add_title.innerHTML = current_prod[0].title;
+var add_title = document.getElementById('prod-title-name');
+add_title.innerHTML = current_prod[0].title;
 
-// var page_navigator = document.getElementById('page_navigator-span');
-// page_navigator.innerHTML = current_prod[0].title;
+var page_navigator = document.getElementById('page_navigator-span');
+page_navigator.innerHTML = current_prod[0].title;
 
-// cart_btn.append(current_prod[0].price);
+cart_btn.append(current_prod[0].price);
 
 // Sign-up button change
 

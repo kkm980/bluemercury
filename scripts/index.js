@@ -240,14 +240,16 @@ hideput.addEventListener("keyup", function (event) {
              data.forEach(el=>{
                  if(el.name.includes(hideput.value)){
                      ViewObj.push(el);
-                     
-
+                    console.log(el)
                  }
              })
+             console.log("abc")
               localStorage.setItem('ViewObj', JSON.stringify(ViewObj));
               console.log(JSON.stringify(ViewObj));
              
              console.log(ViewObj);
+             window.location.href="./customedproducts.html";
+            window.location.target="_blank";
             } catch (err) {
               console.log(err);
             }
@@ -255,8 +257,7 @@ hideput.addEventListener("keyup", function (event) {
           }
          
           gettingData(); 
-              window.location.href="./customedproducts.html";
-       window.location.target="_blank";
+              
         
     } 
    

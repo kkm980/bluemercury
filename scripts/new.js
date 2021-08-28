@@ -304,6 +304,7 @@ function showItems(l) {
   });
 }
 
+
 // <-------------------------------Fetching the data from online database -------------------------->
 async function getData() {
   try {
@@ -345,7 +346,224 @@ function slideshowOffer() {
 slideshowOffer();
 // NavBar Slide End
 
-// Feature and sorting seletive function
+
+
+/***************************
+Filtering
+****************************/
+// default filteredArr in localstorage
+localStorage.setItem("filteredArr", JSON.stringify([]));
+
+// Filter By Brands
+async function filterBrand() {
+  var modelCbs = document.querySelectorAll(".models input[type='checkbox']");
+  var filters = {
+    models: getClassOfCheckedCheckboxes(modelCbs),
+  };
+
+  let res = await fetch("http://localhost:3000/products/");
+  let items = await res.json();
+
+  let filterArr = [];
+
+  for (let i = 0; i < items.length; i++) {
+    filters.models.forEach((el) => {
+      let itemNameArr = items[i].name.split(" ");
+      if (el == itemNameArr[0]) {
+        filterArr.push(items[i])
+        return true;
+      }
+    });
+  }
+
+  localStorage.setItem("filteredArr", JSON.stringify(filterArr));
+
+  if (filterArr != null && filterArr.length != 0) {
+    showItems(filterArr);
+  } else {
+    showItems(items);
+  }
+
+  myFunction();
+}
+
+// Filter by priceBracket
+
+async function filterPrice() {
+  var modelCbs = document.querySelectorAll(".priceBracket input[type='checkbox']");
+  var filters = {
+    models: getClassOfCheckedCheckboxes(modelCbs),
+  };
+
+  let res = await fetch("http://localhost:3000/products/");
+  let items = await res.json();
+  let filterArr = []; //JSON.parse(localStorage.getItem('filteredArr'));
+
+  for (let i = 0; i < items.length; i++) {
+    
+    filters.models.forEach((el) => {
+      switch (el) {
+        case "price1":
+          if (items[i].price >= 0 && items[i].price <= 500) {
+            filterArr.push(items[i]);
+            break;
+          }
+        case "price2":
+          if (items[i].price > 500 && items[i].price <= 1000) {
+            filterArr.push(items[i]);
+            break;
+          }
+        case "price3":
+          if (items[i].price >= 1000 && items[i].price <= 1500) {
+            filterArr.push(items[i]);
+            break;
+          }
+        case "price4":
+          if (items[i].price <= 1500 && items[i].price <= 2000) {
+            filterArr.push(items[i]);
+            break;
+          }
+        case "price5":
+          if (items[i].price <= 2000) {
+            filterArr.push(items[i]);
+            break;
+          }
+        default: break;
+      }
+    });
+  }
+  localStorage.setItem("filteredArr", JSON.stringify(filterArr));
+
+  if (filterArr != null && filterArr.length != 0) {
+    showItems(filterArr);
+  } else {
+    showItems(items);
+  }
+
+  myFunction();
+}
+
+// Filter By Option / Availability
+async function checkOption() {
+  var modelCbs = document.querySelectorAll(".availability input[type='checkbox']");
+  var filters = {
+    models: getClassOfCheckedCheckboxes(modelCbs),
+  };
+
+  //let items = JSON.parse(localStorage.getItem('items'));
+
+  let res = await fetch("http://localhost:3000/products/");
+  let items = await res.json();
+  let filterArr = []//JSON.parse(localStorage.getItem('filteredArr'));
+
+  for (let i = 0; i < items.length; i++) {
+    filters.models.forEach((el) => {
+      let itemNameArr = items[i].category;
+      if (el == itemNameArr) {
+        filterArr.push(items[i])
+        return true;
+      }
+    });
+  }
+  localStorage.setItem("filteredArr", JSON.stringify(filterArr));
+
+  if (filterArr != null && filterArr.length != 0) {
+    showItems(filterArr);
+  } else {
+    showItems(items);
+  }
+
+  myFunction();
+}
+
+async function showCategory() {
+  var modelCbs = document.querySelectorAll(".category input[type='checkbox']");
+  var filters = {
+    models: getClassOfCheckedCheckboxes(modelCbs),
+  };
+
+  //let items = JSON.parse(localStorage.getItem('items'));
+
+  let res = await fetch("http://localhost:3000/products/");
+  let items = await res.json();
+
+  let filterArr = []//JSON.parse(localStorage.getItem('filteredArr'));
+
+  for (let i = 0; i < items.length; i++) {
+    filters.models.forEach((el) => {
+      let itemNameArr = items[i].option;
+      if (el == itemNameArr) {
+        filterArr.push(items[i])
+        return true;
+      }
+    });
+  }
+  localStorage.setItem("filteredArr", JSON.stringify(filterArr));
+
+  if (filterArr != null && filterArr.length != 0) {
+    showItems(filterArr);
+  } else {
+    showItems(items);
+  }
+
+  myFunction();
+}
+
+function getClassOfCheckedCheckboxes(checkboxes) {
+  var classes = [];
+
+  if (checkboxes && checkboxes.length > 0) {
+    for (var i = 0; i < checkboxes.length; i++) {
+      var cb = checkboxes[i];
+      if (cb.checked) {
+        classes.push(cb.getAttribute("name"));
+      }
+    }
+  }
+  return classes;
+}
+
+// Sorting Functions for Low to high and High to low
+async function sortLH() {
+  let res = await fetch("http://localhost:3000/products/");
+  let data = await res.json();
+
+  let filterArr = JSON.parse(localStorage.getItem("filteredArr"));
+
+  if (filterArr != null && filterArr.length != 0) {
+    filterArr = filterArr.sort((a, b) => {
+      return a.price - b.price;
+    });
+    showItems(filterArr);
+  } else {
+    data = data.sort(function (a, b) {
+      return a.price - b.price;
+    });
+    showItems(data);
+  }
+}
+
+async function sortHL() {
+  let res = await fetch("http://localhost:3000/products/");
+  let data = await res.json();
+  let filterArr = JSON.parse(localStorage.getItem("filteredArr"));
+
+  if (filterArr != null && filterArr.length != 0) {
+    filterArr = filterArr.sort((a, b) => {
+      return b.price - a.price;
+    });
+    showItems(filterArr);
+  } else {
+    data = data.sort(function (a, b) {
+      return b.price - a.price;
+    });
+    showItems(data);
+  }
+}
+
+
+
+// // Feature and sorting seletive function
 
 function myFunction() {
   var x = document.getElementById("mySelect").value;
@@ -359,25 +577,25 @@ function myFunction() {
 // __________________________________________________________________________________________________
 
 // Sorting Functions for Low to high and High to low
-async function sortLH() {
-  let res = await fetch("http://localhost:3000/products/");
-  let data = await res.json();
+// async function sortLH() {
+//   let res = await fetch("http://localhost:3000/products/");
+//   let data = await res.json();
 
-  data = data.sort(function (a, b) {
-    return a.price - b.price;
-  });
-  showItems(data);
-}
+//   data = data.sort(function (a, b) {
+//     return a.price - b.price;
+//   });
+//   showItems(data);
+// }
 
-async function sortHL() {
-  let res = await fetch("http://localhost:3000/products/");
-  let data = await res.json();
+// async function sortHL() {
+//   let res = await fetch("http://localhost:3000/products/");
+//   let data = await res.json();
 
-  data = data.sort(function (a, b) {
-    return b.price - a.price;
-  });
-  showItems(data);
-}
+//   data = data.sort(function (a, b) {
+//     return b.price - a.price;
+//   });
+//   showItems(data);
+// }
 
 // Filter dropdown
 let dropDown_type = document.getElementById("dropdown_type");
@@ -410,7 +628,8 @@ function addtoVisited(obj) {
   let singleProdArr = [];
   singleProdArr.push(obj);
 
-  // window.location.href = "product.html";
+  localStorage.setItem('current_selected_prod', JSON.stringify(singleProdArr));
+  window.location.href = "product.html";
 }
 
 // Sign-up button change
