@@ -43,10 +43,49 @@ hideput.addEventListener('input',(e)=>{
     }
 }) 
 
+// taking to product page on enter button pressed on input box
+
+hideput.addEventListener("keyup", function (event) {
+  
+  // Checking if key pressed is ENTER or not
+  // if the key pressed is ENTER
+  // click listener on button is called
+  if (event.key ==="Enter" && hideput.value.length>=2) {
+      console.log(hideput.value.length);
+      async function gettingData() {
+          try {
+            let res = await fetch("http://localhost:3000/products/");
+            let data = await res.json();
+          //   console.log(data);
+           var ViewObj=[];
+           data.forEach(el=>{
+               if(el.name.includes(hideput.value)){
+                   ViewObj.push(el);
+                   
+
+               }
+           })
+            localStorage.setItem('ViewObj', JSON.stringify(ViewObj));
+            console.log(JSON.stringify(ViewObj));
+           
+           console.log(ViewObj);
+          } catch (err) {
+            console.log(err);
+          }
+         
+        }
+       
+        gettingData(); 
+            window.location.href="./customedproducts.html";
+     window.location.target="_blank";
+      
+  } 
+ 
+});
 // appending in suggestion box 
 
 function showsuggestions(data, vaalu){
-   
+ 
   let cullu=0;
   let tempVarArr=[];
     let quickSearch=document.getElementById('quickSearch');
@@ -111,12 +150,20 @@ function showsuggestions(data, vaalu){
                  itemTitless.innerHTML=el.category;
                  itemTitless.style.cursor="pointer";
                  itemNaam.style.cursor="pointer";
-                 let wrappingsmalls=document.createElement('div');
+                 let wrappingsmalls = document.createElement('a');
+                 wrappingsmalls.target="_blank";
+                 wrappingsmalls.href="./product.html";
                  wrappingsmalls.append(itemNaam);
                  wrappingsmalls.append(itemTitless);
                  wrappingsmalls.style.cursor="pointer";
                  itemlistsings[cullu].append(picsdivid);
                  itemlistsings[cullu].append(wrappingsmalls);
+
+                 wrappingsmalls.addEventListener('click',function(){
+                  window.localStorage.setItem('myViewObj', JSON.stringify(el));
+                  console.log(JSON.stringify(el));
+                 });
+                 
               }
               
            cullu++;
@@ -134,7 +181,6 @@ function showsuggestions(data, vaalu){
       }    
       
 }
-
 
 
 

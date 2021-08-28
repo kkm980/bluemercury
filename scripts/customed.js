@@ -43,21 +43,60 @@ function appearSearch(){
       }
   }) 
   
-  // appending in suggestion box 
+ // taking to product page on enter button pressed on input box
+
+hideput.addEventListener("keyup", function (event) {
   
-  function showsuggestions(data, vaalu){
-     
+    // Checking if key pressed is ENTER or not
+    // if the key pressed is ENTER
+    // click listener on button is called
+    if (event.key ==="Enter" && hideput.value.length>=2) {
+        console.log(hideput.value.length);
+        async function gettingData() {
+            try {
+              let res = await fetch("http://localhost:3000/products/");
+              let data = await res.json();
+            //   console.log(data);
+             var ViewObj=[];
+             data.forEach(el=>{
+                 if(el.name.includes(hideput.value)){
+                     ViewObj.push(el);
+                     
+
+                 }
+             })
+              localStorage.setItem('ViewObj', JSON.stringify(ViewObj));
+              console.log(JSON.stringify(ViewObj));
+             
+             console.log(ViewObj);
+            } catch (err) {
+              console.log(err);
+            }
+           
+          }
+         
+          gettingData(); 
+              window.location.href="./customedproducts.html";
+       window.location.target="_blank";
+        
+    } 
+   
+});
+// appending in suggestion box 
+
+function showsuggestions(data, vaalu){
+   
     let cullu=0;
     let tempVarArr=[];
       let quickSearch=document.getElementById('quickSearch');
-  
+
        // 1. in quick search
       quickSearch.innerHTML="";
       let p=document.createElement('p');
       p.innerHTML="QUICK SEARCH";
       p.classList.add('boldest');
       quickSearch.append(p);
-  
+
     //   2. in categories 
       let categoriesSearch=document.getElementById('categoriesSearch');
       categoriesSearch.innerHTML="";
@@ -65,7 +104,7 @@ function appearSearch(){
       pi.innerHTML="CATEGORIES";
       pi.classList.add('boldest');
       categoriesSearch.append(pi);
-  
+
     //   for x-items found. viewings div 
       let viewings=document.getElementById('viewings');
       viewings.innerHTML="no items found";
@@ -78,14 +117,14 @@ function appearSearch(){
           
           if( el.name.includes(vaalu)){
               if(cullu <=2){
-  
+
                 //   in quick search 
                 let p=document.createElement('p');
               p.innerHTML=el.name;
               quickSearch.append(p);
               
               }
-  
+
             //   in categories 
               let pi=document.createElement('p');
               if(!tempVarArr.includes(el.option)){
@@ -93,7 +132,7 @@ function appearSearch(){
                   pi.innerHTML=el.option;
                   categoriesSearch.append(pi);
               }
-  
+
             //   in prodResView
                 
                 if(cullu<=5){
@@ -111,12 +150,20 @@ function appearSearch(){
                    itemTitless.innerHTML=el.category;
                    itemTitless.style.cursor="pointer";
                    itemNaam.style.cursor="pointer";
-                   let wrappingsmalls=document.createElement('div');
+                   let wrappingsmalls = document.createElement('a');
+                   wrappingsmalls.target="_blank";
+                   wrappingsmalls.href="./product.html";
                    wrappingsmalls.append(itemNaam);
                    wrappingsmalls.append(itemTitless);
                    wrappingsmalls.style.cursor="pointer";
                    itemlistsings[cullu].append(picsdivid);
                    itemlistsings[cullu].append(wrappingsmalls);
+
+                   wrappingsmalls.addEventListener('click',function(){
+                    window.localStorage.setItem('myViewObj', JSON.stringify(el));
+                    console.log(JSON.stringify(el));
+                   });
+                   
                 }
                 
              cullu++;
@@ -133,7 +180,7 @@ function appearSearch(){
          categoriesSearch.append(pi);
         }    
         
-  }
+}
   
   
   
