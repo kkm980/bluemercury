@@ -461,14 +461,7 @@ function hiding(id1,id2){
     menuContainergetting2.style.visibility = "hidden";
     menuContainergetting2.style.display = "none";
 }
-// next.addEventListener('click', nextSlide);
 
-// function nextSlide() {
-//     next.style.width = '100px';
-//     //console.log(startIndex)
-//     console.log("clicked");
-//     productShow(lastIndex, numOfProd);
-// }
 function showItm(idx) {
     let menuContainergetting = document.getElementById(idx);
     menuContainergetting.style.visibility = "visible";
