@@ -26,20 +26,14 @@ slideshowOffer();
 
 const current_user = [];
   
-if (localStorage.getItem("current_user") == null) {
-  localStorage.setItem("current_user", JSON.stringify(current_user));
-}
+async function check() {
 
-function check(e) {
-  
-  e.preventDefault();
-
-  const form = document.getElementById("login");
-
-  const email = form.email.value;
-  const password = form.password.value;
-
-  const all_users = JSON.parse(localStorage.getItem("all_users_data"));
+  var res = await fetch("http://localhost:3000/users/");
+  var all_users = await res.json();
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
+  console.log(all_users)
+ 
 
   const current_user_credentials = {
     email: email,
@@ -72,6 +66,7 @@ function changeAccount() {
   let signup_btn = document.getElementById("login_change");
   let check_user = JSON.parse(localStorage.getItem("current_user"));
 
+  console.log("check", check_user)
   if (check_user.length != 0) {
     signup_btn.innerHTML = `<i class="fa fa-user-circle"></i> Account`;
     signup_btn.addEventListener("click", () => {

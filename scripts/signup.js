@@ -74,7 +74,6 @@ async function getUser(user) {
   let flag = 0;
   console.log("Array length", arr.length)
   for (let i = 0; i < arr.length; i++) {
-    console.log("abc")
     if (user.email == arr[i].email) {
       console.log("In the if condition")
       alert("User already exists, please login.")
@@ -91,9 +90,6 @@ async function getUser(user) {
 }
 
 getUser();
-
-
-
 
 
 
