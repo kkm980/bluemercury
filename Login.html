@@ -313,16 +313,16 @@
     <div id="container">
         <div id="login_container">
             <h1 id="login_heading">LOGIN</h1>               
-            <form id="login" onsubmit="check(event)">
+            <!-- <form id="login" onsubmit="check(event)"> -->
                 <p id="please_enter">Please enter your e-mail and password:</p>
                 <input type="email" id="email" class="email" placeholder="E-mail" required>
                 <br>
                 <input type="password" id="password" class="email" placeholder="Password" required>
                 <br>
-                <button id="login_button" type="submit">LOGIN</button>
+                <button id="login_button" onclick="check()">LOGIN</button>
                 <br>
                 <span id="no_account">Don't have an account?<a id="create_one" href="Signup.html">Create one</a></span>
-            </form>
+            <!-- </form> -->
         </div>
     </div> 
     

@@ -254,7 +254,7 @@ slideshowOffer();
 
 
 const current_user = [];
-  
+// console.log("abc")
 async function check() {
 
   var res = await fetch("http://localhost:3000/users/");
@@ -272,6 +272,7 @@ async function check() {
   let login_flag = 0;
 
   for (let i = 0; i < all_users.length; i++) {
+    console.log("abc")
     if (all_users[i].email == email && all_users[i].password == password) {
       login_flag = 1;
       current_user.push(current_user_credentials);
@@ -295,7 +296,6 @@ function changeAccount() {
   let signup_btn = document.getElementById("login_change");
   let check_user = JSON.parse(localStorage.getItem("current_user"));
 
-  console.log("check", check_user)
   if (check_user != null) {
     signup_btn.innerHTML = `<i class="fa fa-user-circle"></i> Account`;
     signup_btn.addEventListener("click", () => {
