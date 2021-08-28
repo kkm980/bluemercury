@@ -289,166 +289,140 @@
       
         <!-- sorting_options -->
 
-        <div id="sorting_options">
-            <div>
-                <div id="dropdown" class="dropbtn"><span class="FilterType">NEW ARRIVALS CATEGORY</span>
-                    <span class="TotalFilters">Select One to narrow results</span>
-                    <span class="Icon" aria-hidden="true">
-                        <svg class="Icon--plus" viewBox="0 0 16 16">
-                            <path d="M8 1v14M1 8h14" stroke="currentColor" fill="none" fill-rule="evenodd"
-                                stroke-linecap="square">
-                            </path>
-                        </svg>
-                    </span>
-                </div>
-                <div id="myDropdown" class="dropdown-content">
-                    <form>
-                        <input type="checkbox" id="ABEL" name="vehicle1" value="Bike">
-                        <label for="vehicle1" class="FilterName">KLORANE</label><br>
-                        <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
-                        <label for="vehicle2" class="FilterName"> I have a car</label><br>
-                        <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
-                        <label for="vehicle3" class="FilterName"> I have a boat</label><br><br>
-                    </form>
-                </div>
+    <div id="sorting_options">
+        <div>
+            <div id="dropdown" class="dropbtn"><span class="FilterType">NEW ARRIVALS CATEGORY</span>
+                <span class="TotalFilters">Select One to narrow results</span>
+                <span class="Icon" aria-hidden="true">
+                    <svg class="Icon--plus" viewBox="0 0 16 16">
+                        <path d="M8 1v14M1 8h14" stroke="currentColor" fill="none" fill-rule="evenodd"
+                            stroke-linecap="square">
+                        </path>
+                    </svg>
+                </span>
             </div>
-            <div class="FiltersHeader">Filter New Arrivals By</div>
-            <div>
-                <div id="dropdown_type" class="dropbtn"><span class="FilterType">type </span>
-                    <span class="Icon" aria-hidden="true">
-                        <svg class="Icon--plus" viewBox="0 0 16 16">
-                            <path d="M8 1v14M1 8h14" stroke="currentColor" fill="none" fill-rule="evenodd"
-                                stroke-linecap="square">
-                            </path>
-                        </svg>
-                    </span>
-                    <span class="TotalFilters">7 available</span>
-                </div>
-                <div id="myDropdown_type" class="dropdown-content">
-                    <form>
-                        <input type="checkbox" id="Anti-Aging Devices" name="Anti-Aging Devices" value="ABEL">
-                        <label for="Anti-Aging Devices" class="FilterName"> Anti-Aging Devices</label><br>
-                        <input type="checkbox" id="Bath And Body Sets" name="Bath And Body Sets" value="Bath And Body Sets">
-                        <label for="Bath And Body Sets" class="FilterName"> Bath And Body Sets</label><br>
-                        <input type="checkbox" id="Bath Oil" name="Bath Oil" value="Bath Oil">
-                        <label for="Bath Oil" class="FilterName"> Bath Oil</label><br>
-                        <input type="checkbox" id="Bath Salts" name="Bath Salts" value="Bath Salts">
-                        <label for="Bath Salts" class="FilterName">Bath Salts</label><br>
-                        <input type="checkbox" id="Blemish And Acne Treatments" name="Blemish And Acne Treatments" value="Blemish And Acne Treatments">
-                        <label for="Blemish And Acne Treatments" class="FilterName">Blemish And Acne Treatments</label><br>
-                        <input type="checkbox" id="Cleansers" name="Cleansers" value="Cleansers">
-                        <label for="Cleansers" class="FilterName">Cleansers</label><br>
-                        <input type="checkbox" id="Dry Shampoos" name="Dry Shampoos" value="Dry Shampoos">
-                        <label for="Dry Shampoos" class="FilterName">Dry Shampoos</label><br>
-                    </form>
-                </div>
+            <div id="myDropdown" class="dropdown-content">
+                <form>
+                    <input type="checkbox" id="ABEL" name="vehicle1" value="Bike">
+                    <label for="vehicle1" class="FilterName">KLORANE</label><br>
+                    <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+                    <label for="vehicle2" class="FilterName"> I have a car</label><br>
+                    <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+                    <label for="vehicle3" class="FilterName"> I have a boat</label><br><br>
+                </form>
             </div>
-            <div>
-                <div id="dropdown_brand" class="dropbtn"><span class="FilterType">Brand</span>
-                    <span class="Icon" aria-hidden="true">
-                        <svg class="Icon--plus" viewBox="0 0 16 16">
-                            <path d="M8 1v14M1 8h14" stroke="currentColor" fill="none" fill-rule="evenodd"
-                                stroke-linecap="square">
-                            </path>
-                        </svg>
-                    </span>
-                    <span class="TotalFilters">5 available</span>
-                </div>
-                <div id="myDropdown_brand" class="dropdown-content models">
-                    <form>
-                        <input type="checkbox" class="checkbox" id="Deborah_Lippmann" onclick="filterBrand()" name="heist" value="Deborah_Lippmann">
-                        <label for="Deborah_Lippmann" class="FilterName">Heist</label><br>
-                        <input type="checkbox" id="LAFCO" onclick="filterBrand()" name="LAFCO" value="LAFCO">
-                        <label for="LAFCO" class="FilterName"> LAFCO</label><br>
-                        <input type="checkbox" id="PHYTO" onclick="filterBrand()" name="PHYTO" value="PHYTO">
-                        <label for="PHYTO" class="FilterName"> PHYTO</label><br>
-                        <input type="checkbox" id="Acqua" onclick="filterBrand()"  name="Acqua Di Parma" value="Acqua Di Parma">
-                        <label for="Acqua Di Parma" class="FilterName">Acqua Di Parma</label><br>
-                        <input type="checkbox" id="KLORANE" onclick="filterBrand()" name="KLORANE" value="KLORANE">
-                        <label for="KLORANE" class="FilterName">KLORANE</label><br>
-                    </form>
-                </div>
-            </div>
-            <div>
-                <div id="dropdown_shopby" class="dropbtn"><span class="FilterType">Shop By </span>
-                    <span class="TotalFilters">10 available</span>
-                    <span class="Icon" aria-hidden="true">
-                        <svg class="Icon--plus" viewBox="0 0 16 16">
-                            <path d="M8 1v14M1 8h14" stroke="currentColor" fill="none" fill-rule="evenodd"
-                                stroke-linecap="square">
-                            </path>
-                        </svg>
-                    </span>
-                </div>
-                <div id="myDropdown_shopby" class="dropdown-content">
-                    <form>
-                        <input type="checkbox" id="ABEL" name="ABEL" value="ABEL">
-                        <label for="ABEL" class="FilterName"> ABEL</label><br>
-                        <input type="checkbox" id="LAFCO" name="LAFCO" value="LAFCO">
-                        <label for="LAFCO" class="FilterName"> LAFCO</label><br>
-                        <input type="checkbox" id="vehicle3" name="PHYTO" value="PHYTO">
-                        <label for="PHYTO" class="FilterName"> PHYTO</label><br>
-                        <input type="checkbox" id="Acqua" name="Acqua Di Parma" value="Acqua Di Parma">
-                        <label for="Acqua Di Parma" class="FilterName">Acqua Di Parma</label><br>
-                        <input type="checkbox" id="KLORANE" name="KLORANE" value="KLORANE">
-                        <label for="KLORANE" class="FilterName">KLORANE</label><br>
-                    </form>
-                </div>
-            </div>
-            <div>
-                <div id="dropdown_conscious_beauty" class="dropbtn"><span class="FilterType">Conscious Beauty</span>
-                    <span class="TotalFilters">6 available</span>
-                    <span class="Icon" aria-hidden="true">
-                        <svg class="Icon--plus" viewBox="0 0 16 16">
-                            <path d="M8 1v14M1 8h14" stroke="currentColor" fill="none" fill-rule="evenodd"
-                                stroke-linecap="square">
-                            </path>
-                        </svg>
-                    </span>
-                </div>
-                <div id="myDropdown_conscious_beauty" class="dropdown-content">
-                    <form>
-                        <input type="checkbox" id="ABEL" name="ABEL" value="ABEL">
-                        <label for="ABEL" class="FilterName"> ABEL</label><br>
-                        <input type="checkbox" id="LAFCO" name="LAFCO" value="LAFCO">
-                        <label for="LAFCO" class="FilterName"> LAFCO</label><br>
-                        <input type="checkbox" id="vehicle3" name="PHYTO" value="PHYTO">
-                        <label for="PHYTO" class="FilterName"> PHYTO</label><br>
-                        <input type="checkbox" id="Acqua" name="Acqua Di Parma" value="Acqua Di Parma">
-                        <label for="Acqua Di Parma" class="FilterName">Acqua Di Parma</label><br>
-                        <input type="checkbox" id="KLORANE" name="KLORANE" value="KLORANE">
-                        <label for="KLORANE" class="FilterName">KLORANE</label><br>
-                    </form>
-                </div>
-            </div>
-            <div>
-                <div id="dropdown_price" class="dropbtn"><span class="FilterType">Price</span>
-                    <span class="TotalFilters">5 available</span>
-                    <span class="Icon" aria-hidden="true">
-                        <svg class="Icon--plus" viewBox="0 0 16 16">
-                            <path d="M8 1v14M1 8h14" stroke="currentColor" fill="none" fill-rule="evenodd"
-                                stroke-linecap="square">
-                            </path>
-                        </svg>
-                    </span>
-                </div>
-                <div id="myDropdown_price" class="dropdown-content priceBracket">
-                    <form>
-                        <input type="checkbox" id="price1" name="price1" value="10to50" onclick="filterPrice()">
-                        <label for="ABEL" class="FilterName">$10 - $50</label><br>
-                        <input type="checkbox" id="price2" name="price2" value="51to100" onclick="filterPrice()">
-                        <label for="LAFCO" class="FilterName">$51 - $100</label><br>
-                        <input type="checkbox" id="price3" name="price3" value="101to150" onclick="filterPrice()">
-                        <label for="PHYTO" class="FilterName">$101 - $150</label><br>
-                        <input type="checkbox" id="price4" name="price4" value="151to200" onclick="filterPrice()">
-                        <label for="Acqua Di Parma" class="FilterName">$151 - $200</label><br>
-                        <input type="checkbox" id="price5" name="price5" value="201andabove" onclick="filterPrice()">
-                        <label for="KLORANE" class="FilterName">$201 and above</label><br>
-                    </form>
-                </div>
-            </div>
-            
         </div>
+        <div class="FiltersHeader">Filter New Arrivals By</div>
+        <div>
+            <div id="dropdown_type" class="dropbtn"><span class="FilterType">Category</span>
+                <span class="Icon" aria-hidden="true">
+                    <svg class="Icon--plus" viewBox="0 0 16 16">
+                        <path d="M8 1v14M1 8h14" stroke="currentColor" fill="none" fill-rule="evenodd"
+                            stroke-linecap="square">
+                        </path>
+                    </svg>
+                </span>
+                <span class="TotalFilters">7 available</span>
+            </div>
+            <div id="myDropdown_type" class="dropdown-content category">
+                <form>
+                    <input type="checkbox" id="Anti-Aging Devices" name="soap" value="soap" onclick="showCategory()">
+                    <label for="Anti-Aging Devices" class="FilterName">Soap</label><br>
+                    <input type="checkbox" id="Bath And Body Sets" name="daily use" value="daily use"
+                        onclick="showCategory()">
+                    <label for="Bath And Body Sets" class="FilterName">Daily Use</label><br>
+                    <input type="checkbox" id="Bath Oil" name="medical" value="medical" onclick="showCategory()">
+                    <label for="Bath Oil" class="FilterName">Medical</label><br>
+                    <input type="checkbox" id="Bath Salts" name="cleaner" value="cleaner" onclick="showCategory()">
+                    <label for="Bath Salts" class="FilterName">Cleaner</label><br>
+                    <input type="checkbox" id="Blemish And Acne Treatments" name="makeup" value="makeup"
+                        onclick="showCategory()">
+                    <label for="Blemish And Acne Treatments" class="FilterName">Makeup</label><br>
+                    <input type="checkbox" id="Cleansers" name="eatable" value="eatable" onclick="showCategory()">
+                    <label for="Cleansers" class="FilterName">Eatable</label><br>
+                    <input type="checkbox" id="Dry Shampoos" name="medicine" value="medicine" onclick="showCategory()">
+                    <label for="Dry Shampoos" class="FilterName">Medicine</label><br>
+                </form>
+            </div>
+        </div>
+        <div>
+            <div id="dropdown_brand" class="dropbtn"><span class="FilterType">Brand</span>
+                <span class="Icon" aria-hidden="true">
+                    <svg class="Icon--plus" viewBox="0 0 16 16">
+                        <path d="M8 1v14M1 8h14" stroke="currentColor" fill="none" fill-rule="evenodd"
+                            stroke-linecap="square">
+                        </path>
+                    </svg>
+                </span>
+                <span class="TotalFilters">5 available</span>
+            </div>
+            <div id="myDropdown_brand" class="dropdown-content models">
+                <form>
+                    <input type="checkbox" class="checkbox" id="Deborah_Lippmann" onclick="filterBrand()" name="heist"
+                        value="heist">
+                    <label for="Deborah_Lippmann" class="FilterName">Heist</label><br>
+                    <input type="checkbox" id="LAFCO" onclick="filterBrand()" name="sun" value="sun">
+                    <label for="LAFCO" class="FilterName">Sun</label><br>
+                    <input type="checkbox" id="PHYTO" onclick="filterBrand()" name="wall" value="wall">
+                    <label for="PHYTO" class="FilterName">Wall</label><br>
+                    <input type="checkbox" id="Acqua" onclick="filterBrand()" name="rose" value="Rose">
+                    <label for="Acqua Di Parma" class="FilterName">Rose</label><br>
+                    <input type="checkbox" id="KLORANE" onclick="filterBrand()" name="nairobi" value="nairobi">
+                    <label for="KLORANE" class="FilterName">Nairobi</label><br>
+                </form>
+            </div>
+        </div>
+        <div>
+            <div id="dropdown_shopby" class="dropbtn"><span class="FilterType">Option </span>
+                <span class="TotalFilters">3 available</span>
+                <span class="Icon" aria-hidden="true">
+                    <svg class="Icon--plus" viewBox="0 0 16 16">
+                        <path d="M8 1v14M1 8h14" stroke="currentColor" fill="none" fill-rule="evenodd"
+                            stroke-linecap="square">
+                        </path>
+                    </svg>
+                </span>
+            </div>
+            <div id="myDropdown_shopby" class="dropdown-content availability">
+                <form>
+                    <input type="checkbox" id="available" name="available" value="available" onclick="checkOption()">
+                    <label for="available" class="FilterName"> Available</label><br>
+                    <input type="checkbox" id="coming-soon" name="coming soon" value="coming soon" onclick="checkOption()">
+                    <label for="coming soon" class="FilterName"> Coming Soon</label><br>
+                    <input type="checkbox" id="sold-out" name="sold out" value="sold out" onclick="checkOption()">
+                    <label for="sold out" class="FilterName"> Sold Out</label><br>
+                </form>
+            </div>
+        </div>
+    
+        <div>
+            <div id="dropdown_price" class="dropbtn"><span class="FilterType">Price</span>
+                <span class="TotalFilters">5 available</span>
+                <span class="Icon" aria-hidden="true">
+                    <svg class="Icon--plus" viewBox="0 0 16 16">
+                        <path d="M8 1v14M1 8h14" stroke="currentColor" fill="none" fill-rule="evenodd"
+                            stroke-linecap="square">
+                        </path>
+                    </svg>
+                </span>
+            </div>
+            <div id="myDropdown_price" class="dropdown-content priceBracket">
+                <form>
+                    <input type="checkbox" id="price1" name="price1" value="10to50" onclick="filterPrice()">
+                    <label for="price1" class="FilterName">$0 - $500</label><br>
+                    <input type="checkbox" id="price2" name="price2" value="51to100" onclick="filterPrice()">
+                    <label for="price2" class="FilterName">$500 - $1000</label><br>
+                    <input type="checkbox" id="price3" name="price3" value="101to150" onclick="filterPrice()">
+                    <label for="price3" class="FilterName">$1000 - $1500</label><br>
+                    <input type="checkbox" id="price4" name="price4" value="151to200" onclick="filterPrice()">
+                    <label for="price4" class="FilterName">$1500 - $2000</label><br>
+                    <input type="checkbox" id="price5" name="price5" value="201andabove" onclick="filterPrice()">
+                    <label for="price5" class="FilterName">$2000 and above</label><br>
+                </form>
+            </div>
+        </div>
+    </div>
+
 
 
         <!--PRODUCTS DISPLAY GRID START-->
