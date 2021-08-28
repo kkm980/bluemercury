@@ -198,6 +198,8 @@ document.getElementById('hidesearchings').addEventListener('click', function(){
 let hideput=document.getElementById('hideput');
 let suggestings=document.getElementById('suggestings');
 hideput.addEventListener('input',(e)=>{
+    
+    
      if(e.target.value.length>=2){
          let vaalu=e.target.value.trim().replace(/\s/g, "");
           suggestings.style.display='block';
@@ -287,12 +289,20 @@ function showsuggestions(data, vaalu){
                    itemTitless.innerHTML=el.category;
                    itemTitless.style.cursor="pointer";
                    itemNaam.style.cursor="pointer";
-                   let wrappingsmalls=document.createElement('div');
+                   let wrappingsmalls = document.createElement('a');
+                   wrappingsmalls.target="_blank";
+                   wrappingsmalls.href="./product.html";
                    wrappingsmalls.append(itemNaam);
                    wrappingsmalls.append(itemTitless);
                    wrappingsmalls.style.cursor="pointer";
                    itemlistsings[cullu].append(picsdivid);
                    itemlistsings[cullu].append(wrappingsmalls);
+
+                   wrappingsmalls.addEventListener('click',function(){
+                    window.localStorage.setItem('myViewObj', JSON.stringify(el));
+                    console.log(JSON.stringify(el));
+                   });
+                   
                 }
                 
              cullu++;

@@ -1,11 +1,16 @@
+
+
+
 function appearSearch(){
+  
   document.getElementById('searchings').style.display='flex';
   document.getElementById('hideput').value="";
   document.body.classList.add("stop-scrolling"); //to stop scrolling when suggestion box appears//
   console.log("working")
 }
+// let myViewObj=window.localStorage.getItem('myViewObj');
+//    console.log(myViewObj);
 
-//search field hiding
 
 
 document.getElementById('hidesearchings').addEventListener('click', function(){
@@ -200,6 +205,35 @@ function slideshowOffer() {
   slideshowOffer();
   // NavBar Slide End
 
+
+
+//  dynamic description of product
+
+
+let myViewObj=JSON.parse(window.localStorage.getItem('myViewObj'));
+let xing=myViewObj.name;
+const urlParams = new URLSearchParams(window.location.search);
+urlParams.append('item', xing);
+// window.location.search = urlParams;
+
+document.getElementById('main_img').src="";
+   document.getElementById('prod-company-name').innerHTML="";
+   document.getElementById('prod-title-name').innerHTML="";
+   document.getElementById('prod-title-name').innerHTML="";
+   document.getElementById('detail_lines').innerHTML="";
+   document.getElementById('add_to_bag').innerHTML="";
+
+function settingHTML(){
+  document.getElementById('main_img').src=myViewObj.img;
+     document.getElementById('prod-company-name').innerHTML=myViewObj.name;
+     document.getElementById('prod-title-name').innerHTML=myViewObj.name;
+     document.getElementById('prod-title-name').innerHTML=myViewObj.name;
+     document.getElementById('detail_lines').innerHTML=myViewObj.title;
+     document.getElementById('add_to_bag').innerHTML=`ADD TO BAG | ${myViewObj.price}`;console.log(myViewObj);
+}
+settingHTML();
+
+
 //   Add to bag
 
 // Counting products
@@ -293,48 +327,48 @@ cart_btn.addEventListener("click", function () {
 
 /************** MORE CHANGES DONE BELOW *************/
 
-var current_prod = JSON.parse(localStorage.getItem('current_selected_prod'));
+// var current_prod = JSON.parse(localStorage.getItem('current_selected_prod'));
 // console.log("Product Page", current_prod);
 
-document.title = `${current_prod[0].name} ${current_prod[0].title}`;
+document.title =myViewObj.name;
 
-document.getElementById('img_1').src = current_prod[0].img;
-document.getElementById('main_img').src = current_prod[0].img;
+document.getElementById('img_1').src = `https://via.placeholder.com/150`;
+// document.getElementById('main_img').src = current_prod[0].img;
 document.getElementById('main_img').setAttribute('style', 'width: 500px;')
 
 // console.log(current_prod[0].price)
 
-var title_name = document.getElementById('prod-company-name');
-title_name.innerHTML = current_prod[0].name;
+// var title_name = document.getElementById('prod-company-name');
+// title_name.innerHTML = current_prod[0].name;
 
-var add_price = document.getElementById("dynamic-price");
-add_price.innerHTML = "$" + current_prod[0].price;
+// var add_price = document.getElementById("dynamic-price");
+// add_price.innerHTML = "$" + current_prod[0].price;
 
-var add_title = document.getElementById('prod-title-name');
-add_title.innerHTML = current_prod[0].title;
+// var add_title = document.getElementById('prod-title-name');
+// add_title.innerHTML = current_prod[0].title;
 
-var page_navigator = document.getElementById('page_navigator-span');
-page_navigator.innerHTML = current_prod[0].title;
+// var page_navigator = document.getElementById('page_navigator-span');
+// page_navigator.innerHTML = current_prod[0].title;
 
-cart_btn.append(current_prod[0].price);
+// cart_btn.append(current_prod[0].price);
 
 // Sign-up button change
 
-function changeAccount() {
-  let signup_btn = document.getElementById("login_change");
-  let check_user = JSON.parse(localStorage.getItem("current_user"));
+// function changeAccount() {
+//   let signup_btn = document.getElementById("login_change");
+//   let check_user = JSON.parse(localStorage.getItem("current_user"));
 
-  if (check_user.length != 0) {
-    signup_btn.innerHTML = `<i class="fa fa-user-circle"></i> Account`;
-    signup_btn.addEventListener("click", () => {
-      window.location.href = "myaccount.html";
-    });
-  } else {
-    signup_btn.innerHTML = `<i class="fa fa-user-circle"></i> Sign in/up`;
-    signup_btn.addEventListener("click", () => {
-      window.location.href = "login.html"
-    });
-  }
-}
+//   if (check_user.length != 0) {
+//     signup_btn.innerHTML = `<i class="fa fa-user-circle"></i> Account`;
+//     signup_btn.addEventListener("click", () => {
+//       window.location.href = "myaccount.html";
+//     });
+//   } else {
+//     signup_btn.innerHTML = `<i class="fa fa-user-circle"></i> Sign in/up`;
+//     signup_btn.addEventListener("click", () => {
+//       window.location.href = "login.html"
+//     });
+//   }
+// }
 
-changeAccount();
+// changeAccount();
