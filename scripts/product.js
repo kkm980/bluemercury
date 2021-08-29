@@ -156,7 +156,7 @@ function showsuggestions(data, vaalu){
                  itemNaam.style.cursor="pointer";
                  let wrappingsmalls = document.createElement('a');
                  wrappingsmalls.target="_blank";
-                 wrappingsmalls.href="./product.html";
+                wrappingsmalls.href = `./product.html?q=${el.name}`;
                  wrappingsmalls.append(itemNaam);
                  wrappingsmalls.append(itemTitless);
                  wrappingsmalls.style.cursor="pointer";

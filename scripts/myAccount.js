@@ -235,7 +235,8 @@ function slideshowOffer() {
     let announcement_msg = ['Earn up to $100! Receive $20 for every $100 you spend.', 'Free shipping for bluerewards members >', 'Free samples with all orders >', 'Free gifts with purchase. Browse now >'];
 
     p.innerHTML = announcement_msg[0];
-    p.style.textAlign = 'center';
+  p.style.textAlign = 'center';
+  p.style.fontSize = "12px"
     p.style.textTransform = 'uppercase'
     slide_text.append(p);
     let i = 1;

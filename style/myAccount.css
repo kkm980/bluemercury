@@ -396,18 +396,30 @@ Start: Dropdown on hover
      font-weight: 700;
  } 
 
-
 /*************************
 Start: Carousel Section
 *************************/
-
+.carousel-section{
+    position: absolute;
+    top: 0px;
+    /* top: -40px; */
+    z-index: 3;
+}
 
 .announcement-bar {
+    /* position: sticky; */
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0px;
     width: 100%;
+    /* z-index: 5; */
     margin: auto;
-    background-color: #12284C ;
-    color: white;
+    background-color:rgb(215,235,242) ;
+    color: rgb(0, 0, 0);
     padding: 1px;
+    height:25px;
 }
 
 /*************************
@@ -418,7 +430,8 @@ End: Carousel Section
 
 #main{
     width: 80%;
-    margin: auto;
+    margin-top: 50px;
+    padding-left: 100px;
 }
 .myAccount{
     display: flex;
