@@ -13,8 +13,9 @@
     <link rel="icon"
         href="//cdn.shopify.com/s/files/1/0283/0185/2747/files/favicon_48x48.png?v=1591627636 type ='image/icon'">
     <link rel="stylesheet" href="./style/new.css">
-    <script src="https://kit.fontawesome.com/c81185d0be.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./style/header-footer.css"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script src="https://kit.fontawesome.com/c81185d0be.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -321,17 +322,19 @@
     <div>
         <div class="new_arrivals">
             <h2 class="CollectionTitle">New Arrivals</h2>
-            <select id="mySelect" onchange="myFunction()">
-                <option value="Featured">Featured</option>
-                <option value="New Arrivals">New Arrivals</option>
-                <option value="Best Sellers"> Best Sellers</option>
-                <option value="Price, Low to High"> Price, Low to High</option>
-                <option value="Price, High to Low"> Price, High to Low </option>
-            </select>
-            <span class="SortHeader">Sort By</span>
+            <div>
+                <select id="mySelect" onchange="myFunction()">
+                    <option value="Featured">Featured</option>
+                    <option value="New Arrivals">New Arrivals</option>
+                    <option value="Best Sellers"> Best Sellers</option>
+                    <option value="Price, Low to High"> Price, Low to High</option>
+                    <option value="Price, High to Low"> Price, High to Low </option>
+                </select>
+                <span class="SortHeader">Sort By</span>
+            </div>
         </div>
-      
-        <!-- sorting_options -->
+
+        <!-- Filtering starts here -->
 
         <div id="sorting_options">
             <div>

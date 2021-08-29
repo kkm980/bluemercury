@@ -15,6 +15,25 @@ body {
     margin: 0px;
 }
 
+/* Scrollbar height and width */
+body::-webkit-scrollbar {
+  width: 10px;
+  height: 5px;
+}
+
+/* Scrollbar Track */
+body::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  padding: 10px;
+  width: 100px;
+}
+ 
+/* Scrollbar Handle */
+body::-webkit-scrollbar-thumb {
+  background: #12284C;
+  border-left: 1px solid #adcbf8;
+}
+
 /* fictional class to stop scrolling when suggestion box appears */
 .stop-scrolling {
     height: 100%;
@@ -614,12 +633,74 @@ Start: Dropdown on hover
     font-weight: 700;
 }
 
+/*****************************
+Start: Wishlist
+******************************/
+#wish-btn {
+  font-size: 20px;
+  color: #12284C;
+}
+
+#super-wishlist-box #bg {
+  top: 0;
+  left: 0;
+  position: fixed;
+  display: none;
+  background-color: black;
+  z-index: 100;
+  opacity: 0.4;
+  width: 100vw;
+  height: 100vh;
+}
+
+#wishlist-box-overlay {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 2%;
+  justify-content: center;
+  z-index: 999;
+}
+
+#wishlist-prod-div {
+  display: flex;
+  /* background-color: yellow; */
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  max-width: 900px;
+  margin: auto;
+  width: 100%;
+  /* display: flex;
+  flex-wrap: wrap;
+  justify-content: left; */
+  scroll-behavior: auto;
+  overflow: scroll;
+}
+
+#wishlist-prod-div::-webkit-scrollbar {
+  width: 2px;
+}
+
+#wishlist-prod-div::-webkit-scrollbar-thumb {
+  background: #12284C; 
+  border-radius: 10px;
+}
+
+/*****************************
+End: Wishlist
+******************************/
+
+
 /****************************
 Start: MEDIA QUERIES
 ****************************/
 
 @media screen and (max-width: 700px) {
-    
+
     .footer-part {
         flex-direction: column;
     }
