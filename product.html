@@ -16,6 +16,7 @@
     <link rel="icon"
         href="//cdn.shopify.com/s/files/1/0283/0185/2747/files/favicon_48x48.png?v=1591627636 type ='image/icon'">
     <link rel="stylesheet" href="./style/main.css">
+    <link rel="stylesheet" href="./style/header-footer.css"/>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/c347e400e5.js" crossorigin="anonymous"></script>
 </head>
@@ -25,7 +26,7 @@
     <!--Navbar-->
 
     <nav id="main_nav">
-
+    
         <div class="top_part">
             <div class="location">
                 <a href="http://www.google.com">
@@ -34,14 +35,15 @@
                 </a>
             </div>
             <div class="logo">
-                <a href="homepage.html">
-                    <img src="https://cdn.shopify.com/s/files/1/0283/0185/2747/files/blm_36dad4a4-9b14-4ef8-9509-6a593f135aae_416x@2x.png?v=1588538421"/>
+                <a href="./homepage.html">
+                    <img
+                        src="https://cdn.shopify.com/s/files/1/0283/0185/2747/files/blm_36dad4a4-9b14-4ef8-9509-6a593f135aae_416x@2x.png?v=1588538421" />
                 </a>
             </div>
             <div class="nav_links">
                 <ul class="navItem">
                     <li>
-                        <a href="http://www.google.com" class="navlink">
+                        <a onclick="showWishProd()" class="navlink">
                             <i class="fa fa-heart-o" aria-hidden="true"></i>
                             Wishlist
                         </a>
@@ -67,73 +69,68 @@
                 </ul>
             </div>
         </div>
-        
+    
         <div class="bottom_part">
             <div class="main_menu">
                 <ul class="menu">
-                    <li class="dropdown" onmouseover="showItm('floater1')" onmouseout="hideItm('floater1')" >
+                    <li class="dropdown" onmouseover="showItm('floater1')" onmouseout="hideItm('floater1')">
                         <a class="navlink">
                             Shop
                         </a>
                         <div class="floaterOne" id="floater1">
                             <div class="floating1">
-                                <div class="combino" onmouseover="showing('floating2-one','floating3-one')" 
-
-                                onmouseout="hiding('floating2-one','floating3-one')"
-                                >
-                                    <div class="individ" >SKIN CARE</div>
-                                    <div ><i class="fas fa-chevron-right"></i></div>
+                                <div class="combino" onmouseover="showing('floating2-one','floating3-one')"
+                                    onmouseout="hiding('floating2-one','floating3-one')">
+                                    <div class="individ">SKIN CARE</div>
+                                    <div><i class="fas fa-chevron-right"></i></div>
                                 </div>
                                 <div class="combino" onmouseover="showing('floating2-two','floating3-two')"
-                                
-                                onmouseout="hiding('floating2-two','floating3-two' )"
-                                >
-                                    <div class="individ" >MAKEUP</div>
-                                    <div ><i class="fas fa-chevron-right "></i></div>
+                                    onmouseout="hiding('floating2-two','floating3-two' )">
+                                    <div class="individ">MAKEUP</div>
+                                    <div><i class="fas fa-chevron-right "></i></div>
                                 </div>
                                 <div class="combino" onmouseover="showing('floating2-three','floating3-three')"
-                                 onmouseout="hiding('floating2-three','floating3-three' )" 
-                                 >
+                                    onmouseout="hiding('floating2-three','floating3-three' )">
                                     <div class="individ">BATH & BODY</div>
-                                    <div ><i class="fas fa-chevron-right"></i></div>
+                                    <div><i class="fas fa-chevron-right"></i></div>
                                 </div>
                                 <div class="combino">
                                     <div class="individ">HAIR</div>
-                                    <div ><i class="fas fa-chevron-right"></i></div>
+                                    <div><i class="fas fa-chevron-right"></i></div>
                                 </div>
                                 <div class="combino">
                                     <div class="individ">SUN & TAN</div>
-                                    <div ><i class="fas fa-chevron-right"></i></div>
+                                    <div><i class="fas fa-chevron-right"></i></div>
                                 </div>
                                 <div class="combino">
-                                  <div class="individ">MEN</div>
-                                  <div ><i class="fas fa-chevron-right"></i></div>
+                                    <div class="individ">MEN</div>
+                                    <div><i class="fas fa-chevron-right"></i></div>
                                 </div>
-                                 <div class="combino">
-                                     <div class="individ">GIFTS</div>
-                                     <div ><i class="fas fa-chevron-right"></i></div>
-                                 </div>
-                                 <div class="combino">
-                                     <div class="individ">SCENTS & HOME</div>
-                                     <div ><i class="fas fa-chevron-right"></i></div>
-                                 </div>
+                                <div class="combino">
+                                    <div class="individ">GIFTS</div>
+                                    <div><i class="fas fa-chevron-right"></i></div>
+                                </div>
+                                <div class="combino">
+                                    <div class="individ">SCENTS & HOME</div>
+                                    <div><i class="fas fa-chevron-right"></i></div>
+                                </div>
                                 <div class="combino">
                                     <div class="individ">TOOLS & ACCESSORIES</div>
-                                    <div ><i class="fas fa-chevron-right"></i></div>
+                                    <div><i class="fas fa-chevron-right"></i></div>
                                 </div>
                                 <div class="combino">
                                     <div class="individ">BEST SELLERS</div>
-                                    <div ><i class="fas fa-chevron-right"></i></div>
+                                    <div><i class="fas fa-chevron-right"></i></div>
                                 </div>
                                 <div class="combino">
                                     <div class="individ">CONSCIOUS BEAUTY</div>
-                                    <div ><i class="fas fa-chevron-right"></i></div>
+                                    <div><i class="fas fa-chevron-right"></i></div>
                                 </div>
                                 <div class="combino">
                                     <div class="individ">SALE + FREE GIFTS!</div>
-                                    <div ><i class="fas fa-chevron-right"></i></div>
+                                    <div><i class="fas fa-chevron-right"></i></div>
                                 </div>
-                                
+    
                             </div>
                             <div class="floating2 showdefault floating2-one" id="floating2-one">
                                 <div class="individ boldtxt">BY CATEGORY</div>
@@ -212,9 +209,9 @@
                                 <div class="individ">Best Sellers</div>
                                 <div class="individ">New Arrivals</div>
                             </div>
-                            
+    
                         </div>
-                       
+    
                         <!-- <ul class="dropdown-nav">
                             <li><a href="new.html">SKIN CARE</a></li>
                             <li><a href="new.html">MAKEUP</a></li>
@@ -314,6 +311,12 @@
         <div class="announcement-bar" id="slide-text"></div>
     </div>
     <!--Carousel section end-->
+
+    <!--Wishlist overlay div-->
+    <div id="super-wishlist-box">
+        <div id="bg" onclick="hideOverlay()"></div>
+        <div id="wishlist-box-overlay"></div>
+    </div>
 
     <!-- Showing product's different images -->
     <div class="page_navigator">Home › New Arrivals › <span id="page_navigator-span"> Daily Brightening UV Defense SPF 30 </span></div>
@@ -504,3 +507,4 @@
 
 </html>
 <script src="./scripts/product.js"></script>
+<script src="./scripts/header-footer.js"></script>
