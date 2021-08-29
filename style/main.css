@@ -168,6 +168,8 @@ Start: Carousel Section
 /*************************
 End: Carousel Section
 *************************/
+
+
 /*************************
 Start: Search field
 *************************/
@@ -193,10 +195,10 @@ Start: Search field
     align-items: center;
 
 }
-.fa-search, .fa-times{
+.fa-search, .fa-times, .fa-microphone{
     font-size: 20px;
     font-weight:lighter;
-    
+    margin-left: 10px;
 }
 .fa-times:hover{
     color: red;
@@ -232,10 +234,12 @@ Start: Suggestion box
 .suggestings{
     /* z-index: 3; */
     background-color: white;
-    /* position: relative; */
+    position: absolute;
     /* top: 5px; */
     padding-left: 10%;
     display:none;
+    width: 100%;
+
 }
 .flexSuggest{
     margin-top: 30px;
