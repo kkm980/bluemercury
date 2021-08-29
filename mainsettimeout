@@ -1,0 +1,59 @@
+let cont = document.getElementById('results');
+
+var timer_id;
+
+async function getData() {
+    let key = document.getElementById('query').value;
+
+   
+
+    let res = await fetch(`https://swapi.dev/api/people/?search=${key}`);
+
+    
+
+    let data = await res.json();
+
+    console.log(data);
+
+    return data;
+}
+
+// getData();
+
+function append(character) {
+
+    cont.innerHTML = null;
+      
+    character.forEach(({name}) => {
+        let p = document.createElement('p');
+        p.innerText = name;
+
+        cont.append(p);
+    })
+
+    console.log('appended');
+}
+
+async function main() {
+    let { results } = await getData();
+    
+    console.log("Executed");
+    console.log(results);
+    append(results);
+}
+
+function throttleFunction(func, delay) {
+
+    if (timer_id) {
+        return;
+    }
+
+    timer_id = setTimeout(() => {
+       func();
+       
+       timer_id = undefined;
+        // clearTimeout(timer_id);
+
+    }, delay);
+
+}
