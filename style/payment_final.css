@@ -13,10 +13,6 @@ body {
     padding: 0;
   }
   
-  /* #main_container{
-      width: 100%;
-  } */
-  
   #customer_container {
     display: flex;
     flex-direction: row;
@@ -82,8 +78,8 @@ body {
   
   #pay_pal img {
       float: left;
-      margin-left: -35px;
-      margin-top: 5px;
+      /* margin-left: -35px; */
+      margin-top: 15px;
       width: 100px;
   }
   
@@ -115,7 +111,7 @@ body {
   }
   
   #payment_input {
-      width: 96%;
+      width: 100%;
       background-color: rgb(240, 238, 238);
       padding: 2%;
   }
