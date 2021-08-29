@@ -427,6 +427,7 @@ End: Carousel Section
 }
 #product_img {
   cursor: zoom-in;
+  width: 500px;
 }
 
 .side-img {
@@ -471,7 +472,7 @@ div > img:hover {
   float: left;
 }
 .product_count {
-  height: 25px;
+  height: 40px;
   width: 40px;
   border: 1px;
   text-align: center;

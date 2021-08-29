@@ -1,6 +1,5 @@
 //search field appear
 
-
 function appearSearch(){
     document.getElementById('searchings').style.display='flex';
     document.getElementById('hideput').value="";
@@ -13,35 +12,31 @@ function appearSearch(){
   document.getElementById('hidesearchings').addEventListener('click', function(){
     document.getElementById('searchings').style.display='none';
     document.body.classList.remove("stop-scrolling"); //to allow scrolling when suggestion box appears//
-    // console.log('hi');
   });
   
   // on Input, suggestion box appears
   
   let hideput=document.getElementById('hideput');
   let suggestings=document.getElementById('suggestings');
-  hideput.addEventListener('input',(e)=>{
-       if(e.target.value.length>=2){
-           let vaalu=e.target.value.trim().replace(/\s/g, "");
-            suggestings.style.display='block';
-            async function gettingData() {
-              try {
-                let res = await fetch("http://localhost:3000/products/");
-                let data = await res.json();
-                console.log(data);
-               showsuggestions(data, vaalu);
-              } catch (err) {
-                console.log(err);
-              }
-            }
-            gettingData();
-            
+hideput.addEventListener('input', (e) => {
+  if (e.target.value.length >= 2) {
+    let vaalu = e.target.value.trim().replace(/\s/g, "");
+    suggestings.style.display = 'block';
+    async function gettingData() {
+      try {
+        let res = await fetch("http://localhost:3000/products/");
+        let data = await res.json();
+        showsuggestions(data, vaalu);
+      } catch (err) {
+        console.log(err);
       }
-      else{
-          suggestings.style.display='none';
-          
-      }
-  }) 
+    }
+    gettingData();         
+  }
+  else {
+    suggestings.style.display = 'none';    
+  }
+})
   
  // taking to product page on enter button pressed on input box
 
@@ -50,136 +45,123 @@ hideput.addEventListener("keyup", function (event) {
     // Checking if key pressed is ENTER or not
     // if the key pressed is ENTER
     // click listener on button is called
-    if (event.key ==="Enter" && hideput.value.length>=2) {
-        console.log(hideput.value.length);
-        async function gettingData() {
-            try {
-              let res = await fetch("http://localhost:3000/products/");
-              let data = await res.json();
-            //   console.log(data);
-             var ViewObj=[];
-             data.forEach(el=>{
-                 if(el.name.includes(hideput.value)){
-                     ViewObj.push(el);
-                     
-
-                 }
-             })
-              localStorage.setItem('ViewObj', JSON.stringify(ViewObj));
-              console.log(JSON.stringify(ViewObj));
-             
-             console.log(ViewObj);
-            } catch (err) {
-              console.log(err);
-            }
-           
+  if (event.key === "Enter" && hideput.value.length >= 2) {
+    console.log(hideput.value.length);
+    async function gettingData() {
+      try {
+        let res = await fetch("http://localhost:3000/products/");
+        let data = await res.json();
+        var ViewObj = [];
+        data.forEach(el => {
+          if (el.name.includes(hideput.value)) {
+            ViewObj.push(el);
           }
-         
-          gettingData(); 
-              window.location.href="./customedproducts.html";
-       window.location.target="_blank";
-        
-    } 
-   
+        });
+        localStorage.setItem('ViewObj', JSON.stringify(ViewObj));
+        window.location.href = "./customedproducts.html";
+        window.location.target = "_blank";
+      } catch (err) {
+        console.log(err);
+      }
+           
+    }
+    gettingData();
+  }
 });
 // appending in suggestion box 
 
-function showsuggestions(data, vaalu){
-   
-    let cullu=0;
-    let tempVarArr=[];
-      let quickSearch=document.getElementById('quickSearch');
+var tempArr = [];
 
-       // 1. in quick search
-      quickSearch.innerHTML="";
-      let p=document.createElement('p');
-      p.innerHTML="QUICK SEARCH";
-      p.classList.add('boldest');
-      quickSearch.append(p);
+function showsuggestions(data, vaalu) {
+  let cullu = 0;
+  let tempVarArr = [];
+  let quickSearch = document.getElementById('quickSearch');
 
-    //   2. in categories 
-      let categoriesSearch=document.getElementById('categoriesSearch');
-      categoriesSearch.innerHTML="";
-      let pi=document.createElement('p');
-      pi.innerHTML="CATEGORIES";
-      pi.classList.add('boldest');
-      categoriesSearch.append(pi);
+  // 1. in quick search
+  quickSearch.innerHTML = "";
+  let p = document.createElement('p');
+  p.innerHTML = "QUICK SEARCH";
+  p.classList.add('boldest');
+  quickSearch.append(p);
 
-    //   for x-items found. viewings div 
-      let viewings=document.getElementById('viewings');
-      viewings.innerHTML="no items found";
-      //for prodResView
-      let itemlistsings=document.getElementsByClassName('itemlistsings');
-       for(var i=0;i<itemlistsings.length;i++){
-           itemlistsings[i].innerHTML="";
-       }
-      data.forEach(el => {
+  //   2. in categories 
+  let categoriesSearch = document.getElementById('categoriesSearch');
+  categoriesSearch.innerHTML = "";
+  let pi = document.createElement('p');
+  pi.innerHTML = "CATEGORIES";
+  pi.classList.add('boldest');
+  categoriesSearch.append(pi);
+
+  //   for x-items found. viewings div 
+  let viewings = document.getElementById('viewings');
+  viewings.innerHTML = "no items found";
+  //for prodResView
+  let itemlistsings = document.getElementsByClassName('itemlistsings');
+  for (var i = 0; i < itemlistsings.length; i++) {
+    itemlistsings[i].innerHTML = "";
+  }
+  data.forEach(el => {
           
-          if( el.name.includes(vaalu)){
-              if(cullu <=2){
+    if (el.name.includes(vaalu)) {
+      if (cullu <= 2) {
 
-                //   in quick search 
-                let p=document.createElement('p');
-              p.innerHTML=el.name;
-              quickSearch.append(p);
+        //   in quick search 
+        let p = document.createElement('p');
+        p.innerHTML = el.name;
+        quickSearch.append(p);
               
-              }
+      }
 
-            //   in categories 
-              let pi=document.createElement('p');
-              if(!tempVarArr.includes(el.option)){
-                  tempVarArr.push(el.option);
-                  pi.innerHTML=el.option;
-                  categoriesSearch.append(pi);
-              }
+      //   in categories 
+      let pi = document.createElement('p');
+      if (!tempVarArr.includes(el.option)) {
+        tempVarArr.push(el.option);
+        pi.innerHTML = el.option;
+        categoriesSearch.append(pi);
+      }
 
-            //   in prodResView
+      //   in prodResView
                 
-                if(cullu<=5){
-                    console.log("cullu");
-                    let picsdivid=document.createElement('img');
-                   picsdivid.src=el.img;
-                   picsdivid.style.cursor="pointer";
-                   picsdivid.style.height="80px";
-                   picsdivid.style.width="80px";
-                   let itemNaam=document.createElement('div');
-                   itemNaam.innerHTML=el.name;
-                   itemNaam.style.fontWeight="700";
-                   itemNaam.style.color="crimpson";
-                   let itemTitless=document.createElement('div');
-                   itemTitless.innerHTML=el.category;
-                   itemTitless.style.cursor="pointer";
-                   itemNaam.style.cursor="pointer";
-                   let wrappingsmalls = document.createElement('a');
-                   wrappingsmalls.target="_blank";
-                   wrappingsmalls.href="./product.html";
-                   wrappingsmalls.append(itemNaam);
-                   wrappingsmalls.append(itemTitless);
-                   wrappingsmalls.style.cursor="pointer";
-                   itemlistsings[cullu].append(picsdivid);
-                   itemlistsings[cullu].append(wrappingsmalls);
+      if (cullu <= 5) {
+        let picsdivid = document.createElement('img');
+        picsdivid.src = el.img;
+        picsdivid.style.cursor = "pointer";
+        picsdivid.style.height = "80px";
+        picsdivid.style.width = "80px";
+        let itemNaam = document.createElement('div');
+        itemNaam.innerHTML = el.name;
+        itemNaam.style.fontWeight = "700";
+        itemNaam.style.color = "crimpson";
+        let itemTitless = document.createElement('div');
+        itemTitless.innerHTML = el.category;
+        itemTitless.style.cursor = "pointer";
+        itemNaam.style.cursor = "pointer";
+        let wrappingsmalls = document.createElement('a');
+        wrappingsmalls.target = "_blank";
+        wrappingsmalls.href = "./product.html";
+        wrappingsmalls.append(itemNaam);
+        wrappingsmalls.append(itemTitless);
+        wrappingsmalls.style.cursor = "pointer";
+        itemlistsings[cullu].append(picsdivid);
+        itemlistsings[cullu].append(wrappingsmalls);
 
-                   wrappingsmalls.addEventListener('click',function(){
-                    window.localStorage.setItem('current_selected_prod', JSON.stringify(el));
-                    console.log(JSON.stringify(el));
-                   });
-                   
-                }
-                
-             cullu++;
-             
-          }  
-          viewings.innerHTML=`${cullu} items found`; 
-      });
-      if(cullu==0 ){
-            let p=document.createElement('p');
-           p.innerHTML="No Quick Search Suggestion";
-           quickSearch.append(p);
-            let pi=document.createElement('p');
-           pi.innerHTML="No Categories Suggestion";
-         categoriesSearch.append(pi);
-        }    
-        
+        wrappingsmalls.addEventListener('click', function () {
+          tempArr.push(el);
+          localStorage.setItem('current_selected_prod', JSON.stringify(tempArr));
+        });
+      }
+      cullu++;
+    }
+    viewings.innerHTML = `${cullu} items found`;
+  });
+  if (cullu == 0) {
+    let p = document.createElement('p');
+    p.innerHTML = "No Quick Search Suggestion";
+    quickSearch.append(p);
+    let pi = document.createElement('p');
+    pi.innerHTML = "No Categories Suggestion";
+    categoriesSearch.append(pi);
+  }
 }
   
   
@@ -228,97 +210,96 @@ function showsuggestions(data, vaalu){
   
   // Showing product Grids
   var amounting=0;
-  function showItems(l) {
-    let items = l;
-    let items_div = document.getElementById("items");
+function showItems(l) {
+  let items = l;
+  let items_div = document.getElementById("items");
   
-    items_div.innerHTML = null;
+  items_div.innerHTML = null;
   
-    items.forEach(function (el) {
-      let div = document.createElement("div");
-      let p_name = document.createElement("p");
-      p_name.innerText = el.name;
+  items.forEach(function (el) {
+    let div = document.createElement("div");
+    let p_name = document.createElement("p");
+    p_name.innerText = el.name;
   
-      let span_title = document.createElement("span");
-      span_title.innerText = el.title;
+    let span_title = document.createElement("span");
+    span_title.innerText = el.title;
   
-      let p_price = document.createElement("p");
-      p_price.innerHTML = `$${el.price}`;
+    let p_price = document.createElement("p");
+    p_price.innerHTML = `$${el.price}`;
   
-      let img = document.createElement("img");
-      img.src = el.img;
+    let img = document.createElement("img");
+    img.src = el.img;
   
-      let wish = document.createElement("p");
-      wish.innerHTML = "<i class='far fa-heart'></i>";
-      wish.setAttribute("id", "wish-btn");
-      wish.style.width = "22px";
-      wish.style.height = "21px";
-      wish.style.float = "left";
-      wish.style.marginBottom = "0px";
+    let wish = document.createElement("p");
+    wish.innerHTML = "<i class='far fa-heart'></i>";
+    wish.setAttribute("id", "wish-btn");
+    wish.style.width = "22px";
+    wish.style.height = "21px";
+    wish.style.float = "left";
+    wish.style.marginBottom = "0px";
   
-      p_name.setAttribute(
-        "style",
-        " font-family: Montserrat Medium,sans-serif; font-weight: 400;letter-spacing: .2px;line-height: 24px;text-transform: uppercase;color: #12284c;font-size: 14px;"
-      );
-      span_title.setAttribute(
-        "style",
-        " font-family: Montserrat Light,sans-serif; font-weight: 300;letter-spacing: .18px;line-height: 20px;color: #12284c;font-size: 14px;"
-      );
-      p_price.setAttribute(
-        "style",
-        " font-family: Montserrat Light,sans-serif; font-weight: 400;line-height: 1.65;color: #12284c;font-size: 14px;"
-      );
+    p_name.setAttribute(
+      "style",
+      " font-family: Montserrat Medium,sans-serif; font-weight: 400;letter-spacing: .2px;line-height: 24px;text-transform: uppercase;color: #12284c;font-size: 14px;"
+    );
+    span_title.setAttribute(
+      "style",
+      " font-family: Montserrat Light,sans-serif; font-weight: 300;letter-spacing: .18px;line-height: 20px;color: #12284c;font-size: 14px;"
+    );
+    p_price.setAttribute(
+      "style",
+      " font-family: Montserrat Light,sans-serif; font-weight: 400;line-height: 1.65;color: #12284c;font-size: 14px;"
+    );
   
-      img.style.width = "80%";
-      img.style.height = "80%"
+    img.style.width = "80%";
+    img.style.height = "80%"
   
-      img.addEventListener("click", function () {
-        addtoVisited(el);
-      });
-      
-      var i = 0;
-      function switchArrayColor() {
-        if (i % 2 == 0) {
-          wish.innerHTML = "<i class='fas fa-heart'></i>";
-          if (localStorage.getItem("wishlist") == null) {
-            let wishlistArr = [];
-            localStorage.setItem("wishlist", JSON.stringify(wishlistArr));
-          }
-          let temp = JSON.parse(localStorage.getItem("wishlist"));
-          temp.push(el);
-          localStorage.setItem("wishlist", JSON.stringify(temp));
-        } else {
-          wish.innerHTML = "<i class='far fa-heart'></i>";
-          let temp = JSON.parse(localStorage.getItem("wishlist"));
-          temp.forEach((element, index, temp) => {
-            if (element.prod_id_num == el.prod_id_num) {
-              temp.splice(index, 1);
-            }
-          });
-          localStorage.setItem("wishlist", JSON.stringify(temp));
-        }
-        i++;
-      }
-      wish.addEventListener("click", switchArrayColor);
-       div.addEventListener('click', function(){
-        div.target="_blank";
-        window.location.href="./product.html";
-            localStorage.setItem('current_selected_prod', JSON.stringify(el));
-            console.log(JSON.stringify(el));
-       })
-      div.append(wish, img, p_name, span_title, p_price);
-      items_div.append(div);
-      amounting++;
+    img.addEventListener("click", function () {
+      addtoVisited(el);
     });
+      
+    var i = 0;
+    function switchArrayColor() {
+      if (i % 2 == 0) {
+        wish.innerHTML = "<i class='fas fa-heart'></i>";
+        if (localStorage.getItem("wishlist") == null) {
+          let wishlistArr = [];
+          localStorage.setItem("wishlist", JSON.stringify(wishlistArr));
+        }
+        let temp = JSON.parse(localStorage.getItem("wishlist"));
+        temp.push(el);
+        localStorage.setItem("wishlist", JSON.stringify(temp));
+      } else {
+        wish.innerHTML = "<i class='far fa-heart'></i>";
+        let temp = JSON.parse(localStorage.getItem("wishlist"));
+        temp.forEach((element, index, temp) => {
+          if (element.prod_id_num == el.prod_id_num) {
+            temp.splice(index, 1);
+          }
+        });
+        localStorage.setItem("wishlist", JSON.stringify(temp));
+      }
+      i++;
+    }
+    wish.addEventListener("click", switchArrayColor);
+    div.addEventListener('click', function () {
+      let newTempArr = [];
+      newTempArr.push(el);
+      localStorage.setItem('current_selected_prod', JSON.stringify(newTempArr));
+      div.target = "_blank";
+      window.location.href = "./product.html";
+    })
+    div.append(wish, img, p_name, span_title, p_price);
+    items_div.append(div);
+    amounting++;
+  });
 
-  }
+}
   
   // <-------------------------------Fetching the data from customised search of user -------------------------->
   function getData() {
-      let ViewObj=JSON.parse(localStorage.getItem('ViewObj'));
-      console.log(ViewObj)
+    let ViewObj=JSON.parse(localStorage.getItem('ViewObj'));
     showItems(ViewObj);
-    
   }
   getData();
   
@@ -412,11 +393,12 @@ function showsuggestions(data, vaalu){
   
   
   function addtoVisited(obj) {
-    console.log("Obj: ", obj);
     let singleProdArr = [];
     singleProdArr.push(obj);
-  
+    
+    localStorage.setItem("current_selected_prod", JSON.stringify(singleProdArr));
     // window.location.href = "product.html";
+
   }
   
   // Sign-up button change
@@ -515,8 +497,6 @@ function showsuggestions(data, vaalu){
           for (let i = 0; i < wishlistArr.length; i++) {
             if (wishlistArr[i].prod_id_num == el.prod_id_num) {
               wishlistArr.splice(i, 1);
-              console.log(wishlistArr[i])
-              console.log("here");
               localStorage.setItem("wishlist", JSON.stringify(wishlistArr));
               break;
             }
