@@ -50,6 +50,39 @@ var productsData = [
     },
 ]
 
+/*******************************
+Start: Best seller slideshow
+*******************************/
+
+function slideshowBestSellers() {
+    let slide_img = document.getElementById('slide-img');
+    let img = document.createElement('img');
+
+    let best_sellers_arr = ['https://cdn.shopify.com/s/files/1/0283/0185/2747/files/earn-redeem-july-hero-des.jpg?v=1626210704', 'https://cdn.shopify.com/s/files/1/0283/0185/2747/files/m61-cooling-eye-gel-hero-des.jpg?v=1626212604', 'https://cdn.shopify.com/s/files/1/0283/0185/2747/files/Dr.Barbara-Sturm-hp-hero-des.jpg?v=1625759244', 'https://cdn.shopify.com/s/files/1/0283/0185/2747/files/suyb-fabienne-hero-des.jpg?v=1626106125'];
+
+    img.src = best_sellers_arr[0];
+    img.style.width = '100%';
+    slide_img.append(img);
+    let i = 1;
+    setInterval(function () {
+        img.src = best_sellers_arr[i % best_sellers_arr.length];
+        img.style.width = '100%';
+        i++;
+        slide_img.append(img);
+    }, 3000);
+
+    let dots = document.getElementById('dots-slide');
+    let dot_div = document.createElement('div');
+    dot_div.style.display = 'inline-block';
+}
+
+slideshowBestSellers();
+
+/******************************
+ End: Bestsellers slideshow
+******************************/
+
+
 
 /**********************************
 New Arrivals js part

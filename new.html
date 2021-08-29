@@ -15,13 +15,13 @@
     <link rel="stylesheet" href="./style/new.css">
     <link rel="stylesheet" href="./style/header-footer.css"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <script src="https://kit.fontawesome.com/c81185d0be.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/c347e400e5.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
    <!--Navbar-->
 
-   <nav id="main_nav">
+<nav id="main_nav">
 
     <div class="top_part">
         <div class="location">
@@ -256,12 +256,11 @@
         </div>
     </div>
 </nav>
-<!--Search bar section-->
-
 <div class="searchings" id="searchings">
     <div class="firstWrapping">
         <i class="fas fa-search"></i>
         <input class="hideput" id="hideput" placeholder="SEARCH..." type="text">
+        <i class="fas fa-microphone" onclick="runSpeechRecognition()" id="microphone"></i>
         <i class="fas fa-times" id="hidesearchings"></i>
     </div>
     <div class="secondWrapping">
@@ -270,7 +269,7 @@
             <div class="flexSuggest">
                 <div class="flexingOne">
                     <div class="quickSearch" id="quickSearch">
-                        
+
                         <!-- <P>No Quick Search Suggestion</P> -->
                     </div>
                     <hr class="quickHR">
@@ -290,7 +289,8 @@
                         </div>
                     </div>
                     <div class="prodResView">
-                        <div class="itemlistsings" ></div>
+
+                        <div class="itemlistsings"></div>
                         <div class="itemlistsings"></div>
                         <div class="itemlistsings"></div>
                         <div class="itemlistsings"></div>
@@ -604,3 +604,4 @@
 
 </html>
 <script src="./scripts/new.js"></script>
+<script src="./scripts/header-footer.js"></script>

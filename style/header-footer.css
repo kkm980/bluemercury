@@ -133,6 +133,10 @@ Start: Navigation bar
     padding: 3px;
 }
 
+.navItem li:hover {
+    cursor: pointer;
+}
+
 .navItem li a i,
 .top_part .location a i {
     font-size: 20px;

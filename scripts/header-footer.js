@@ -23,31 +23,7 @@ function slideshowOffer() {
     }, 5000);
 }
 
-function slideshowBestSellers() {
-    let slide_img = document.getElementById('slide-img');
-    let img = document.createElement('img');
-
-    let best_sellers_arr = ['https://cdn.shopify.com/s/files/1/0283/0185/2747/files/earn-redeem-july-hero-des.jpg?v=1626210704', 'https://cdn.shopify.com/s/files/1/0283/0185/2747/files/m61-cooling-eye-gel-hero-des.jpg?v=1626212604', 'https://cdn.shopify.com/s/files/1/0283/0185/2747/files/Dr.Barbara-Sturm-hp-hero-des.jpg?v=1625759244', 'https://cdn.shopify.com/s/files/1/0283/0185/2747/files/suyb-fabienne-hero-des.jpg?v=1626106125'];
-
-    img.src = best_sellers_arr[0];
-    img.style.width = '100%';
-    slide_img.append(img);
-    let i = 1;
-    setInterval(function () {
-        img.src = best_sellers_arr[i % best_sellers_arr.length];
-        img.style.width = '100%';
-        i++;
-        slide_img.append(img);
-    }, 3000);
-
-    let dots = document.getElementById('dots-slide');
-    let dot_div = document.createElement('div');
-    dot_div.style.display = 'inline-block';
-}
-
 slideshowOffer();
-slideshowBestSellers();
-
 
 /****************************
 Search functions 
@@ -304,6 +280,129 @@ function hideItm(idx) {
     menuContainergetting.style.display = "none";
     menuContainergetting.style.opacity="0";
 }
+
+
+/*********************************
+Start: Wishlist functionality
+**********************************/
+function hideOverlay() {
+  document.getElementById('super-wishlist-box').style.display = 'none';
+}
+
+function showWishProd() {
+  console.log("Yay");
+  document.getElementById('super-wishlist-box').style.display = 'block';
+  let super_div = document.getElementById("bg")
+  super_div.style.display = "block";
+  
+  let main_div = document.getElementById("wishlist-box-overlay");
+  main_div.innerHTML = null;
+  main_div.style.display = "block";
+  main_div.style.width = '70%';
+  main_div.style.display = 'flex';
+  main_div.style.flexDirection = 'column';
+  
+  let temp = JSON.parse(localStorage.getItem("wishlist"));
+  temp.forEach((el) => {
+    
+  });
+
+  if (temp == null || temp.length == 0) {
+    main_div.innerHTML = null;
+    
+    let default_div = document.createElement('div');
+    default_div.setAttribute("id", "wishlist-prod-div");
+
+    let para_1 = document.createElement('p');
+    para_1.innerHTML = `Love It? Add To My Wishlist`;
+    para_1.setAttribute("style", "font-weight: bold; font-size: 18px; line-height: 50px; text-transform: capitalize; color: #434655; margin: 25px 0; text-align: center;")
+
+    let para_2 = document.createElement('p');
+    para_2.innerHTML = `My Wishlist allows you to keep track of all of your favorites and shopping activity whether you're on your computer, phone, or tablet. You won't have to waste time searching all over again for that item you loved on your phone the other day - it's all here in one place!`;
+    para_2.setAttribute("style", "font-weight: 500; font-size: 14px; line-height: 1.5em; letter-spacing: .05em; color: #828282; max-width: 650px;")
+
+    let shopping_btn = document.createElement('button');
+    shopping_btn.innerHTML = `Continue Shopping`;
+    shopping_btn.setAttribute("style", "font-weight: normal; font-size: 14px; line-height: 16px; text-transform: uppercase; margin: 35px 0; padding: 13px 30px; cursor: pointer; background-color: #12284C; border: none; color: white");
+    shopping_btn.addEventListener('click', () => {
+      window.location.href = './new.html';
+    })
+
+    default_div.append(para_1, para_2, shopping_btn);
+    main_div.append(default_div);
+  } else {
+    let outer_div = document.createElement('div');
+    outer_div.setAttribute("style", "display: grid; grid-template-columns: repeat(4, 200px); /*grid-auto-rows: 250px;*/ gap: 20px; height: 500px; overflow: scroll; align-items: top");
+
+    outer_div.setAttribute("id", "wishlist-prod-div");
+
+    let wishlistArr = JSON.parse(localStorage.getItem('wishlist'));
+    console.log(wishlistArr);
+
+    wishlistArr.forEach((el) => {
+      let inner_div = document.createElement('div');
+      inner_div.style.backgroundColor = 'white';
+      inner_div.style.border = "1px solid #12284C";
+      inner_div.style.height = 'fit-content';
+      inner_div.style.position = 'relative';
+
+      let cancel_p = document.createElement('p');
+      cancel_p.innerHTML = `<i class="material-icons">close</i>`;
+      cancel_p.style.position = 'absolute';
+      cancel_p.style.right = '0';
+      cancel_p.style.color = '#12284C';
+      cancel_p.style.cursor = 'pointer';
+      cancel_p.addEventListener('click', () => {
+        for (let i = 0; i < wishlistArr.length; i++) {
+          if (wishlistArr[i].prod_id_num == el.prod_id_num) {
+            wishlistArr.splice(i, 1);
+            console.log(wishlistArr[i])
+            console.log("here");
+            localStorage.setItem("wishlist", JSON.stringify(wishlistArr));
+            break;
+          }
+        }
+        showWishProd();
+      });
+
+      let img = document.createElement('img');
+      img.src = el.img;
+      img.style.width = "100%";
+      img.style.height = "70%";
+      img.style.objectFit = "cover";
+
+      let title = document.createElement('p');
+      title.innerHTML = el.title;
+      title.setAttribute("style", "white-space: nowrap; width: 100%; overflow: hidden; text-overflow: ellipsis;")
+
+      let price = document.createElement('p');
+      price.innerHTML = `$ ${el.price}`;
+
+      let add_to_cart = document.createElement('button');
+      add_to_cart.innerHTML = `ADD TO BAG`;
+      add_to_cart.setAttribute("style", "font-weight: normal; font-size: 14px; line-height: 16px; text-transform: uppercase; padding: 5px; cursor: pointer; background-color: #12284C; border: none; color: white; width: 100%");
+      add_to_cart.addEventListener('click', () => {
+        window.location.href = './new.html';
+      });
+
+      inner_div.append(cancel_p, img, title, price, add_to_cart);
+      outer_div.append(inner_div);
+    });
+    
+    let shopping_btn = document.createElement('button');
+    shopping_btn.innerHTML = `Continue Shopping`;
+    shopping_btn.setAttribute("style", "font-weight: normal; font-size: 14px; line-height: 16px; text-transform: uppercase; padding: 13px 30px; cursor: pointer; background-color: #12284C; border: none; color: white; width: 250px; margin: 10px auto");
+    shopping_btn.addEventListener('click', () => {
+      window.location.href = './new.html';
+    })
+
+    main_div.append(outer_div, shopping_btn);
+  }
+}
+
+/******************************
+End: Wishlist functionality
+******************************/
 
 /******************************
  Email success overlay msg
