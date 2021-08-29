@@ -390,6 +390,7 @@ Start: Footer part
     margin: 0px 20px;
     max-width: 50ch;
     min-width: 30ch;
+    line-height: 30px;
 }
 
 .newsletter > .icons {
@@ -397,7 +398,9 @@ Start: Footer part
     flex: 1 1 0%;
     justify-content: space-between;
     max-width: 90%;
-    font-size: 30px;
+    font-size: 25px;
+    margin-top: 5px;
+    margin-bottom: 5px;
     color: #12284C;
 }
 

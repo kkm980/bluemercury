@@ -383,7 +383,7 @@ document.title = `${current_prod[0].name} ${current_prod[0].title}`;
 
 document.getElementById('img_1').src = current_prod[0].img;
 document.getElementById('main_img').src = current_prod[0].img;
-document.getElementById('main_img').setAttribute('style', 'width: 500px !important;')
+document.getElementById('main_img').setAttribute('style', 'width: 400px !important;')
 
 // console.log(current_prod[0].price)
 
