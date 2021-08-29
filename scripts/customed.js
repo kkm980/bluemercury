@@ -160,7 +160,7 @@ function showsuggestions(data, vaalu){
                    itemlistsings[cullu].append(wrappingsmalls);
 
                    wrappingsmalls.addEventListener('click',function(){
-                    window.localStorage.setItem('myViewObj', JSON.stringify(el));
+                    window.localStorage.setItem('current_selected_prod', JSON.stringify(el));
                     console.log(JSON.stringify(el));
                    });
                    
@@ -303,7 +303,7 @@ function showsuggestions(data, vaalu){
        div.addEventListener('click', function(){
         div.target="_blank";
         window.location.href="./product.html";
-            localStorage.setItem('myViewObj', JSON.stringify(el));
+            localStorage.setItem('current_selected_prod', JSON.stringify(el));
             console.log(JSON.stringify(el));
        })
       div.append(wish, img, p_name, span_title, p_price);

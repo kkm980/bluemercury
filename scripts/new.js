@@ -310,6 +310,7 @@ async function getData() {
   try {
     let res = await fetch("http://localhost:3000/products/");
     let data = await res.json();
+    localStorage.setItem("items", JSON.stringify(data));
     showItems(data);
   } catch (err) {
     console.log(err);
