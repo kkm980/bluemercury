@@ -1,35 +1,3 @@
-/* Slideshow function */
-
-function slideshowOffer() {
-
-    let slide_text = document.getElementById('slide-text');
-    let p = document.createElement('p');
-
-    let announcement_msg = ['Earn up to $100! Receive $20 for every $100 you spend.', 'Free shipping for bluerewards members >', 'Free samples with all orders >', 'Free gifts with purchase. Browse now >'];
-
-    p.innerHTML = announcement_msg[0];
-    p.style.textAlign = 'center';
-    p.style.textTransform = 'uppercase'
-    slide_text.append(p);
-    let i = 1;
-    setInterval(function () {
-        p.innerHTML = announcement_msg[i % announcement_msg.length];
-        p.style.textAlign = 'center';
-        p.style.textTransform = 'uppercase';
-        i++;
-        slide_text.append(p);
-    }, 5000);
-
-}
-slideshowOffer();
-
-let login_click = document.getElementsByClassName("log_in_cart");
-
-// login_click.addEventListener("click", function () {
-//     window.location.href = "login.html";
-//   });
-
-
 function account_id() {
     window.location.href = "signup.html";
 }
@@ -64,7 +32,7 @@ function cart_display(el) {
     // img_with_description.style.float = 'left';
     var img = document.createElement('img');
     img.src = el.img;
-    img.setAttribute('style', 'width: 20%; min-width: 100px')
+    img.setAttribute('style', 'width: 100px; height: 100px; object-fit: scale-down')
 
     var desc = document.createElement('span');
     desc.append(el.title);
@@ -115,6 +83,11 @@ for (let i = 0; i < final_bag.length; i++) {
 }
 console.log(total_cart_items, total_bill)
 
+if (total_bill < 150) {
+    document.getElementById("shipping_calculate").innerHTML = `<p>You are ${150 - total_bill} away from Free Ground Shipping!</p>`;
+} else {
+    document.getElementById('shipping_calculate').innerHTML = `<p>Your Order Qualifies For Free Ground Shipping!</p>`
+}
 
 var a = document.getElementsByClassName('your_Cart')[0];
 if (total_cart_items <= 1) {
@@ -125,37 +98,18 @@ if (total_cart_items <= 1) {
 
 document.getElementById('cart_total').innerHTML = `Subtotal $${total_bill}`;
 
-// Sign-up button change
-
-function changeAccount() {
-  let signup_btn = document.getElementById("login_change");
-  let check_user = JSON.parse(localStorage.getItem("current_user"));
-
-  if (check_user != null) {
-    signup_btn.innerHTML = `<i class="fa fa-user-circle"></i> Account`;
-    signup_btn.addEventListener("click", () => {
-      window.location.href = "myaccount.html";
-    });
-  } else {
-    signup_btn.innerHTML = `<i class="fa fa-user-circle"></i> Sign in/up`;
-    signup_btn.addEventListener("click", () => {
-      window.location.href = "login.html"
-    });
-  }
-}
-
-changeAccount();
-
 function checkLogin() {
-  let current_user = JSON.parse(localStorage.getItem("current_user"))
-  console.log("Here");
-
-  console.log("This is user: ", current_user);
-  if (current_user == null || current_user.length == 0) {
-    console.log("In the if")
-    alert("Please sign in before purchase");
-    window.location.href = "login.html";
-  } else {
-    window.location.href = "customer_info.html"
-  }
+    let current_user = JSON.parse(localStorage.getItem("current_user"))
+    if (current_user == null || current_user.length == 0) {
+        alert("Please sign in before purchase");
+        window.location.href = "login.html";
+    } else {
+        let bag = JSON.parse(localStorage.getItem("shopping_bag"));
+        if (bag == null || bag.length == 0) {
+            alert("Please add products in cart");
+            window.location.href = "new.html";
+        } else {
+            window.location.href = "customer_info.html"
+        }
+    }
 }
