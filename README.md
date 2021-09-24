@@ -3,10 +3,10 @@
 This is a clone of *www.bluemercury.com* website. It's an USA based E-commerce website for cosmetic products.
 
 <hr/>
-# H1
+### Team Size
 3
 <hr/>
-###Team Members
+### Team Members
 
 - [Krishna Kant](https://github.com/kkm980)
 - [Nitesh Goshwami](https://github.com/Nitesh-Goshwami)
@@ -22,7 +22,7 @@ This is a clone of *www.bluemercury.com* website. It's an USA based E-commerce w
 
 <hr/>
 
-###Pre-requisites
+### Pre-requisites
 Clone the repo:
     git clone repo_link
 Create branches:
