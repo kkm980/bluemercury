@@ -1,29 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create Account-bluemercury</title> <!-- title of page  -->
-    <link rel="stylesheet" href="./style/Signup.css">
-    <!--Link of css styles -->
-    <!--Font Family -->
+    <title>Login | bluemercury</title>
+    <link rel="stylesheet" href="../style/Login.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,500;1,600&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,500;1,600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="icon"
-        href="//cdn.shopify.com/s/files/1/0283/0185/2747/files/favicon_48x48.png?v=1591627636 type= 'image/icon'">
+    <link rel="icon" href="//cdn.shopify.com/s/files/1/0283/0185/2747/files/favicon_48x48.png?v=1591627636 type= 'image/icon'">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="./style/header-footer.css" />
+    <link rel="stylesheet" href="../style/header-footer.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <script src="https://kit.fontawesome.com/c347e400e5.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/c347e400e5.js" crossorigin="anonymous"></script>    
 </head>
-
 <body>
+
     <!--Navbar-->
     
     <nav id="main_nav">
@@ -319,184 +313,148 @@
     </div>
 
 
-
+    <div id="container">
+        <div id="login_container">
+            <h1 id="login_heading">LOGIN</h1>               
+            <!-- <form id="login" onsubmit="check(event)"> -->
+                <p id="please_enter">Please enter your e-mail and password:</p>
+                <input type="email" id="email" class="email" placeholder="E-mail" required>
+                <br>
+                <input type="password" id="password" class="email" placeholder="Password" required>
+                <br>
+                <button id="login_button" onclick="check()">LOGIN</button>
+                <br>
+                <span id="no_account">Don't have an account?<a id="create_one" href="Signup.html">Create one</a></span>
+            <!-- </form> -->
+        </div>
+    </div> 
+    
     <div>
-        <div id="container">
-            <div id="create_container">
-                <header id="heading">
-                    <h1 id="create_account">CREATE ACCOUNT</h1>
-                    <p id="complete_form">Complete the form below to create a bluemercury.com account.</p>
-                </header>
-
-                <!-- <form id="form" onsubmit="store(event)"> -->
-                <input type="email" id="email" class="input" placeholder="Email*" required>
-                <input type="text" id="first_name" class="input" placeholder="First Name*" required>
-                <input type="text" id="last_name" class="input" placeholder="Last Name*" required>
-                <input type="password" id="password" class="input" placeholder="Password*" required>
-                <p id="input_required">*Indicates Required Field</p>
-
-                <div id="checkbox_join_container">
-                    <div id="blue_join_rewards">
-                        <div id="blue_join_rewards_div1">
-                            <input type="checkbox" id="checkbox">
-                        </div>
-                        <div id="blue_join_rewards_div2">
-                            <!-- <span id="blue_join_row1">                             -->
-                            <span id="join">join</span>
-                            <span id="blue">BLUE<span id="rewards">REWARDS</span></span>
-                            <!-- </span>                         -->
-                        </div>
-                        <div>
-                            <span id="blue_join_row2">
-                                Earn $10 for every $250 you spend, plus FREE birthday gifts & treatments!
-                            </span>
-                        </div>
+         <!--Footer-->
+    <footer class="footer-part">
+        <div class="newsletter">
+            <p>Get Expert Beauty Insight & Offers</p>
+            <form id="footer-mail-collect" onsubmit="overlaymsg(event)">
+                <div id="mail-submission-success-overlay">
+                    <div>
+                        <!-- <img src="https://i2.wp.com/i.pinimg.com/originals/70/a5/52/70a552e8e955049c8587b2d7606cd6a6.gif"/> -->
+                        <img src="https://thumbs.gfycat.com/ShyCautiousAfricanpiedkingfisher-max-1mb.gif"
+                            alt="successful" />
+                        <p id="success-msg">You will hear from us soon!</p>
+                        <div onclick="overlayMsgHide()" id="hide-overlay">Done</div>
                     </div>
                 </div>
-                <div>
-                    <p id="privacy_policy">To learn more about how we use your information and your rights, see <a
-                            href="Signup.html">Privacy Note</a></p>
-                </div>
-                <button id="create_account_btn" onclick="store()">CREATE ACCOUNT</button>
-
-                <div>
-                    <span id="already_account">
-                        Already have a bluemercury.com account?
-                        <a id="sign_in" href="Login.html">Sign In</a>
-                    </span>
-                </div>
-                </form>
+                <input class="footer-mail e-mail" id="newsletter-mail-input" name="e-mail" type="email"
+                    placeholder="EMAIL ADDRESS" />
+                <button id="arrow-submit-btn" type="submit">
+                    <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                </button>
+            </form>
+            <p>To learn more about how we use your information and your rights, see Privacy Note</p>
+            <p class="icons">
+                <a href="https://twitter.com/bluemercury" target="_blank"><i class="fa fa-twitter"
+                        aria-hidden="true"></i></a>
+                <a href="https://www.pinterest.com/bluemercury/" target="_blank"><i class="fa fa-pinterest-p"
+                        aria-hidden="true"></i></a>
+                <a href="https://facebook.com/bluemercury" target="_blank"><i class="fa fa-facebook"
+                        aria-hidden="true"></i></a>
+                <a href="https://instagram.com/bluemercury" target="_blank"><i class="fa fa-instagram"
+                        aria-hidden="true"></i></a>
+                <a href="https://www.youtube.com/channel/UCrgUXfV7IIFllEQMbzd9J3A" target="_blank"><i
+                        class="fa fa-youtube-play" aria-hidden="true"></i></a>
+            </p>
+            <p> Copyright 2021 bluemercury. All Rights Reserved.</p>
+        </div>
+    
+        <div class="footer-navwrap">
+            <div class="bluemercury-links">
+                <h2>Bluemercury</h2>
+                <ul>
+                    <li>
+                        <a href="#">Our Company</a>
+                    </li>
+                    <li>
+                        <a href="#">Store Locator</a>
+                    </li>
+                    <li>
+                        <a href="#">In-Store & Online Events</a>
+                    </li>
+                    <li>
+                        <a href="#">Spa Menu</a>
+                    </li>
+                    <li>
+                        <a href="#">Press</a>
+                    </li>
+                    <li>
+                        <a href="#">Careers</a>
+                    </li>
+                    <li>
+                        <a href="#">Vendor Submissions</a>
+                    </li>
+                    <li>
+                        <a href="#">Diversity & Inclusion</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="myaccount-links">
+                <h2>My Account</h2>
+                <ul>
+                    <li>
+                        <a href="#">My Account</a>
+                    </li>
+                    <li>
+                        <a href="#">BlueRewards</a>
+                    </li>
+                    <li>
+                        <a href="#">Gift Card Balance Checker</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="customerservice-links">
+                <h2>Customer Service</h2>
+                <ul>
+                    <li>
+                        <a href="#">Contact Us</a>
+                    </li>
+                    <li>
+                        <a href="#">Help & FAQ</a>
+                    </li>
+                    <li>
+                        <a href="#">Shipping, Returns & Exchanges</a>
+                    </li>
+                    <li>
+                        <a href="#">Gift Cards</a>
+                    </li>
+                    <li>
+                        <a href="#">Offers & Promotions</a>
+                    </li>
+                    <li>
+                        <a href="#">Klarna</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="resources-links">
+                <h2>Resources</h2>
+                <ul>
+                    <li>
+                        <a href="#">Terms & Conditions</a>
+                    </li>
+                    <li>
+                        <a href="#">Privacy Policy</a>
+                    </li>
+                    <li>
+                        <a href="#">Accessiblility</a>
+                    </li>
+                    <li>
+                        <a href="#">COVID-19 Updates</a>
+                    </li>
+                </ul>
             </div>
         </div>
-    </div>
-
-    <div>
-        <!--Footer-->
-        <footer class="footer-part">
-            <div class="newsletter">
-                <p>Get Expert Beauty Insight & Offers</p>
-                <form id="footer-mail-collect" onsubmit="overlaymsg(event)">
-                    <div id="mail-submission-success-overlay">
-                        <div>
-                            <!-- <img src="https://i2.wp.com/i.pinimg.com/originals/70/a5/52/70a552e8e955049c8587b2d7606cd6a6.gif"/> -->
-                            <img src="https://thumbs.gfycat.com/ShyCautiousAfricanpiedkingfisher-max-1mb.gif"
-                                alt="successful" />
-                            <p id="success-msg">You will hear from us soon!</p>
-                            <div onclick="overlayMsgHide()" id="hide-overlay">Done</div>
-                        </div>
-                    </div>
-                    <input class="footer-mail e-mail" id="newsletter-mail-input" name="e-mail" type="email"
-                        placeholder="EMAIL ADDRESS" />
-                    <button id="arrow-submit-btn" type="submit">
-                        <i class="fa fa-arrow-right" aria-hidden="true"></i>
-                    </button>
-                </form>
-                <p>To learn more about how we use your information and your rights, see Privacy Note</p>
-                <p class="icons">
-                    <a href="https://twitter.com/bluemercury" target="_blank"><i class="fa fa-twitter"
-                            aria-hidden="true"></i></a>
-                    <a href="https://www.pinterest.com/bluemercury/" target="_blank"><i class="fa fa-pinterest-p"
-                            aria-hidden="true"></i></a>
-                    <a href="https://facebook.com/bluemercury" target="_blank"><i class="fa fa-facebook"
-                            aria-hidden="true"></i></a>
-                    <a href="https://instagram.com/bluemercury" target="_blank"><i class="fa fa-instagram"
-                            aria-hidden="true"></i></a>
-                    <a href="https://www.youtube.com/channel/UCrgUXfV7IIFllEQMbzd9J3A" target="_blank"><i
-                            class="fa fa-youtube-play" aria-hidden="true"></i></a>
-                </p>
-                <p> Copyright 2021 bluemercury. All Rights Reserved.</p>
-            </div>
-        
-            <div class="footer-navwrap">
-                <div class="bluemercury-links">
-                    <h2>Bluemercury</h2>
-                    <ul>
-                        <li>
-                            <a href="#">Our Company</a>
-                        </li>
-                        <li>
-                            <a href="#">Store Locator</a>
-                        </li>
-                        <li>
-                            <a href="#">In-Store & Online Events</a>
-                        </li>
-                        <li>
-                            <a href="#">Spa Menu</a>
-                        </li>
-                        <li>
-                            <a href="#">Press</a>
-                        </li>
-                        <li>
-                            <a href="#">Careers</a>
-                        </li>
-                        <li>
-                            <a href="#">Vendor Submissions</a>
-                        </li>
-                        <li>
-                            <a href="#">Diversity & Inclusion</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="myaccount-links">
-                    <h2>My Account</h2>
-                    <ul>
-                        <li>
-                            <a href="#">My Account</a>
-                        </li>
-                        <li>
-                            <a href="#">BlueRewards</a>
-                        </li>
-                        <li>
-                            <a href="#">Gift Card Balance Checker</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="customerservice-links">
-                    <h2>Customer Service</h2>
-                    <ul>
-                        <li>
-                            <a href="#">Contact Us</a>
-                        </li>
-                        <li>
-                            <a href="#">Help & FAQ</a>
-                        </li>
-                        <li>
-                            <a href="#">Shipping, Returns & Exchanges</a>
-                        </li>
-                        <li>
-                            <a href="#">Gift Cards</a>
-                        </li>
-                        <li>
-                            <a href="#">Offers & Promotions</a>
-                        </li>
-                        <li>
-                            <a href="#">Klarna</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="resources-links">
-                    <h2>Resources</h2>
-                    <ul>
-                        <li>
-                            <a href="#">Terms & Conditions</a>
-                        </li>
-                        <li>
-                            <a href="#">Privacy Policy</a>
-                        </li>
-                        <li>
-                            <a href="#">Accessiblility</a>
-                        </li>
-                        <li>
-                            <a href="#">COVID-19 Updates</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </footer>
+    </footer>
     </div>
 </body>
-
 </html>
 
-<script src="./scripts/signup.js"></script>
-<script src="./scripts/header-footer.js"></script>
+<script src = "../scripts/login.js"></script>
+<script src="../scripts/header-footer.js"></script>

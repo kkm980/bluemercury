@@ -1,0 +1,49 @@
+#shop {
+    text-decoration: none;
+}
+
+#disappear {
+    width: 20px;
+    margin: auto;
+}
+
+.btn1 {
+    width: 20px;
+    margin: auto;
+}
+
+button {
+    border: none;
+    background: none;
+}
+
+#shop_hover {
+    width: 100%;
+    display: none;
+    margin: auto;
+    grid-template-columns: 200px 50px 200px 200px 300px;
+    padding-left: 200px;
+    position: fixed;
+    top: 50px;
+    z-index: 2;
+}
+
+#shop_hover a {
+    text-decoration: none;
+}
+
+#shop_hover a:hover {
+    color: #eebdf3;
+  }
+
+.two {
+    width: 0%;
+    height: 420px;
+    border: 1px solid black;
+}
+
+.rk {
+    position: block;
+    width: 200px;
+    margin-top: 50px;
+}
