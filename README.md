@@ -24,23 +24,23 @@ This is a clone of *www.bluemercury.com* website. It's an USA based E-commerce w
 
 ### Pre-requisites
 Clone the repo:
-    git clone repo_link
+    -git clone repo_link
 Create branches:
-    git checkout -b branch_name
+    -git checkout -b branch_name
 Adding the files:
-    git add filename
+    -git add filename
 Commiting the changes:
-    git commit -m "description"
+    -git commit -m "description"
 Pushing the commits:
-    git push origin branch_name
+    -git push origin branch_name
 Pulling the changes:
-    git pull origin branch_name
+    -git pull origin branch_name
 Dependencies used:
-    * cors: ^2.8.5,
-    * express: ^4.17.1,
-    * moment: ^2.29.1,
-    * mongoose: ^5.11.15,
-    * nodemon: ^2.0.12
+    - * cors: ^2.8.5,
+    - * express: ^4.17.1,
+    - * moment: ^2.29.1,
+    - * mongoose: ^5.11.15,
+    - * nodemon: ^2.0.12
 
 
 
