@@ -4,7 +4,7 @@ This is a clone of *www.bluemercury.com* website. It's an USA based E-commerce w
 
 <hr/>
 
-### Team (3 Members)
+### Team (4 Members)
 
 - [Krishna Kant](https://github.com/kkm980)
 - [Nitesh Goshwami](https://github.com/Nitesh-Goshwami)
