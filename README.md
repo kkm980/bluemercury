@@ -3,10 +3,10 @@
 This is a clone of *www.bluemercury.com* website. It's an USA based E-commerce website for cosmetic products.
 
 <hr/>
-###  Team size
+###Team size
 3
 <hr/>
-###  Team Members
+###Team Members
 
 - [Krishna Kant](https://github.com/kkm980)
 - [Nitesh Goshwami](https://github.com/Nitesh-Goshwami)
