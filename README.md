@@ -3,7 +3,7 @@
 This is a clone of *www.bluemercury.com* website. It's an USA based E-commerce website for cosmetic products.
 
 <hr/>
-###Team size
+# H1
 3
 <hr/>
 ###Team Members
