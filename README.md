@@ -3,10 +3,8 @@
 This is a clone of *www.bluemercury.com* website. It's an USA based E-commerce website for cosmetic products.
 
 <hr/>
-### Team Size
-3
-<hr/>
-### Team Members
+
+### Team (3 Members)
 
 - [Krishna Kant](https://github.com/kkm980)
 - [Nitesh Goshwami](https://github.com/Nitesh-Goshwami)
@@ -23,24 +21,18 @@ This is a clone of *www.bluemercury.com* website. It's an USA based E-commerce w
 <hr/>
 
 ### Pre-requisites
-Clone the repo:
-    -git clone repo_link <br />
-Create branches:
-    -git checkout -b branch_name <br />
-Adding the files:
-    -git add filename <br />
-Commiting the changes:
-    -git commit -m "description" <br />
-Pushing the commits:
-    -git push origin branch_name <br />
-Pulling the changes:
-    -git pull origin branch_name <br />
-Dependencies used:
-    - * cors: ^2.8.5,
-    - * express: ^4.17.1,
-    - * moment: ^2.29.1,
-    - * mongoose: ^5.11.15,
-    - * nodemon: ^2.0.12
+- Clone the repo: git clone <repo_link>
+- Create branches: git checkout -b <branch_name>
+- Adding the files: git add filename
+- Commiting the changes: git commit -m "description"
+- Pushing the commits: git push origin <branch_name>
+- Pulling the changes: git pull origin <branch_name>
+- Dependencies used:
+    - cors: ^2.8.5,
+    - express: ^4.17.1,
+    - moment: ^2.29.1,
+    - mongoose: ^5.11.15,
+    - nodemon: ^2.0.12
 
 
 
