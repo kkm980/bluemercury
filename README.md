@@ -4,7 +4,7 @@ This is a clone of *www.bluemercury.com* website. It's an USA based E-commerce w
 
 <hr/>
 
-### Team Members
+### Team (3 Members)
 
 - [Krishna Kant](https://github.com/kkm980)
 - [Nitesh Goshwami](https://github.com/Nitesh-Goshwami)
@@ -19,6 +19,49 @@ This is a clone of *www.bluemercury.com* website. It's an USA based E-commerce w
 - Resources used in this project: Font Awesome, Material Icons <br/>
 
 <hr/>
+
+### Pre-requisites
+
+- Clone the repo: 
+```
+git clone <repo_link>
+```
+
+- Create branches: 
+```
+git checkout -b <branch_name>
+```
+
+- Adding the files: 
+```
+git add filename
+```
+
+- Commiting the changes: 
+```
+git commit -m "description"
+```
+
+- Pushing the commits: 
+```
+git push origin <branch_name>
+```
+
+- Pulling the changes:
+```
+git pull origin <branch_name>
+```
+
+- Dependencies used:
+    - cors: ^2.8.5,
+    - express: ^4.17.1,
+    - moment: ^2.29.1,
+    - mongoose: ^5.11.15,
+    - nodemon: ^2.0.12
+
+
+
+
 
 ### Webpages along with its features
 
