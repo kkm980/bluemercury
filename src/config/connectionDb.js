@@ -15,6 +15,8 @@ const PORT = 3000;
 //default connection url
 const DEFAULT_CONNECTION_STRING = `mongodb+srv://${USERNAME}:${PASSWORD}@cluster0.1bi7u.mongodb.net/${DATABASE}?retryWrites=true&w=majority`;
 
+// mongodb+srv://urbanclone:<password>@cluster0.r35kx.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
+
 //mongoose options for connection
 const MONGOOSE_OPTIONS = {
     useCreateIndex: true,
