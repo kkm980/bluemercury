@@ -72,6 +72,8 @@ git pull origin <branch_name>
   - Slideshow in hero section
   - Products carousel
   
+  ![homepage](https://user-images.githubusercontent.com/86410034/129320136-4642eb9e-8500-4058-a8c3-440bb38dafc7.png)
+  
 - Sign in/ up Page
   - Only unique users can sign up
   - Validations and authentication of users from an online database ```Key feature```
